@@ -1,16 +1,32 @@
 import { filterViewInputProps } from '../../../types/filters';
+import './FilterByColor.css';
+
+const options = ['white', 'yellow', 'red', 'blue', 'green'];
 
 export default function FilterByColor(props: filterViewInputProps) {
-  const { filterChangeHandler } = props;
+  const { filterChangeHandler, filterState } = props;
 
   return (
-    <div>
+    <div className="FilterByColor">
       Color:
-      <div>
-        <button onClick={() => filterChangeHandler('green')}>Green</button>
-        <button onClick={() => filterChangeHandler('red')}>Red</button>
-        <button onClick={() => filterChangeHandler('yellow')}>Yellow</button>
-      </div>
+      <ul className="FilterByColor__list">
+        {options.map((option) => (
+          <button
+            key={option}
+            onClick={() => filterChangeHandler(option)}
+            className={`
+            FilterByColor__button
+            FilterByColor__button_type-${option}
+            ${
+              filterState && filterState.has(option)
+                ? 'FilterByColor_active'
+                : ''
+            }`}
+          >
+            {option}
+          </button>
+        ))}
+      </ul>
     </div>
   );
 }

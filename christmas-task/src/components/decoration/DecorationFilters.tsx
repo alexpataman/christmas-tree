@@ -7,9 +7,14 @@ import Filter from './filters/Filter';
 
 export default function Filters() {
   return (
-    <div>
+    <div className="Decoration__filters">
       <ErrorBoundary>
         <DecorationFilterGroup title="Filter By Value">
+          <Filter
+            filterName="shape"
+            filterType="multiple"
+            FilterComponent={FilterByShape}
+          />
           <Filter
             filterName="size"
             filterType="multiple"
@@ -19,11 +24,6 @@ export default function Filters() {
             filterName="color"
             filterType="multiple"
             FilterComponent={FilterByColor}
-          />
-          <Filter
-            filterName="shape"
-            filterType="single"
-            FilterComponent={FilterByShape}
           />
         </DecorationFilterGroup>
       </ErrorBoundary>

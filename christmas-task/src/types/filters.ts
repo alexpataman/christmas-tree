@@ -1,21 +1,21 @@
+export type FilterOptionsSet = Set<unknown>;
+
 export type FilterSettings = {
-  [key: string]: Set<string>;
+  [key: string]: FilterOptionsSet;
 };
 
 export type FilterChangeHandler = (key: string, value: Set<unknown>) => void;
 
 export type filterViewInputProps = {
   key: string;
+  filterState: FilterOptionsSet;
   filterChangeHandler: (value: string) => void;
 };
 
 export type filterInputProps = {
   filterName: string;
   filterType: 'single' | 'multiple';
-  FilterComponent: React.FC<{
-    key: string;
-    filterChangeHandler: (value: string) => void;
-  }>;
+  FilterComponent: React.FC<filterViewInputProps>;
 };
 
 export interface ISetStateHandler<Type> {

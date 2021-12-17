@@ -1,0 +1,20 @@
+.Footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background: #121c1e;
+}
+
+.Footer__rs-link {
+  display: block;
+  width: 61px;
+  height: 23px;
+  background-image: url('../../assets/svg/logo_rss.svg');
+  background-size: 61px 23px;
+  font-size: 0;
+}
+
+.Footer__copy-link {
+  color: #fff;
+  text-decoration: none;
+}

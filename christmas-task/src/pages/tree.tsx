@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
+import './tree.css';
 
 export default function Tree() {
   useEffect(() => {
@@ -7,9 +8,8 @@ export default function Tree() {
   });
 
   return (
-    <main>
-      <h2>Tree</h2>
-      <Link to="/">Back</Link> |{' '}
-    </main>
+    <div className="container Tree">
+      <h1>This page is under construction</h1>
+    </div>
   );
 }

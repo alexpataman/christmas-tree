@@ -1,16 +1,32 @@
 import { filterViewInputProps } from '../../../types/filters';
+import './FilterByShape.css';
+
+const options = ['ball', 'bell', 'cone', 'snowflake', 'toy'];
 
 export default function FilterByShape(props: filterViewInputProps) {
-  const { filterChangeHandler } = props;
+  const { filterChangeHandler, filterState } = props;
 
   return (
-    <div>
+    <div className="FilterByShape">
       Shape:
-      <div>
-        <button onClick={() => filterChangeHandler('ball')}>ball</button>
-        <button onClick={() => filterChangeHandler('figure')}>figure</button>
-        <button onClick={() => filterChangeHandler('bump')}>bump</button>
-      </div>
+      <ul className="FilterByShape__list">
+        {options.map((option) => (
+          <button
+            key={option}
+            onClick={() => filterChangeHandler(option)}
+            className={`
+            FilterByShape__button
+            FilterByShape__button_type-${option}
+            ${
+              filterState && filterState.has(option)
+                ? 'FilterByShape_active'
+                : ''
+            }`}
+          >
+            {option}
+          </button>
+        ))}
+      </ul>
     </div>
   );
 }

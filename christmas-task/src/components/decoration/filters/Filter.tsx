@@ -2,7 +2,7 @@ import { FilterContext } from '../../../contexts/FilterContext';
 import { FilterChangeHandler, filterInputProps } from '../../../types/filters';
 import { useState } from 'react';
 
-export default function MultiSelect(props: filterInputProps) {
+export default function Filter(props: filterInputProps) {
   const { filterName, filterType, FilterComponent } = props;
 
   const [state, setState] = useState(new Set());
@@ -16,7 +16,6 @@ export default function MultiSelect(props: filterInputProps) {
         }
         current.add(value);
       }
-
       return current;
     });
     handler(filterName, state as Set<unknown>);
@@ -25,9 +24,12 @@ export default function MultiSelect(props: filterInputProps) {
   return (
     <div>
       <FilterContext.Consumer>
-        {({ handleFilterChange }) => (
+        {({ filterSettings, handleFilterChange }) => (
           <FilterComponent
             key={filterName}
+            filterState={
+              filterSettings[filterName as keyof typeof filterSettings]
+            }
             filterChangeHandler={(value: string) =>
               setFilterValue(value, handleFilterChange)
             }

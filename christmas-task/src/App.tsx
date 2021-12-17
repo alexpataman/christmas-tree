@@ -1,18 +1,17 @@
 import React from 'react';
-import { Outlet, Link } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import './App.css';
+import Header from './components/common/Header';
+import Footer from './components/common/Footer';
 
 function App() {
   return (
     <div className="App">
-      <header>
-        <nav>
-          <Link to="/">Home</Link> |{' '}
-          <Link to="/decoration">Decoration</Link>|{' '}
-          <Link to="/tree">Tree</Link>
-        </nav>
-      </header>
-      <Outlet />
+      <Header />
+      <main>
+        <Outlet />
+      </main>
+      <Footer />
     </div>
   );
 }

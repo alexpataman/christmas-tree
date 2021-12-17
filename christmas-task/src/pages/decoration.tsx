@@ -6,6 +6,7 @@ import DecorationItems from '../components/decoration/DecorationItems';
 import { FilterContext } from '../contexts/FilterContext';
 import { FilterChangeHandler, FilterSettings } from '../types/filters';
 import { IDataItem } from '../types/common';
+import './decoration.css';
 
 export default function Decoration(): React.ReactElement {
   const [filterSettings, setFilterSettings] = useState({});
@@ -45,13 +46,11 @@ export default function Decoration(): React.ReactElement {
   };
 
   return (
-    <main>
-      <h2>Decoration</h2>
+    <div className="Decoration">
       <FilterContext.Provider value={contextData}>
         <DecorationFilters />
         <DecorationItems items={items} />
       </FilterContext.Provider>
-      <Link to="/">Back</Link> |{' '}
-    </main>
+    </div>
   );
 }

@@ -1,0 +1,48 @@
+.FilterByShape {
+  display: flex;
+  align-items: center;
+}
+
+.FilterByShape__button {
+  border: 0;
+  font-size: 0;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  margin: 10px 7px;
+  border: 0;
+  outline: 0;
+  background-color: transparent;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.FilterByShape__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.FilterByShape__button_type-ball {
+  background-image: url('../../../assets/svg/ball.svg');
+}
+.FilterByShape__button_type-cone {
+  background-image: url('../../../assets/svg/cone.svg');
+}
+.FilterByShape__button_type-toy {
+  background-image: url('../../../assets/svg/toy.svg');
+}
+.FilterByShape__button_type-snowflake {
+  background-image: url('../../../assets/svg/snowflake.svg');
+}
+.FilterByShape__button_type-bell {
+  background-image: url('../../../assets/svg/bell.svg');
+}
+
+.FilterByShape_active {
+  filter: invert(9%) sepia(63%) saturate(461%) hue-rotate(322deg)
+    brightness(83%) contrast(88%);
+}

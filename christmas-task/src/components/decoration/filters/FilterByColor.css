@@ -1,0 +1,60 @@
+.FilterByColor {
+  display: flex;
+  align-items: center;
+}
+
+.FilterByColor__button {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  margin: 15px 10px;
+  border-radius: 5px;
+  outline: 0;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 0;
+  border: 0;
+}
+
+.FilterByColor__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.FilterByColor__button_type-white {
+  background-color: #fff;
+}
+
+.FilterByColor__button_type-yellow {
+  background-color: #fdd700;
+}
+
+.FilterByColor__button_type-red {
+  background-color: #fd0000;
+}
+
+.FilterByColor__button_type-blue {
+  background-color: #2199eb;
+}
+
+.FilterByColor__button_type-green {
+  background-color: #08aa05;
+}
+
+.FilterByColor_active::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 5px;
+  left: 9px;
+  width: 6px;
+  height: 10px;
+  border: solid #fff;
+  border-width: 0 4px 4px 0;
+  transform: rotate(45deg);
+}
+
+.FilterByColor__button_type-white::after {
+  border-color: #666;
+}

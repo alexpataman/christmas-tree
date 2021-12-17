@@ -1,14 +1,17 @@
 import { Link } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
+import './home.css';
 
 export default function Home() {
-  useEffect(() => {
-    document.title = `Home`;
-  });
-
   return (
-    <main>
-      <h2>Home</h2>      
-    </main>
+    <div className="Home">
+      <div className="Home__title">
+        Christmas Game <br />
+        "Decorate Christmas Tree"
+      </div>
+      <Link to="/decoration" className="Home__button">
+        Start
+      </Link>
+    </div>
   );
 }

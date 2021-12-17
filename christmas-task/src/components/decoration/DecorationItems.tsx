@@ -11,10 +11,10 @@ export default function DecorationListing(props: DecorationListingProps) {
   };
 
   return (
-    <>
+    <div className="Decoration__items">
       {props.items.map((item) => (
         <DecorationItem item={item} onClick={onClickHandler} key={item.num} />
       ))}
-    </>
+    </div>
   );
 }
