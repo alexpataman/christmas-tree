@@ -3,24 +3,23 @@ import { render } from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 import Tree from './pages/tree';
 import Decoration from './pages/decoration';
 import Home from './pages/home';
 
-
 const rootElement = document.getElementById('root');
 render(
   <React.StrictMode>
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<App />}>
           <Route index element={<Home />} />
           <Route path="/decoration" element={<Decoration />} />
           <Route path="/tree" element={<Tree />} />
-        </Route>        
+        </Route>
       </Routes>
-    </BrowserRouter>    
+    </HashRouter>
   </React.StrictMode>,
   rootElement
 );

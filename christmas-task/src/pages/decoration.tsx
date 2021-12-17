@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { data } from '../data/data';
 import DecorationFilters from '../components/decoration/DecorationFilters';
 import DecorationItems from '../components/decoration/DecorationItems';
