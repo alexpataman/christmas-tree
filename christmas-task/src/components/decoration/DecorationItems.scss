@@ -1,0 +1,12 @@
+.DecorationListing {
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  gap: 20px;
+  justify-content: flex-start;
+
+  h1 {
+    text-align: center;
+    margin: 50px auto;
+  }
+}

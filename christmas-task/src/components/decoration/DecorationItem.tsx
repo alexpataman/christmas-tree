@@ -18,11 +18,12 @@ export default function DecorationItem(props: DecorationItemProps) {
         />
       </div>
       <ul className="DecorationItem__props">
-        <li>Quantity: {props.item.count}</li>
+        <li>Quantity: {props.item.quantity}</li>
         <li>Year: {props.item.year}</li>
         <li>Shape: {props.item.shape}</li>
         <li>Color: {props.item.color}</li>
         <li>Size: {props.item.size}</li>
+        <li>Favorite: {props.item.favorite ? 'yes' : 'no'}</li>
       </ul>
     </div>
   );

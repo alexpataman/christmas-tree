@@ -1,0 +1,15 @@
+.Decoration {
+  display: flex;
+  flex-direction: column;
+
+  .filters {
+  }
+
+  .items {
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    gap: 20px;
+    justify-content: space-between;
+  }
+}

@@ -1,0 +1,24 @@
+.Range {
+  h5 {
+    margin: 15px 0 5px;
+    font-size: 16px;
+  }
+  .range-slider {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+
+    & > div:first-child,
+    & > div:last-child {
+      margin: 10px 0;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      min-width: 80px;
+      height: 40px;
+      backdrop-filter: blur(6px);
+      border-radius: 20px;
+      border: 1px solid #278d9f;
+    }
+  }
+}

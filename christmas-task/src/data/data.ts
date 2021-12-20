@@ -2,7 +2,7 @@ export const data = [
   {
     num: '1',
     name: 'Large ball with a picture',
-    count: '2',
+    quantity: '2',
     year: '1960',
     shape: 'ball',
     color: 'yellow',
@@ -12,7 +12,7 @@ export const data = [
   {
     num: '2',
     name: 'Green ball with flowers',
-    count: '5',
+    quantity: '5',
     year: '2000',
     shape: 'ball',
     color: 'green',
@@ -22,7 +22,7 @@ export const data = [
   {
     num: '3',
     name: 'Red matte ball',
-    count: '3',
+    quantity: '3',
     year: '1990',
     shape: 'ball',
     color: 'red',
@@ -32,7 +32,7 @@ export const data = [
   {
     num: '4',
     name: 'Icicle red',
-    count: '2',
+    quantity: '2',
     year: '1980',
     shape: 'toy',
     color: 'red',
@@ -42,7 +42,7 @@ export const data = [
   {
     num: '5',
     name: 'Red grapes',
-    count: '4',
+    quantity: '4',
     year: '1980',
     shape: 'toy',
     color: 'red',
@@ -52,7 +52,7 @@ export const data = [
   {
     num: '6',
     name: 'Red ball with a picture',
-    count: '6',
+    quantity: '6',
     year: '2010',
     shape: 'ball',
     color: 'red',
@@ -62,7 +62,7 @@ export const data = [
   {
     num: '7',
     name: 'Milky White Ball',
-    count: '12',
+    quantity: '12',
     year: '1960',
     shape: 'ball',
     color: 'white',
@@ -72,7 +72,7 @@ export const data = [
   {
     num: '8',
     name: 'Red Ball',
-    count: '10',
+    quantity: '10',
     year: '2010',
     shape: 'ball',
     color: 'red',
@@ -82,7 +82,7 @@ export const data = [
   {
     num: '9',
     name: 'Old bell',
-    count: '2',
+    quantity: '2',
     year: '1950',
     shape: 'bell',
     color: 'white',
@@ -92,7 +92,7 @@ export const data = [
   {
     num: '10',
     name: 'White ball retro',
-    count: '7',
+    quantity: '7',
     year: '1960',
     shape: 'ball',
     color: 'white',
@@ -102,7 +102,7 @@ export const data = [
   {
     num: '11',
     name: 'White spruce cone',
-    count: '11',
+    quantity: '11',
     year: '1960',
     shape: 'cone',
     color: 'white',
@@ -112,7 +112,7 @@ export const data = [
   {
     num: '12',
     name: 'White ball with flowers',
-    count: '5',
+    quantity: '5',
     year: '1980',
     shape: 'ball',
     color: 'white',
@@ -122,7 +122,7 @@ export const data = [
   {
     num: '13',
     name: 'Ball Painted River',
-    count: '3',
+    quantity: '3',
     year: '1970',
     shape: 'ball',
     color: 'blue',
@@ -132,7 +132,7 @@ export const data = [
   {
     num: '14',
     name: 'Ball Painted Village',
-    count: '4',
+    quantity: '4',
     year: '1970',
     shape: 'ball',
     color: 'blue',
@@ -142,7 +142,7 @@ export const data = [
   {
     num: '15',
     name: 'Painted bell',
-    count: '3',
+    quantity: '3',
     year: '1970',
     shape: 'bell',
     color: 'blue',
@@ -152,7 +152,7 @@ export const data = [
   {
     num: '16',
     name: 'Painted pine cone Landscape',
-    count: '3',
+    quantity: '3',
     year: '1970',
     shape: 'cone',
     color: 'blue',
@@ -162,7 +162,7 @@ export const data = [
   {
     num: '17',
     name: 'Painted pine cone',
-    count: '7',
+    quantity: '7',
     year: '1970',
     shape: 'cone',
     color: 'red',
@@ -172,7 +172,7 @@ export const data = [
   {
     num: '18',
     name: 'Yellow ball with bow',
-    count: '2',
+    quantity: '2',
     year: '2010',
     shape: 'ball',
     color: 'yellow',
@@ -182,7 +182,7 @@ export const data = [
   {
     num: '19',
     name: 'Yellow Sequin Ball',
-    count: '12',
+    quantity: '12',
     year: '1980',
     shape: 'ball',
     color: 'yellow',
@@ -192,7 +192,7 @@ export const data = [
   {
     num: '20',
     name: 'Red ball with bow',
-    count: '8',
+    quantity: '8',
     year: '1950',
     shape: 'ball',
     color: 'red',
@@ -202,7 +202,7 @@ export const data = [
   {
     num: '21',
     name: 'Red ball with stars',
-    count: '4',
+    quantity: '4',
     year: '1970',
     shape: 'ball',
     color: 'red',
@@ -212,7 +212,7 @@ export const data = [
   {
     num: '22',
     name: 'Golden spruce cone',
-    count: '11',
+    quantity: '11',
     year: '1990',
     shape: 'cone',
     color: 'yellow',
@@ -222,7 +222,7 @@ export const data = [
   {
     num: '23',
     name: 'Old bell',
-    count: '9',
+    quantity: '9',
     year: '1950',
     shape: 'bell',
     color: 'yellow',
@@ -232,7 +232,7 @@ export const data = [
   {
     num: '24',
     name: 'Snowflake graceful',
-    count: '1',
+    quantity: '1',
     year: '1940',
     shape: 'snowflake',
     color: 'white',
@@ -242,7 +242,7 @@ export const data = [
   {
     num: '25',
     name: 'Pink ball with sequins',
-    count: '12',
+    quantity: '12',
     year: '2010',
     shape: 'ball',
     color: 'red',
@@ -252,7 +252,7 @@ export const data = [
   {
     num: '26',
     name: 'Ruby Gold Ball',
-    count: '8',
+    quantity: '8',
     year: '1960',
     shape: 'ball',
     color: 'yellow',
@@ -262,7 +262,7 @@ export const data = [
   {
     num: '27',
     name: 'Red ball with pattern',
-    count: '4',
+    quantity: '4',
     year: '2010',
     shape: 'ball',
     color: 'red',
@@ -272,7 +272,7 @@ export const data = [
   {
     num: '28',
     name: 'Burgundy ball with pattern',
-    count: '10',
+    quantity: '10',
     year: '2010',
     shape: 'ball',
     color: 'red',
@@ -282,7 +282,7 @@ export const data = [
   {
     num: '29',
     name: 'Antique ball with flowers',
-    count: '5',
+    quantity: '5',
     year: '1950',
     shape: 'ball',
     color: 'yellow',
@@ -292,7 +292,7 @@ export const data = [
   {
     num: '30',
     name: 'Vintage ball with pattern',
-    count: '8',
+    quantity: '8',
     year: '1950',
     shape: 'ball',
     color: 'yellow',
@@ -302,7 +302,7 @@ export const data = [
   {
     num: '31',
     name: 'Red ball with sequins',
-    count: '8',
+    quantity: '8',
     year: '2010',
     shape: 'ball',
     color: 'red',
@@ -312,7 +312,7 @@ export const data = [
   {
     num: '32',
     name: 'Blue Ball Universe',
-    count: '11',
+    quantity: '11',
     year: '1970',
     shape: 'ball',
     color: 'blue',
@@ -322,7 +322,7 @@ export const data = [
   {
     num: '33',
     name: 'Blue ball with snowflake',
-    count: '6',
+    quantity: '6',
     year: '2010',
     shape: 'ball',
     color: 'blue',
@@ -332,7 +332,7 @@ export const data = [
   {
     num: '34',
     name: 'Green ball with pattern',
-    count: '8',
+    quantity: '8',
     year: '2010',
     shape: 'ball',
     color: 'green',
@@ -342,7 +342,7 @@ export const data = [
   {
     num: '35',
     name: 'Figurine Fox in a scarf',
-    count: '8',
+    quantity: '8',
     year: '1950',
     shape: 'toy',
     color: 'yellow',
@@ -352,7 +352,7 @@ export const data = [
   {
     num: '36',
     name: 'Lilac Ball Blizzard',
-    count: '1',
+    quantity: '1',
     year: '2000',
     shape: 'ball',
     color: 'blue',
@@ -362,7 +362,7 @@ export const data = [
   {
     num: '37',
     name: 'Green Ball Blizzard',
-    count: '6',
+    quantity: '6',
     year: '2000',
     shape: 'ball',
     color: 'green',
@@ -372,7 +372,7 @@ export const data = [
   {
     num: '38',
     name: 'Blue Ball Blizzard',
-    count: '6',
+    quantity: '6',
     year: '2000',
     shape: 'ball',
     color: 'blue',
@@ -382,7 +382,7 @@ export const data = [
   {
     num: '39',
     name: 'Red Snowflake',
-    count: '6',
+    quantity: '6',
     year: '1990',
     shape: 'snowflake',
     color: 'red',
@@ -392,7 +392,7 @@ export const data = [
   {
     num: '40',
     name: 'Snowflake golden',
-    count: '12',
+    quantity: '12',
     year: '2020',
     shape: 'snowflake',
     color: 'yellow',
@@ -402,7 +402,7 @@ export const data = [
   {
     num: '41',
     name: 'Arctic Snowflake',
-    count: '11',
+    quantity: '11',
     year: '2020',
     shape: 'snowflake',
     color: 'white',
@@ -412,7 +412,7 @@ export const data = [
   {
     num: '42',
     name: 'Green Ball',
-    count: '10',
+    quantity: '10',
     year: '1980',
     shape: 'ball',
     color: 'green',
@@ -422,7 +422,7 @@ export const data = [
   {
     num: '43',
     name: 'Two-color snowflake',
-    count: '6',
+    quantity: '6',
     year: '1960',
     shape: 'snowflake',
     color: 'red',
@@ -432,7 +432,7 @@ export const data = [
   {
     num: '44',
     name: 'Angel Figurine',
-    count: '11',
+    quantity: '11',
     year: '1940',
     shape: 'toy',
     color: 'red',
@@ -442,7 +442,7 @@ export const data = [
   {
     num: '45',
     name: "New Year's Snowflake",
-    count: '1',
+    quantity: '1',
     year: '1980',
     shape: 'snowflake',
     color: 'white',
@@ -452,7 +452,7 @@ export const data = [
   {
     num: '46',
     name: 'Amanita figurine',
-    count: '10',
+    quantity: '10',
     year: '1950',
     shape: 'toy',
     color: 'red',
@@ -462,7 +462,7 @@ export const data = [
   {
     num: '47',
     name: 'Well Figurine',
-    count: '6',
+    quantity: '6',
     year: '1950',
     shape: 'toy',
     color: 'red',
@@ -472,7 +472,7 @@ export const data = [
   {
     num: '48',
     name: 'Yellow ball with bow',
-    count: '6',
+    quantity: '6',
     year: '1960',
     shape: 'ball',
     color: 'yellow',
@@ -482,7 +482,7 @@ export const data = [
   {
     num: '49',
     name: 'Snowflake with Turquoise',
-    count: '4',
+    quantity: '4',
     year: '1980',
     shape: 'snowflake',
     color: 'yellow',
@@ -492,7 +492,7 @@ export const data = [
   {
     num: '50',
     name: 'Big bell',
-    count: '3',
+    quantity: '3',
     year: '2020',
     shape: 'bell',
     color: 'red',
@@ -502,7 +502,7 @@ export const data = [
   {
     num: '51',
     name: 'Pine cone with frost',
-    count: '12',
+    quantity: '12',
     year: '1970',
     shape: 'cone',
     color: 'red',
@@ -512,7 +512,7 @@ export const data = [
   {
     num: '52',
     name: 'Red balloon with an inscription',
-    count: '12',
+    quantity: '12',
     year: '1990',
     shape: 'ball',
     color: 'red',
@@ -522,7 +522,7 @@ export const data = [
   {
     num: '53',
     name: 'Silver snowflake',
-    count: '6',
+    quantity: '6',
     year: '2020',
     shape: 'snowflake',
     color: 'white',
@@ -532,7 +532,7 @@ export const data = [
   {
     num: '54',
     name: 'Green ball with a picture',
-    count: '6',
+    quantity: '6',
     year: '2010',
     shape: 'ball',
     color: 'green',
@@ -542,7 +542,7 @@ export const data = [
   {
     num: '55',
     name: 'Gingerbread House',
-    count: '1',
+    quantity: '1',
     year: '1940',
     shape: 'toy',
     color: 'yellow',
@@ -552,7 +552,7 @@ export const data = [
   {
     num: '56',
     name: 'Gingerbread House',
-    count: '1',
+    quantity: '1',
     year: '1940',
     shape: 'toy',
     color: 'yellow',
@@ -562,7 +562,7 @@ export const data = [
   {
     num: '57',
     name: 'Gingerbread House',
-    count: '1',
+    quantity: '1',
     year: '1940',
     shape: 'toy',
     color: 'yellow',
@@ -572,7 +572,7 @@ export const data = [
   {
     num: '58',
     name: 'Polar Bear Figurine',
-    count: '2',
+    quantity: '2',
     year: '1980',
     shape: 'toy',
     color: 'white',
@@ -582,7 +582,7 @@ export const data = [
   {
     num: '59',
     name: 'Yellow balloon with an inscription',
-    count: '10',
+    quantity: '10',
     year: '1990',
     shape: 'ball',
     color: 'yellow',
@@ -592,7 +592,7 @@ export const data = [
   {
     num: '60',
     name: 'Figurine Dove',
-    count: '12',
+    quantity: '12',
     year: '1940',
     shape: 'toy',
     color: 'white',

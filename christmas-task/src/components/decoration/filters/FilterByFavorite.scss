@@ -1,0 +1,50 @@
+.FilterByFavorite {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+
+  .favorite-input {
+    width: initial;
+    height: initial;
+    display: none;
+
+    &:checked {
+      & + .favorite-input-label {
+        background-color: #278d9f;
+        border-color: #278d9f;
+      }
+
+      & + .favorite-input-label::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 5px;
+        left: 9px;
+        width: 6px;
+        height: 10px;
+        border: solid #fff;
+        border-width: 0 4px 4px 0;
+        transform: rotate(45deg);
+      }
+    }
+  }
+
+  .favorite-input-label {
+    position: relative;
+    display: flex;
+    width: 30px;
+    height: 30px;
+    backdrop-filter: blur(6px);
+    border: 1px solid #278d9f;
+    border-radius: 5px;
+    padding: 0;
+    margin: 0;
+    margin-left: 20px;
+    cursor: pointer;
+    transition: 0.5s;
+
+    &:hover {
+      background-color: #278d9f;
+    }
+  }
+}

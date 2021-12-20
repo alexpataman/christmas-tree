@@ -1,28 +1,38 @@
 import { FilterContext } from '../../../contexts/FilterContext';
-import { FilterChangeHandler, filterInputProps } from '../../../types/filters';
-import { useState } from 'react';
+import {
+  FilterChangeHandler,
+  filterInputProps,
+  FilterValue,
+} from '../../../types/filters';
 
 export default function Filter(props: filterInputProps) {
   const { filterName, filterType, FilterComponent } = props;
 
-  const [state, setState] = useState(new Set());
-  const setFilterValue = (value: string, handler: FilterChangeHandler) => {
-    setState((current) => {
-      if (current.has(value)) {
-        current.delete(value);
-      } else {
-        if (filterType === 'single') {
-          current.clear();
-        }
-        current.add(value);
+  const setFilterValue = (
+    value: FilterValue,
+    filterSettings: {},
+    handler: FilterChangeHandler
+  ) => {
+    const currentState = filterSettings[
+      filterName as keyof typeof filterSettings
+    ] as Set<unknown>;
+    const state = currentState || new Set();
+
+    if (state.has(value)) {
+      state.delete(value);
+    } else {
+      if (filterType === 'single') {
+        state.clear();
       }
-      return current;
-    });
+
+      state.add(value);
+    }
+
     handler(filterName, state as Set<unknown>);
   };
 
   return (
-    <div>
+    <>
       <FilterContext.Consumer>
         {({ filterSettings, handleFilterChange }) => (
           <FilterComponent
@@ -30,12 +40,12 @@ export default function Filter(props: filterInputProps) {
             filterState={
               filterSettings[filterName as keyof typeof filterSettings]
             }
-            filterChangeHandler={(value: string) =>
-              setFilterValue(value, handleFilterChange)
+            filterChangeHandler={(value: FilterValue) =>
+              setFilterValue(value, filterSettings, handleFilterChange)
             }
           />
         )}
       </FilterContext.Consumer>
-    </div>
+    </>
   );
 }

@@ -1,0 +1,45 @@
+.FilterBySize {
+  display: flex;
+  align-items: center;
+
+  .list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .button {
+    border: 0;
+    font-size: 0;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    margin: 10px 7px;
+    border: 0;
+    outline: 0;
+    background-color: transparent;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    cursor: pointer;
+    transition: 0.3s;
+    background-image: url('../../../assets/svg/ball.svg');
+
+    &.type-large {
+      background-size: 40px 40px;
+    }
+
+    &.type-medium {
+      background-size: 32px 32px;
+    }
+
+    &.type-small {
+      background-size: 24px 24px;
+    }
+
+    &.active {
+      filter: invert(9%) sepia(63%) saturate(461%) hue-rotate(322deg)
+        brightness(83%) contrast(88%);
+    }
+  }
+}

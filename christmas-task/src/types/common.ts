@@ -7,7 +7,7 @@ interface IDataBase {
 export interface IDataItem extends IDataBase {
   num: string;
   name: string;
-  count: string;
+  quantity: string;
   year: string;
   shape: string;
   color: string;

@@ -1,5 +1,5 @@
 import { filterViewInputProps } from '../../../types/filters';
-import './FilterByColor.css';
+import './FilterByColor.scss';
 
 const options = ['white', 'yellow', 'red', 'blue', 'green'];
 

@@ -1,5 +1,5 @@
 import { filterViewInputProps } from '../../../types/filters';
-import './FilterByShape.css';
+import './FilterByShape.scss';
 
 const options = ['ball', 'bell', 'cone', 'snowflake', 'toy'];
 
@@ -9,19 +9,15 @@ export default function FilterByShape(props: filterViewInputProps) {
   return (
     <div className="FilterByShape">
       Shape:
-      <ul className="FilterByShape__list">
+      <ul className="list">
         {options.map((option) => (
           <button
             key={option}
             onClick={() => filterChangeHandler(option)}
             className={`
-            FilterByShape__button
-            FilterByShape__button_type-${option}
-            ${
-              filterState && filterState.has(option)
-                ? 'FilterByShape_active'
-                : ''
-            }`}
+            button
+            type-${option}
+            ${filterState && filterState.has(option) ? 'active' : ''}`}
           >
             {option}
           </button>
