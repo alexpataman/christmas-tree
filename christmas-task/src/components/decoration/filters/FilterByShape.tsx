@@ -17,7 +17,7 @@ export default function FilterByShape(props: filterViewInputProps) {
             className={`
             button
             type-${option}
-            ${filterState && filterState.has(option) ? 'active' : ''}`}
+            ${filterState && filterState.includes(option) ? 'active' : ''}`}
           >
             {option}
           </button>

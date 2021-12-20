@@ -9,30 +9,34 @@ import {
   RangeChangeHandler,
   RangeSettings,
 } from '../types/filters';
-import { IDataItem, voidCallback } from '../types/common';
+import { IDataItem } from '../types/common';
 import './decoration.scss';
 import { ActionMeta } from 'react-select';
 import { sortOptions } from '../types/sort';
 import Observer from '../helpers/Observer';
+import Storage from '../helpers/Storage';
 
 export default function Decoration(): React.ReactElement {
-  const [filterSettings, setFilterSettings] = useState({});
-  const [rangeSettings, setRangeSettings] = useState({});
-  const [sortSettings, setSortSettings] = useState('');
+  const storage = new Storage();
 
-  const [items, setItems] = useState(data as IDataItem[]);
+  const [filterSettings, setFilterSettings] = useState(
+    storage.get('filterSettings') || {}
+  );
+  const [rangeSettings, setRangeSettings] = useState(
+    storage.get('rangeSettings') || {}
+  );
+  const [sortSettings, setSortSettings] = useState(
+    storage.get('sortSettings') || 'name_asc'
+  );
 
   const filterItems = (
     items: IDataItem[],
     filterSettings: FilterSettings,
     rangeSettings: RangeSettings
   ) => {
-    console.log('filterSettings', filterSettings);
-    console.log('rangeSettings', rangeSettings);
-
     return items.filter((item) => {
       const meetFilerCondition = Object.keys(filterSettings).every((key) => {
-        const isFilterSet = filterSettings[key].size;
+        const isFilterSet = filterSettings[key].length > 0;
 
         let isItemInFilterScope;
         if (key === 'name') {
@@ -42,7 +46,9 @@ export default function Decoration(): React.ReactElement {
               item[key].toLowerCase().indexOf(String(el).toLowerCase()) !== -1
           );
         } else {
-          isItemInFilterScope = filterSettings[key].has(item[key] as string);
+          isItemInFilterScope = filterSettings[key].includes(
+            item[key] as string
+          );
         }
 
         return !isFilterSet || isItemInFilterScope;
@@ -63,9 +69,9 @@ export default function Decoration(): React.ReactElement {
 
   useEffect(() => {
     document.title = `Decoration`;
-    // console.log('filterSettings', filterSettings);
-    // console.log('rangeSettings', rangeSettings);
-    // console.log('sortSettings', sortSettings);
+    storage.set('filterSettings', filterSettings);
+    storage.set('rangeSettings', rangeSettings);
+    storage.set('sortSettings', sortSettings);
   });
 
   const handleFilterChange: FilterChangeHandler = (key, value) => {
@@ -133,6 +139,9 @@ export default function Decoration(): React.ReactElement {
     return sortedItems;
   };
 
+  const [items, setItems] = useState(
+    getItems(filterSettings, rangeSettings, sortSettings)
+  );
   //const resetObserver = [] as voidCallback[];
   const resetObserver = new Observer();
 

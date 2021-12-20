@@ -18,7 +18,7 @@ export default function FilterByColor(props: filterViewInputProps) {
             FilterByColor__button
             FilterByColor__button_type-${option}
             ${
-              filterState && filterState.has(option)
+              filterState && filterState.includes(option)
                 ? 'FilterByColor_active'
                 : ''
             }`}

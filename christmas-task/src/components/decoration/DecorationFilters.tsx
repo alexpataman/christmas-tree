@@ -1,4 +1,4 @@
-import { ErrorBoundary } from '../../helpers/ErrorBoundary';
+import { ErrorBoundary } from '../common/ErrorBoundary';
 import DecorationFilterGroup from './DecorationFilterGroup';
 import FilterByColor from './filters/FilterByColor';
 import FilterByShape from './filters/FilterByShape';

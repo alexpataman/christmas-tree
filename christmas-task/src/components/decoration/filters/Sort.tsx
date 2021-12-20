@@ -43,16 +43,19 @@ export default function Sort() {
     },
   };
 
+  const getCurrentValue = (sortSettings: string) =>
+    options.find((el) => el.value === sortSettings);
+
   return (
     <div>
       <h5 className="title">Sort Order</h5>
       <FilterContext.Consumer>
         {({ sortSettings, handleSortChange }) => {
-          console.log(sortSettings);
-          const current = {
-            value: sortSettings,
-            label: 'By title from Z to A',
-          };
+          // console.log(sortSettings);
+          // const current = {
+          //   value: sortSettings,
+          //   label: 'By title from Z to A',
+          // };
 
           return (
             <Select
@@ -61,7 +64,7 @@ export default function Sort() {
               onChange={handleSortChange}
               options={options}
               placeholder="Select sort order"
-              // value={current}
+              value={getCurrentValue(sortSettings as string)}
             />
           );
         }}

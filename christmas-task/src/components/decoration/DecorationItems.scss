@@ -1,12 +1,14 @@
 .DecorationListing {
-  display: flex;
-  flex-wrap: wrap;
-  flex-grow: 1;
-  gap: 20px;
-  justify-content: flex-start;
+  display: grid;
+  width: 100%;
+  grid-gap: 20px;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.no-results {
+  text-align: center;
 
   h1 {
-    text-align: center;
     margin: 50px auto;
   }
 }

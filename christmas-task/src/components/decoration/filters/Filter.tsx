@@ -2,6 +2,7 @@ import { FilterContext } from '../../../contexts/FilterContext';
 import {
   FilterChangeHandler,
   filterInputProps,
+  FilterOptionsSet,
   FilterValue,
 } from '../../../types/filters';
 
@@ -15,20 +16,20 @@ export default function Filter(props: filterInputProps) {
   ) => {
     const currentState = filterSettings[
       filterName as keyof typeof filterSettings
-    ] as Set<unknown>;
-    const state = currentState || new Set();
+    ] as FilterOptionsSet;
+    let state = currentState || [];
 
-    if (state.has(value)) {
-      state.delete(value);
+    if (state.includes(value)) {
+      state = state.filter((el) => el !== value);
     } else {
       if (filterType === 'single') {
-        state.clear();
+        state.length = 0;
       }
 
-      state.add(value);
+      state.push(value);
     }
 
-    handler(filterName, state as Set<unknown>);
+    handler(filterName, state as FilterOptionsSet);
   };
 
   return (

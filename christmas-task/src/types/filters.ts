@@ -1,5 +1,5 @@
 import Observer from '../helpers/Observer';
-import { IDataItem, voidCallback } from './common';
+import { IDataItem } from './common';
 
 export type RangeOptionsSet = number[];
 
@@ -25,13 +25,16 @@ export type rangeInputProps = {
   RangeComponent: React.FC<rangeViewInputProps>;
 };
 
-export type FilterOptionsSet = Set<unknown>;
+export type FilterOptionsSet = Array<string | boolean>;
 
 export type FilterSettings = {
   [key: string]: FilterOptionsSet;
 };
 
-export type FilterChangeHandler = (key: string, value: Set<unknown>) => void;
+export type FilterChangeHandler = (
+  key: string,
+  value: FilterOptionsSet
+) => void;
 
 export type FilterValue = string | boolean;
 

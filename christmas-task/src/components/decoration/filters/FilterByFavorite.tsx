@@ -3,7 +3,7 @@ import './FilterByFavorite.scss';
 
 export default function FilterByFavorite(props: filterViewInputProps) {
   const { filterChangeHandler, filterState } = props;
-  const state = !!filterState && filterState.has(true);
+  const state = !!filterState && filterState.includes(true);
 
   return (
     <div className="FilterByFavorite">

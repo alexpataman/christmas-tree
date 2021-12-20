@@ -16,7 +16,13 @@ export default function FilterByYear(props: rangeViewInputProps) {
   });
   const minInitialValue = Math.min(...initialValues);
   const maxInitialValue = Math.max(...initialValues);
-  const [value, setValue] = React.useState([minInitialValue, maxInitialValue]);
+
+  const [stateMinValue, stateMaxValue] = rangeState || [];
+
+  const [value, setValue] = React.useState([
+    stateMinValue || minInitialValue,
+    stateMaxValue || maxInitialValue,
+  ]);
   const [minValue, maxValue] = value;
 
   const handleChange = (event: Event, newValue: number | number[]) => {
