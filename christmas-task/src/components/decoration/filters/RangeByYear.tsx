@@ -1,6 +1,6 @@
 import { rangeViewInputProps } from '../../../types/filters';
 import { Slider } from '@mui/material';
-import React, { SyntheticEvent, useEffect } from 'react';
+import React, { SyntheticEvent } from 'react';
 import { ObserverItem } from '../../../helpers/Observer';
 
 export default function FilterByYear(props: rangeViewInputProps) {

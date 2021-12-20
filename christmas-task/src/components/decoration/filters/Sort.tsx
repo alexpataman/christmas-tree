@@ -1,11 +1,7 @@
 import { FilterContext } from '../../../contexts/FilterContext';
-import { useState } from 'react';
 import Select from 'react-select';
-import { title } from 'process';
 
 export default function Sort() {
-  const [state, setState] = useState(new Set());
-
   const options = [
     {
       value: 'name_asc',
@@ -51,12 +47,6 @@ export default function Sort() {
       <h5 className="title">Sort Order</h5>
       <FilterContext.Consumer>
         {({ sortSettings, handleSortChange }) => {
-          // console.log(sortSettings);
-          // const current = {
-          //   value: sortSettings,
-          //   label: 'By title from Z to A',
-          // };
-
           return (
             <Select
               className="react-select-container"
