@@ -38,10 +38,10 @@
 
 .ribbon {
   position: absolute;
-  top: 210px;
+  bottom: 15px;
   width: 80px;
-  height: 40px;
-  background: #24c5db;
+  height: 30px;
+  background: #cbb77a;
   left: -8px;
 }
 .ribbon::before,
@@ -57,9 +57,9 @@
   top: -8px;
 }
 .ribbon:after {
-  border-top: 20px solid transparent;
-  border-bottom: 20px solid transparent;
-  border-left: 15px solid #24c5db;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-left: 15px solid #cbb77a;
   right: -15px;
 }
 
@@ -69,4 +69,27 @@
 
 .card.active .ribbon:after {
   border-left: 15px solid #cbb77a;
+}
+
+.select {
+  width: 48px;
+  height: 60px;
+  background-image: url('../../assets/svg/ball-2.svg');
+  background-size: 48px 60px;
+  background-position: left -8px;
+  background-repeat: no-repeat;
+  transition: 0.3s;
+}
+
+.select span {
+  display: inline-block;
+  min-width: 40px;
+  height: 40px;
+  margin-top: 10px;
+  margin-left: 4px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 40px;
+  font-size: 20px;
+  background-color: #278d9f;
 }

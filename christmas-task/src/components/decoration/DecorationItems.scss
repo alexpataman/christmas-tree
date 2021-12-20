@@ -3,6 +3,22 @@
   width: 100%;
   grid-gap: 20px;
   grid-template-columns: repeat(5, 1fr);
+
+  @media screen and (max-width: 1422px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media screen and (max-width: 1133px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media screen and (max-width: 785px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media screen and (max-width: 560px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 .no-results {

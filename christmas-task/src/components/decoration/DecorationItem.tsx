@@ -1,14 +1,23 @@
+import React from 'react';
 import { IDataItem } from '../../types/common';
 import './DecorationItem.css';
 
 type DecorationItemProps = {
   item: IDataItem;
-  onClick: () => void;
+  onClick: () => string[];
+  isFavorite: boolean;
 };
 
 export default function DecorationItem(props: DecorationItemProps) {
+  const [isFavorite, setIsFavorite] = React.useState(props.isFavorite);
+
+  const toggleIsFavorite = () => {
+    const favorites = props.onClick();
+    setIsFavorite(favorites.includes(props.item.num));
+  };
+
   return (
-    <div onClick={props.onClick} className="DecorationItem">
+    <div onClick={toggleIsFavorite} className="DecorationItem">
       <h4 className="DecorationItem__title">{props.item.name}</h4>
       <div className="DecorationItem__img-container">
         <img
@@ -25,6 +34,7 @@ export default function DecorationItem(props: DecorationItemProps) {
         <li>Size: {props.item.size}</li>
         <li>Favorite: {props.item.favorite ? 'yes' : 'no'}</li>
       </ul>
+      {isFavorite && <div className="ribbon" title="Favorite"></div>}
     </div>
   );
 }

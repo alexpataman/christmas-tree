@@ -1,3 +1,4 @@
+import { FavoritesContext } from '../../contexts/FavoritesContext';
 import { IDataItem } from '../../types/common';
 import DecorationItem from './DecorationItem';
 import './DecorationItems.scss';
@@ -7,17 +8,22 @@ export type DecorationListingProps = {
 };
 
 export default function DecorationListing(props: DecorationListingProps) {
-  const onClickHandler = () => {
-    console.log('clicked');
-  };
-
   if (props.items.length > 0) {
     return (
-      <div className="DecorationListing">
-        {props.items.map((item) => (
-          <DecorationItem item={item} onClick={onClickHandler} key={item.num} />
-        ))}
-      </div>
+      <FavoritesContext.Consumer>
+        {({ favorites, handleToggleFavorites }) => (
+          <div className="DecorationListing">
+            {props.items.map((item) => (
+              <DecorationItem
+                item={item}
+                onClick={() => handleToggleFavorites(item.num)}
+                key={item.num}
+                isFavorite={favorites.includes(item.num)}
+              />
+            ))}
+          </div>
+        )}
+      </FavoritesContext.Consumer>
     );
   } else {
     return (

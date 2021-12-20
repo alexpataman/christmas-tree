@@ -7,6 +7,7 @@ import { HashRouter, Route, Routes } from 'react-router-dom';
 import Tree from './pages/tree';
 import Decoration from './pages/decoration';
 import Home from './pages/home';
+import './helpers/taskCheck';
 
 const rootElement = document.getElementById('root');
 render(

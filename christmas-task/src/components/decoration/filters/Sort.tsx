@@ -13,11 +13,11 @@ export default function Sort() {
     },
     {
       value: 'year_asc',
-      label: 'By year, asc',
+      label: 'By year, ascending',
     },
     {
       value: 'year_desc',
-      label: 'By year, desc',
+      label: 'By year, descending',
     },
   ];
 

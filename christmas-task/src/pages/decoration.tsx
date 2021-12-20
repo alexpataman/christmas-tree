@@ -124,7 +124,6 @@ export default function Decoration(): React.ReactElement {
     setFilterSettings({});
     setRangeSettings({});
     setItems(getItems({}, {}, sortSettings));
-    //resetObserver.forEach((el) => el());
     resetObserver.fire();
   };
 

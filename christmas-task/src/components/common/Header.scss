@@ -15,17 +15,30 @@
       background-size: 48px 60px;
       font-size: 0;
       margin-right: 50px;
+
+      @media screen and (max-width: 560px) {
+        margin-right: 15px;
+      }
     }
 
     .nav {
       display: flex;
       gap: 50px;
+      flex-grow: 1;
+
+      @media screen and (max-width: 560px) {
+        gap: 20px;
+      }
     }
 
     .nav a {
       color: #fff;
       text-decoration: none;
       font-size: 24px;
+
+      @media screen and (max-width: 560px) {
+        font-size: 18px;
+      }
     }
 
     .nav a:hover {
