@@ -141,7 +141,6 @@ export default function Decoration(): React.ReactElement {
   const [items, setItems] = useState(
     getItems(filterSettings, rangeSettings, sortSettings)
   );
-  //const resetObserver = [] as voidCallback[];
   const resetObserver = new Observer();
 
   const contextData = {

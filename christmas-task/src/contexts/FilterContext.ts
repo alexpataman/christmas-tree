@@ -17,6 +17,5 @@ export const FilterContext = React.createContext({
     actionMeta: ActionMeta<unknown>
   ) => {},
   handleReset: () => {},
-  // resetObserver: [] as voidCallback[],
   resetObserver: new Observer(),
 });
