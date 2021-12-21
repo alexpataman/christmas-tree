@@ -8,6 +8,10 @@
   backdrop-filter: blur(6px);
   cursor: pointer;
   box-sizing: border-box;
+
+  @media screen and (max-width: 560px) {
+    justify-content: center;
+  }
 }
 
 .DecorationItem__title {
@@ -17,6 +21,10 @@
   padding-left: 10px;
   height: 20px;
   margin: 15px 0;
+
+  @media screen and (max-width: 560px) {
+    text-align: center;
+  }
 }
 
 .DecorationItem__img {
@@ -34,6 +42,10 @@
   user-select: none;
   list-style: none;
   line-height: 24px;
+
+  @media screen and (max-width: 560px) {
+    flex-grow: 0;
+  }
 }
 
 .ribbon {

@@ -11,8 +11,6 @@
     justify-content: center;
     align-items: center;
     align-content: center;
-    width: 600px;
-    height: 250px;
     margin-bottom: 80px;
     color: #fff;
     font-weight: 400;
@@ -23,6 +21,13 @@
     backdrop-filter: blur(6px);
     font-size: 42px;
     line-height: 62px;
+    padding: 50px;
+
+    @media screen and (max-width: 560px) {
+      font-size: 32px;
+      line-height: 42px;
+      padding: 20px;
+    }
   }
 
   .button {
