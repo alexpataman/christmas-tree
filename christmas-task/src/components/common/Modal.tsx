@@ -32,9 +32,7 @@ export default function modal(props: SimpleDialogProps) {
         </DialogContent>
       )}
       <DialogActions>
-        <Button onClick={handleClose} autoFocus>
-          Close
-        </Button>
+        <Button onClick={handleClose}>Close</Button>
       </DialogActions>
     </Dialog>
   );

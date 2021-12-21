@@ -19,6 +19,14 @@ export default function Sort() {
       value: 'year_desc',
       label: 'By year, descending',
     },
+    {
+      value: 'quantity_asc',
+      label: 'By quantity, ascending',
+    },
+    {
+      value: 'quantity_desc',
+      label: 'By quantity, descending',
+    },
   ];
 
   interface stateObject {
@@ -31,9 +39,9 @@ export default function Sort() {
     option: (provided: object, state: stateObject) => {
       return {
         ...provided,
-        color: state.isSelected ? 'white' : 'green',
+        color: state.isSelected ? 'white' : 'black',
         background: state.isSelected ? 'grey' : 'transparent',
-        padding: 20,
+        padding: 10,
         cursor: 'pointer',
       };
     },
