@@ -28,6 +28,7 @@ function App() {
       if (newFavorites.length >= maxFavorites) {
         setModalData({
           title: `There is a limit for favorites. No more than ${maxFavorites} items`,
+          content: `Remove something from favorites to add something new.`,
         });
         setModalOpen(true);
       } else {

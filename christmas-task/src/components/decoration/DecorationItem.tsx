@@ -32,7 +32,7 @@ export default function DecorationItem(props: DecorationItemProps) {
         <li>Shape: {props.item.shape}</li>
         <li>Color: {props.item.color}</li>
         <li>Size: {props.item.size}</li>
-        <li>Favorite: {props.item.favorite ? 'yes' : 'no'}</li>
+        <li>Beloved: {props.item.favorite ? 'yes' : 'no'}</li>
       </ul>
       {isFavorite && <div className="ribbon" title="Favorite"></div>}
     </div>
