@@ -7,7 +7,7 @@ export default function FilterByFavorite(props: filterViewInputProps) {
 
   return (
     <div className="FilterByFavorite">
-      Favorite Only:
+      Только любимые:
       <div>
         <input
           type="checkbox"

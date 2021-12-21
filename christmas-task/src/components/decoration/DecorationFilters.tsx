@@ -17,7 +17,7 @@ export default function DecorationFilters() {
   return (
     <div className={styles.container}>
       <ErrorBoundary>
-        <DecorationFilterGroup title="Filter By Value">
+        <DecorationFilterGroup title="Фильтры по значению">
           <Filter
             filterName="shape"
             filterType="multiple"
@@ -39,7 +39,7 @@ export default function DecorationFilters() {
             FilterComponent={FilterByFavorite}
           />
         </DecorationFilterGroup>
-        <DecorationFilterGroup title="Filter By Range">
+        <DecorationFilterGroup title="Фильтры по диапазону">
           <Range filterName="quantity" RangeComponent={FilterByQuantity} />
           <Range filterName="year" RangeComponent={FilterByYear} />
         </DecorationFilterGroup>

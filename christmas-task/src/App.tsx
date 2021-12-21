@@ -27,8 +27,8 @@ function App() {
     } else {
       if (newFavorites.length >= maxFavorites) {
         setModalData({
-          title: `There is a limit for favorites. No more than ${maxFavorites} items`,
-          content: `Remove something from favorites to add something new.`,
+          title: `В избранном может быть не более ${maxFavorites} игрушек`,
+          content: `Удалите что-то из избранного, чтобы добавить что-то новое.`,
         });
         setModalOpen(true);
       } else {
@@ -60,12 +60,14 @@ function App() {
         </main>
         <Footer />
       </FavoritesContext.Provider>
-      <Modal
-        open={modalOpen}
-        title={modalData.title}
-        content={modalData.content}
-        onClose={handleModalClose}
-      />
+      {modalOpen && (
+        <Modal
+          open={modalOpen}
+          title={modalData.title}
+          content={modalData.content}
+          onClose={handleModalClose}
+        />
+      )}
     </div>
   );
 }

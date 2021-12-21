@@ -82,26 +82,3 @@
 .card.active .ribbon:after {
   border-left: 15px solid #cbb77a;
 }
-
-.select {
-  width: 48px;
-  height: 60px;
-  background-image: url('../../assets/svg/ball-2.svg');
-  background-size: 48px 60px;
-  background-position: left -8px;
-  background-repeat: no-repeat;
-  transition: 0.3s;
-}
-
-.select span {
-  display: inline-block;
-  min-width: 40px;
-  height: 40px;
-  margin-top: 10px;
-  margin-left: 4px;
-  border-radius: 50%;
-  text-align: center;
-  line-height: 40px;
-  font-size: 20px;
-  background-color: #278d9f;
-}

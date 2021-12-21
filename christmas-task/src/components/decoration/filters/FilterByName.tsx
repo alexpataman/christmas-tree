@@ -12,11 +12,11 @@ export default function FilterByName(props: filterViewInputProps) {
 
   return (
     <div className="FilterByName">
-      <h5 className="title">Search By Title</h5>
+      <h5 className="title">Поиск</h5>
       <div className="searchWrapper">
         <input
           autoFocus
-          placeholder="Start typing..."
+          placeholder="Начните печатать..."
           type="text"
           value={value}
           onChange={(event) => filterChangeHandler(event.target.value)}

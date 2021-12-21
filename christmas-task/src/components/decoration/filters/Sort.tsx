@@ -5,27 +5,27 @@ export default function Sort() {
   const options = [
     {
       value: 'name_asc',
-      label: 'By title from A to Z',
+      label: 'По названию, от А до Я',
     },
     {
       value: 'name_desc',
-      label: 'By title from Z to A',
+      label: 'По названию, от Я до А',
     },
     {
       value: 'year_asc',
-      label: 'By year, ascending',
+      label: 'По году, по возрастанию',
     },
     {
       value: 'year_desc',
-      label: 'By year, descending',
+      label: 'По году, по убыванию',
     },
     {
       value: 'quantity_asc',
-      label: 'By quantity, ascending',
+      label: 'По количеству, по возрастанию',
     },
     {
       value: 'quantity_desc',
-      label: 'By quantity, descending',
+      label: 'По количеству, по убыванию',
     },
   ];
 
@@ -52,7 +52,7 @@ export default function Sort() {
 
   return (
     <div>
-      <h5 className="title">Sort Order</h5>
+      <h5 className="title">Сортировка</h5>
       <FilterContext.Consumer>
         {({ sortSettings, handleSortChange }) => {
           return (

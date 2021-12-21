@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { data } from '../data/data';
+import { data } from '../data/data_ru';
 import DecorationFilters from '../components/decoration/DecorationFilters';
 import DecorationItems from '../components/decoration/DecorationItems';
 import { FilterContext } from '../contexts/FilterContext';
@@ -68,7 +68,7 @@ export default function Decoration(): React.ReactElement {
   };
 
   useEffect(() => {
-    document.title = `Decoration`;
+    document.title = `Игрушки`;
     storage.set('filterSettings', filterSettings);
     storage.set('rangeSettings', rangeSettings);
     storage.set('sortSettings', sortSettings);

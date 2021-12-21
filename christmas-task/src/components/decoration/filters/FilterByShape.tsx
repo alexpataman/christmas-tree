@@ -8,7 +8,7 @@ export default function FilterByShape(props: filterViewInputProps) {
 
   return (
     <div className="FilterByShape">
-      Shape:
+      Форма:
       <ul className="list">
         {options.map((option) => (
           <button

@@ -15,7 +15,6 @@ export interface SimpleDialogProps {
 
 export default function modal(props: SimpleDialogProps) {
   const { onClose, open, title, content } = props;
-  console.log(title);
 
   const handleClose = () => {
     onClose();
@@ -32,7 +31,7 @@ export default function modal(props: SimpleDialogProps) {
         </DialogContent>
       )}
       <DialogActions>
-        <Button onClick={handleClose}>Close</Button>
+        <Button onClick={handleClose}>Закрыть</Button>
       </DialogActions>
     </Dialog>
   );

@@ -11,9 +11,9 @@ export default function Header() {
           Home
         </Link>
         <nav className="nav">
-          <Link to="/">Home</Link>
-          <Link to="/decoration">Decoration</Link>
-          <Link to="/tree">Tree</Link>
+          <Link to="/">Главная</Link>
+          <Link to="/decoration">Игрушки</Link>
+          <Link to="/tree">Ёлка</Link>
         </nav>
         <FavoritesContext.Consumer>
           {({ favorites }) => <FavoriteCounter favorites={favorites} />}

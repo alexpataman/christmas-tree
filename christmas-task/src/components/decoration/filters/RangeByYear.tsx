@@ -44,7 +44,7 @@ export default function FilterByYear(props: rangeViewInputProps) {
 
   return (
     <div>
-      <h5>Year: </h5>
+      <h5>Год: </h5>
       <div className="range-slider">
         <div>{minValue}</div>
         <Slider

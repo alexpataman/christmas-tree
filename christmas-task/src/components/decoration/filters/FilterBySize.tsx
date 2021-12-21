@@ -8,7 +8,7 @@ export default function FilterBySize(props: filterViewInputProps) {
 
   return (
     <div className="FilterBySize">
-      Size:
+      Размер:
       <ul className="list">
         {options.map((option) => (
           <button

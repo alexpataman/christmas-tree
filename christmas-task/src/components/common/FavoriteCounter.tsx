@@ -5,7 +5,7 @@ interface FavoriteCounterProps {
 export default function FavoriteCounter(props: FavoriteCounterProps) {
   let { favorites } = props;
   return (
-    <div className="select">
+    <div className="favorite" title="Избранное">
       <span>{favorites.length}</span>
     </div>
   );

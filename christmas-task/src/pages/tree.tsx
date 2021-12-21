@@ -3,12 +3,12 @@ import './tree.css';
 
 export default function Tree() {
   useEffect(() => {
-    document.title = `Tree`;
+    document.title = `Ёлка`;
   });
 
   return (
     <div className="container Tree">
-      <h1>This page is under construction</h1>
+      <h1>Страница в разработке</h1>
     </div>
   );
 }

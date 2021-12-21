@@ -47,7 +47,7 @@ export default function FilterByQuantity(props: rangeViewInputProps) {
 
   return (
     <div>
-      <h5>Quantity: </h5>
+      <h5>Количество: </h5>
       <div className="range-slider">
         <div>{minValue}</div>
         <Slider

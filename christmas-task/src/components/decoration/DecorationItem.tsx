@@ -27,14 +27,16 @@ export default function DecorationItem(props: DecorationItemProps) {
         />
       </div>
       <ul className="DecorationItem__props">
-        <li>Quantity: {props.item.quantity}</li>
-        <li>Year: {props.item.year}</li>
-        <li>Shape: {props.item.shape}</li>
-        <li>Color: {props.item.color}</li>
-        <li>Size: {props.item.size}</li>
-        <li>Beloved: {props.item.favorite ? 'yes' : 'no'}</li>
+        <li>Количество: {props.item.quantity}</li>
+        <li>Год: {props.item.year}</li>
+        <li>Форма: {props.item.shape}</li>
+        <li>Цвет: {props.item.color}</li>
+        <li>Размер: {props.item.size}</li>
+        <li>Любимая: {props.item.favorite ? 'да' : 'нет'}</li>
       </ul>
-      {isFavorite && <div className="ribbon" title="Favorite"></div>}
+      {isFavorite && (
+        <div className="ribbon" title="Добавлена в избранное"></div>
+      )}
     </div>
   );
 }

@@ -8,7 +8,7 @@ export default function FilterByColor(props: filterViewInputProps) {
 
   return (
     <div className="FilterByColor">
-      Color:
+      Цвет:
       <ul className="FilterByColor__list">
         {options.map((option) => (
           <button
