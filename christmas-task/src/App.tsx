@@ -6,11 +6,19 @@ import './App.scss';
 import { FavoritesContext } from './contexts/FavoritesContext';
 import Storage from './helpers/Storage';
 import { maxFavorites } from './config';
+import Modal from './components/common/Modal';
+
+interface IModal {
+  title?: string;
+  content?: string;
+}
 
 function App() {
   const storage = new Storage();
   const storedFavorites: string[] = storage.get('favorites') || [];
   const [favorites, setFavorites] = React.useState(storedFavorites);
+  const [modalData, setModalData] = React.useState<IModal>({});
+  const [modalOpen, setModalOpen] = React.useState(false);
 
   const handleToggleFavorites = (value: string) => {
     let newFavorites = [...favorites];
@@ -18,9 +26,10 @@ function App() {
       newFavorites = favorites.filter((el) => el !== value);
     } else {
       if (newFavorites.length >= maxFavorites) {
-        alert(
-          `There is a limit for favorites. No more than ${maxFavorites} items`
-        );
+        setModalData({
+          title: `There is a limit for favorites. No more than ${maxFavorites} items`,
+        });
+        setModalOpen(true);
       } else {
         newFavorites.push(value);
       }
@@ -35,6 +44,10 @@ function App() {
     handleToggleFavorites,
   };
 
+  const handleModalClose = () => {
+    setModalOpen(false);
+  };
+
   return (
     <div className="App">
       <FavoritesContext.Provider value={contextData}>
@@ -46,6 +59,12 @@ function App() {
         </main>
         <Footer />
       </FavoritesContext.Provider>
+      <Modal
+        open={modalOpen}
+        title={modalData.title}
+        content={modalData.content}
+        onClose={handleModalClose}
+      />
     </div>
   );
 }
