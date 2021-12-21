@@ -1,7 +1,11 @@
 import { filterViewInputProps } from '../../../types/filters';
 import './FilterBySize.scss';
 
-const options = ['large', 'medium', 'small'];
+const options = [
+  { id: 'large', value: 'большой' },
+  { id: 'medium', value: 'средний' },
+  { id: 'small', value: 'малый' },
+];
 
 export default function FilterBySize(props: filterViewInputProps) {
   const { filterChangeHandler, filterState } = props;
@@ -12,14 +16,16 @@ export default function FilterBySize(props: filterViewInputProps) {
       <ul className="list">
         {options.map((option) => (
           <button
-            key={option}
-            onClick={() => filterChangeHandler(option)}
+            key={option.id}
+            onClick={() => filterChangeHandler(option.value)}
             className={`
             button
-            type-${option}
-            ${filterState && filterState.includes(option) ? 'active' : ''}`}
+            type-${option.id}
+            ${
+              filterState && filterState.includes(option.value) ? 'active' : ''
+            }`}
           >
-            {option}
+            {option.value}
           </button>
         ))}
       </ul>
