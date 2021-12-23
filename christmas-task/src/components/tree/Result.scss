@@ -1,0 +1,30 @@
+.Result {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  background-size: cover;
+  background-position: center;
+  height: calc(100vh - 140px);
+  min-height: 750px;
+  width: 800px;
+  padding-bottom: 20px;
+  overflow: hidden;
+
+  @for $i from 1 through 10 {
+    &.bg-#{$i} {
+      background-image: url(../../assets/img/bg/#{$i}.jpg);
+    }
+  }
+
+  .tree-container {
+    display: block;
+    width: 500px;
+    height: 714px;
+
+    @for $i from 1 through 6 {
+      &.bg-#{$i} {
+        background-image: url(../../assets/img/tree/#{$i}.png);
+      }
+    }
+  }
+}

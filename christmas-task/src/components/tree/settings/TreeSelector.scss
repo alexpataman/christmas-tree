@@ -1,0 +1,45 @@
+.TreeSelector {
+  ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    gap: 5px;
+    justify-content: space-between;
+
+    li {
+      width: 115px;
+      height: 115px;
+      border-radius: 10px;
+      background-color: #ffffff80;
+      background-size: auto 110px;
+      background-repeat: no-repeat;
+      background-position: center;
+      cursor: pointer;
+
+      &.active {
+        box-shadow: 0px 0px 5px red;
+      }
+    }
+
+    .bg-1 {
+      background-image: url('../../../assets/img/tree/1.png');
+    }
+    .bg-2 {
+      background-image: url('../../../assets/img/tree/2.png');
+    }
+    .bg-3 {
+      background-image: url('../../../assets/img/tree/3.png');
+    }
+    .bg-4 {
+      background-image: url('../../../assets/img/tree/4.png');
+    }
+    .bg-5 {
+      background-image: url('../../../assets/img/tree/5.png');
+    }
+    .bg-6 {
+      background-image: url('../../../assets/img/tree/6.png');
+    }
+  }
+}

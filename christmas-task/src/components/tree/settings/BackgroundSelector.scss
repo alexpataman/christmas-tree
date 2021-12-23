@@ -1,0 +1,58 @@
+.BackgroundSelector {
+  ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    gap: 5px;
+    justify-content: space-between;
+
+    li {
+      width: 65px;
+      height: 65px;
+      border: 1px solid #cccc;
+      border-radius: 10px;
+      background-color: rgba(255, 255, 255, 0.5);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      cursor: pointer;
+
+      &.active {
+        box-shadow: 0px 0px 5px red;
+      }
+    }
+
+    .bg-1 {
+      background-image: url('../../../assets/img/bg/1.jpg');
+    }
+    .bg-2 {
+      background-image: url('../../../assets/img/bg/2.jpg');
+    }
+    .bg-3 {
+      background-image: url('../../../assets/img/bg/3.jpg');
+    }
+    .bg-4 {
+      background-image: url('../../../assets/img/bg/4.jpg');
+    }
+    .bg-5 {
+      background-image: url('../../../assets/img/bg/5.jpg');
+    }
+    .bg-6 {
+      background-image: url('../../../assets/img/bg/6.jpg');
+    }
+    .bg-7 {
+      background-image: url('../../../assets/img/bg/7.jpg');
+    }
+    .bg-8 {
+      background-image: url('../../../assets/img/bg/8.jpg');
+    }
+    .bg-9 {
+      background-image: url('../../../assets/img/bg/9.jpg');
+    }
+    .bg-10 {
+      background-image: url('../../../assets/img/bg/10.jpg');
+    }
+  }
+}
