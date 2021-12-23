@@ -28,7 +28,7 @@ export default function DecorationListing(props: DecorationListingProps) {
   } else {
     return (
       <div className="no-results">
-        <h1>Нет результатов, соответствующих указанным критериям</h1>
+        <h1>Извините, совпадений не обнаружено</h1>
       </div>
     );
   }

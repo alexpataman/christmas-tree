@@ -27,8 +27,8 @@ function App() {
     } else {
       if (newFavorites.length >= maxFavorites) {
         setModalData({
-          title: `В избранном может быть не более ${maxFavorites} игрушек`,
-          content: `Удалите что-то из избранного, чтобы добавить что-то новое.`,
+          title: `Извините, все слоты заполнены`,
+          content: `В избранном может быть не более ${maxFavorites} игрушек. Удалите что-то из избранного, чтобы добавить что-то новое.`,
         });
         setModalOpen(true);
       } else {
