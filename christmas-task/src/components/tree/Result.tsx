@@ -1,5 +1,6 @@
 import Garland from './Garland';
 import './Result.scss';
+import Snow from './Snow';
 
 interface IResult {
   tree: number;
@@ -31,6 +32,7 @@ export default function Result(props: IResult) {
 
   return (
     <div className={`Result bg-${background}`}>
+      {snowEnabled && <Snow />}
       <div className={`tree-container bg-${tree}`}>
         {garlandEnabled && <Garland type={garland} />}
       </div>
