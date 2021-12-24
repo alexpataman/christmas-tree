@@ -7,7 +7,7 @@ $light-off-opacity: 0.4;
 .Garland {
   display: flex;
   flex-direction: column;
-  row-gap: 60px;
+  row-gap: 90px;
 
   div {
     display: flex;
@@ -89,9 +89,9 @@ $light-off-opacity: 0.4;
 
   &.blue {
     span {
-      background: rgba(25, 0, 255, 1);
+      background: rgb(0, 162, 255);
       box-shadow: 0px $globe-height/6 $globe-width * 2 $globe-spread
-        rgba(25, 0, 255, 1);
+        rgba(0, 162, 255, 1);
       animation-name: flash-blue;
     }
   }
@@ -131,14 +131,14 @@ $light-off-opacity: 0.4;
 @keyframes flash-blue {
   0%,
   100% {
-    background: rgba(25, 0, 255, 1);
+    background: rgba(0, 162, 255, 1);
     box-shadow: 0px $globe-height/6 $globe-width * 2 $globe-spread
-      rgba(25, 0, 255, 1);
+      rgba(0, 162, 255, 1);
   }
   50% {
-    background: rgba(25, 0, 255, $light-off-opacity);
+    background: rgba(0, 162, 255, $light-off-opacity);
     box-shadow: 0px $globe-height/6 $globe-width * 2 $globe-spread
-      rgba(74, 0, 247, 0.2);
+      rgba(0, 162, 255, 0.2);
   }
 }
 

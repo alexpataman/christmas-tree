@@ -1,4 +1,4 @@
-import Garland from './garland';
+import Garland from './Garland';
 import './Result.scss';
 
 interface IResult {
