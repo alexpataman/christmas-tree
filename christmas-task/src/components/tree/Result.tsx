@@ -7,28 +7,11 @@ interface IResult {
   background: number;
   garland: string;
   snowEnabled: boolean;
-  audioEnabled: boolean;
   garlandEnabled: boolean;
 }
 
 export default function Result(props: IResult) {
-  const {
-    tree,
-    background,
-    garland,
-    snowEnabled,
-    audioEnabled,
-    garlandEnabled,
-  } = props;
-
-  console.log(
-    garlandEnabled,
-    snowEnabled,
-    audioEnabled,
-    tree,
-    background,
-    garland
-  );
+  const { tree, background, garland, snowEnabled, garlandEnabled } = props;
 
   return (
     <div className={`Result bg-${background}`}>

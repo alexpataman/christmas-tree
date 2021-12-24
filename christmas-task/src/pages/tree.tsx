@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import BackgroundSelector from '../components/tree/settings/BackgroundSelector';
 import GarlandSelector from '../components/tree/settings/GarlandSelector';
 import OtherSettings from '../components/tree/settings/TriggerSettings';
@@ -11,10 +11,6 @@ import { FavoritesContext } from '../contexts/FavoritesContext';
 import * as config from '../config';
 
 export default function Tree() {
-  useEffect(() => {
-    document.title = `Ёлка`;
-  });
-
   const [background, setBackground] = useState(config.backgroundIDs[0]);
   const [tree, setTree] = useState(config.treeIDs[0]);
   const [garland, setGarland] = useState(config.garlandIDs[0]);
@@ -23,6 +19,27 @@ export default function Tree() {
   const [garlandEnabled, setGarlandEnabled] = useState(
     config.garlandDefaultState
   );
+
+  const audio = useMemo(() => {
+    const audio = new Audio(config.audioURL);
+    audio.loop = true;
+    return audio;
+  }, []);
+
+  useEffect(() => {
+    document.title = `Ёлка`;
+  }, []);
+
+  useEffect(() => {
+    if (audioEnabled) {
+      audio.play();
+    } else {
+      audio.pause();
+    }
+    return () => {
+      audio.pause();
+    };
+  }, [audio, audioEnabled]);
 
   return (
     <div className="Tree">
@@ -48,7 +65,6 @@ export default function Tree() {
           garland={garland}
           background={background}
           snowEnabled={snowEnabled}
-          audioEnabled={audioEnabled}
           garlandEnabled={garlandEnabled}
         />
       </section>

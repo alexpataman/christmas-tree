@@ -6,6 +6,7 @@ export const garlandIDs = ['multicolor', 'red', 'blue', 'yellow', 'green'];
 export const snowDefaultState = false;
 export const audioDefaultState = false;
 export const garlandDefaultState = false;
+export const audioURL = './assets/audio/audio.mp3';
 export const snow = {
   intensity: 200,
   duration: 10,
