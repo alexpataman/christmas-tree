@@ -1,3 +1,4 @@
+import Garland from './garland';
 import './Result.scss';
 
 interface IResult {
@@ -18,8 +19,8 @@ export default function Result(props: IResult) {
     audioEnabled,
     garlandEnabled,
   } = props;
+
   console.log(
-    '111',
     garlandEnabled,
     snowEnabled,
     audioEnabled,
@@ -30,7 +31,9 @@ export default function Result(props: IResult) {
 
   return (
     <div className={`Result bg-${background}`}>
-      <div className={`tree-container bg-${tree}`}></div>
+      <div className={`tree-container bg-${tree}`}>
+        {garlandEnabled && <Garland type={garland} />}
+      </div>
     </div>
   );
 }

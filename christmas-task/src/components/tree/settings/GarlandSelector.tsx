@@ -16,6 +16,7 @@ export default function GarlandSelector(props: IGarlandSelector) {
 
   const clickHandler = (el: string) => {
     setState(el);
+    setIsEnabled(true);
   };
 
   return (
