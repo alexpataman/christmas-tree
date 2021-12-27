@@ -161,7 +161,6 @@ export default function Tree() {
             isEnabled={garlandEnabled}
             setIsEnabled={setGarlandEnabled}
           />
-          <ResetLocalStorage />
         </aside>
         <section>
           <Result
@@ -185,6 +184,7 @@ export default function Tree() {
             )}
           </FavoritesContext.Consumer>
           {/* <History /> */}
+          <ResetLocalStorage />
         </aside>
       </div>
     </DndProvider>

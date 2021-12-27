@@ -3,6 +3,7 @@ import { useDrop, XYCoord } from 'react-dnd';
 import { IDataItem } from '../../types/common';
 import { SetDecorationItem, DecorationItem, Position } from '../../pages/tree';
 import RemoveArea from './RemoveArea';
+import { treeCoords } from '../../config';
 
 interface ITreeAreaProps {
   tree: number;
@@ -45,7 +46,7 @@ export default function TreeArea({ tree, setDecorationItem }: ITreeAreaProps) {
         <area
           ref={drop}
           alt="Christmas Tree"
-          coords="365,699,189,706,113,683,31,608,2,555,2,539,18,437,73,351,106,224,161,134,243,-1,306,75,353,144,399,221,424,359,452,459,496,550,444,664"
+          coords={treeCoords[tree]}
           shape="poly"
           tabIndex={1}
         />
