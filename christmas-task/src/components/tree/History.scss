@@ -2,6 +2,7 @@
   small {
     margin-left: 10px;
     font-size: 12px;
+    display: block;
   }
   .presets-list {
     display: flex;
@@ -13,6 +14,7 @@
     list-style: none;
     margin: 0;
     padding: 0;
+    margin-bottom: 20px;
 
     &::-webkit-scrollbar {
       height: 10px;

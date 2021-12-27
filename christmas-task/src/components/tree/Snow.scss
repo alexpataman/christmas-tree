@@ -8,7 +8,7 @@
     position: absolute;
     top: -20px;
     animation: fall linear forwards;
-    background: url('../../assets/svg/snowflake2.svg') no-repeat;
+    background: url('../../assets/svg/snowflake3.svg') no-repeat;
     width: 20px;
     height: 20px;
     background-size: contain;
@@ -19,4 +19,11 @@
   to {
     transform: translateY(100vh);
   }
+}
+
+.bg-2 .snowflake,
+.bg-6 .snowflake,
+.bg-9 .snowflake,
+.bg-10 .snowflake {
+  background-image: url('../../assets/svg/snowflake2.svg');
 }

@@ -164,6 +164,7 @@ export default function Tree() {
     save: async () => {
       const canvasOptions = {
         backgroundColor: null,
+        logging: false,
       };
       const screenshot = await html2canvas(
         resultTree.current,

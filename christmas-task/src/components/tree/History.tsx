@@ -40,7 +40,7 @@ export default function History({ presetHandlers }: IHistoryProps) {
       <button className="button" onClick={presetHandlers.save}>
         Сохранить текущее состояние*
       </button>
-      <small>*Сохраняются только уникальные конфигурации</small>
+      <small>*Сохраняются только уникальные наборы настроек</small>
     </div>
   );
 }

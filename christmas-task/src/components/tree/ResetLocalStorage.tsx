@@ -1,5 +1,4 @@
 import Storage from '../../helpers/Storage';
-import './ResetLocalStorage.scss';
 
 export default function ResetLocalStorage() {
   const resetLocalStorage = () => {
@@ -9,8 +8,10 @@ export default function ResetLocalStorage() {
   };
 
   return (
-    <div className="ResetLocalStorage">
-      <button onClick={resetLocalStorage}>Сброс Local Storage</button>
-    </div>
+    <>
+      <button className="button" onClick={resetLocalStorage}>
+        Сброс Local Storage
+      </button>
+    </>
   );
 }

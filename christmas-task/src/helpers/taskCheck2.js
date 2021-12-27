@@ -1,10 +1,10 @@
 /* eslint-disable no-console */
 console.log(
-  `%cChristmas-task#1 - Игрушки`,
+  `%cChristmas-task#2 - Игрушки`,
   'font-weight: bold; font-size: 18px'
 );
 console.log(
-  `https://github.com/rolling-scopes-school/tasks/blob/master/tasks/christmas-task/christmas-task-part1.md\n\n`
+  `https://github.com/rolling-scopes-school/tasks/blob/master/tasks/christmas-task/christmas-task-part2.md\n\n`
 );
 console.log(`%cСамооценка:`, 'font-weight: bold;');
 console.log(`
@@ -47,5 +47,6 @@ console.log(`
 Доп. функционал:
 + В списке игрушек избранные игрушки помечены звездочкой
 + Есть возможность удаления игрушек из избранного (клик по звездочке) со страницы ёлки
++ Реализована возможность удаления сохраненных сетов.
 `);
-console.log(`%cИтого: ~210/200 => 200`, 'font-weight: bold');
+console.log(`%cИтого: ~215/200 => 200`, 'font-weight: bold');
