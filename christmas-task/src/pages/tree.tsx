@@ -1,4 +1,4 @@
-import { useEffect, useState, useMemo, useRef } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import BackgroundSelector from '../components/tree/settings/BackgroundSelector';
 import GarlandSelector from '../components/tree/settings/GarlandSelector';
 import OtherSettings from '../components/tree/settings/TriggerSettings';
@@ -13,6 +13,7 @@ import { HTML5Backend } from 'react-dnd-html5-backend';
 import { IDataItem } from '../types/common';
 import * as config from '../config';
 import Storage from '../helpers/Storage';
+import ResetLocalStorage from '../components/tree/ResetLocalStorage';
 
 export type Position = { x: number; y: number } | null;
 
@@ -160,6 +161,7 @@ export default function Tree() {
             isEnabled={garlandEnabled}
             setIsEnabled={setGarlandEnabled}
           />
+          <ResetLocalStorage />
         </aside>
         <section>
           <Result
