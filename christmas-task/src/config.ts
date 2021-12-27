@@ -19,3 +19,4 @@ export const snow = {
   intensity: 200,
   duration: 10,
 };
+export const minDecorationOffset = 60;

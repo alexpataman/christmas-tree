@@ -1,5 +1,6 @@
 import { DecorationItem, SetDecorationItem } from '../../pages/tree';
-import { useDrag } from 'react-dnd';
+import { useDrag, XYCoord } from 'react-dnd';
+import { minDecorationOffset } from '../../config';
 
 interface ITreeDecorationProps {
   decoration: DecorationItem;
@@ -19,7 +20,10 @@ export default function TreeDecoration({
     item: { id: decoration.id, data: decoration.data },
     end: (item, monitor) => {
       const dropResult = monitor.getDropResult<DropResult>();
-      if (item && !dropResult) {
+      const { x = 0, y = 0 } = monitor.getDifferenceFromInitialOffset() || {};
+      const isSensibleOffset =
+        Math.abs(x) > minDecorationOffset || Math.abs(y) > minDecorationOffset;
+      if (item && isSensibleOffset && !dropResult) {
         setDecorationItem(
           item.id,
           item.data,
