@@ -14,7 +14,7 @@ export default function TreeDecorations({
     <>
       {decoration.map((el, index) => (
         <TreeDecoration
-          key={index}
+          key={el.id}
           decoration={el}
           setDecorationItem={setDecorationItem}
         />

@@ -12,6 +12,7 @@ import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import { IDataItem } from '../types/common';
 import * as config from '../config';
+import Storage from '../helpers/Storage';
 
 export type Position = { x: number; y: number } | null;
 
@@ -30,15 +31,29 @@ export type SetDecorationItem = (
 ) => void;
 
 export default function Tree() {
-  const [background, setBackground] = useState(config.backgroundIDs[0]);
-  const [tree, setTree] = useState(config.treeIDs[0]);
-  const [garland, setGarland] = useState(config.garlandIDs[0]);
-  const [snowEnabled, setSnowEnabled] = useState(config.snowDefaultState);
-  const [audioEnabled, setAudioEnabled] = useState(config.audioDefaultState);
-  const [garlandEnabled, setGarlandEnabled] = useState(
-    config.garlandDefaultState
+  const storage = useMemo(() => {
+    return new Storage();
+  }, []);
+
+  const [background, setBackground] = useState(
+    storage.get('background') || config.backgroundIDs[0]
   );
-  const [decoration, setDecoration] = useState<DecorationItem[]>([]);
+  const [tree, setTree] = useState(storage.get('tree') || config.treeIDs[0]);
+  const [garland, setGarland] = useState(
+    storage.get('garland') || config.garlandIDs[0]
+  );
+  const [snowEnabled, setSnowEnabled] = useState(
+    storage.get('snowEnabled') || config.snowDefaultState
+  );
+  const [audioEnabled, setAudioEnabled] = useState(
+    storage.get('audioEnabled') || config.audioDefaultState
+  );
+  const [garlandEnabled, setGarlandEnabled] = useState(
+    storage.get('garlandEnabled') || config.garlandDefaultState
+  );
+  const [decoration, setDecoration] = useState<DecorationItem[]>(
+    storage.get('decoration') || []
+  );
   const setDecorationItem = (
     id: number,
     data: IDataItem,
@@ -96,8 +111,25 @@ export default function Tree() {
   }, [audio, audioEnabled]);
 
   useEffect(() => {
-    console.log(decoration);
-  }, [decoration]);
+    storage.set('background', background);
+    storage.set('garland', garland);
+    storage.set('snowEnabled', snowEnabled);
+    storage.set('tree', tree);
+    storage.set('audioEnabled', audioEnabled);
+    storage.set('garlandEnabled', garlandEnabled);
+    storage.set('decoration', decoration);
+  }, [
+    storage,
+    background,
+    garland,
+    snowEnabled,
+    tree,
+    audioEnabled,
+    decoration,
+    garlandEnabled,
+  ]);
+
+  // useEffect(() => console.log(decoration));
 
   return (
     <DndProvider backend={HTML5Backend}>

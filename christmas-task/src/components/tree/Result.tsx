@@ -5,7 +5,6 @@ import './Result.scss';
 import Snow from './Snow';
 import TreeArea from './TreeArea';
 import TreeDecoration from './TreeDecorations';
-import { useDrop } from 'react-dnd';
 import RemoveArea from './RemoveArea';
 
 interface IResult {

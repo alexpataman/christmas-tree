@@ -15,7 +15,7 @@ export default function TreeDecoration({
   decoration,
   setDecorationItem,
 }: ITreeDecorationProps) {
-  const [{ isDragging }, drag, preview] = useDrag(() => ({
+  const [{ isDragging }, drag] = useDrag(() => ({
     type: 'existing',
     item: { id: decoration.id, data: decoration.data },
     end: (item, monitor) => {
