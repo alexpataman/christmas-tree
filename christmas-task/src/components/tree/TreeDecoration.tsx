@@ -1,5 +1,5 @@
 import { DecorationItem, SetDecorationItem } from '../../pages/tree';
-import { useDrag, XYCoord } from 'react-dnd';
+import { useDrag } from 'react-dnd';
 import { minDecorationOffset } from '../../config';
 
 interface ITreeDecorationProps {

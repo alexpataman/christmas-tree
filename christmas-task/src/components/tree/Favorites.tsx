@@ -14,13 +14,11 @@ export default function Favorites(props: IFavorites) {
   const { favorites, toggleFavorites, decoration } = props;
   const favoriteItems = data.filter((item) => favorites.includes(item.num));
   let items;
-  if (favoriteItems.length < maxFavorites) {
-    items = Array.from(new Set([...favoriteItems, ...data])).slice(
-      0,
-      maxFavorites
-    );
-  } else {
+
+  if (favoriteItems.length) {
     items = favoriteItems;
+  } else {
+    items = data.slice(0, maxFavorites);
   }
 
   const itemsQuantity = items.reduce((acc, el) => {
