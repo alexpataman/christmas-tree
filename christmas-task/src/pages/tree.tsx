@@ -176,7 +176,12 @@ export default function Tree() {
         </section>
         <aside>
           <FavoritesContext.Consumer>
-            {({ favorites }) => <Favorites favorites={favorites} />}
+            {({ favorites, handleToggleFavorites }) => (
+              <Favorites
+                favorites={favorites}
+                toggleFavorites={(num) => handleToggleFavorites(num)}
+              />
+            )}
           </FavoritesContext.Consumer>
           {/* <History /> */}
         </aside>

@@ -1,11 +1,19 @@
+import { useNavigate } from 'react-router-dom';
+
 interface FavoriteCounterProps {
   favorites: string[];
 }
 
 export default function FavoriteCounter(props: FavoriteCounterProps) {
   let { favorites } = props;
+  let navigate = useNavigate();
+
   return (
-    <div className="favorite" title="Избранное">
+    <div
+      className="favorite"
+      title="Избранное"
+      onClick={() => navigate('/tree')}
+    >
       <span>{favorites.length}</span>
     </div>
   );

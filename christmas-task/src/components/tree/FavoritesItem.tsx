@@ -4,13 +4,19 @@ import { DragPreviewImage, useDrag } from 'react-dnd';
 
 export interface IFavoritesItemProps {
   item: IDataItem;
+  isFavorite: boolean;
+  toggleFavorites: (num: string) => string[];
 }
 
 interface DropResult {
   name: string;
 }
 
-export default function FavoritesItem({ item }: IFavoritesItemProps) {
+export default function FavoritesItem({
+  item,
+  isFavorite,
+  toggleFavorites,
+}: IFavoritesItemProps) {
   const [{ isDragging, clientOffset }, drag, preview] = useDrag(() => ({
     type: 'new',
     item: { id: null, data: item },
@@ -53,6 +59,12 @@ export default function FavoritesItem({ item }: IFavoritesItemProps) {
       />
 
       <span>{item.quantity}</span>
+      {isFavorite && (
+        <i
+          title="Убрать из избранного"
+          onClick={() => toggleFavorites(item.num)}
+        ></i>
+      )}
     </li>
   );
 }
