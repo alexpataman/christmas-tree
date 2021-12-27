@@ -1,4 +1,3 @@
-import React, { useEffect } from 'react';
 import { IDataItem } from '../../types/common';
 import { DragPreviewImage, useDrag } from 'react-dnd';
 
@@ -9,39 +8,17 @@ export interface IFavoritesItemProps {
   toggleFavorites: (num: string) => string[];
 }
 
-interface DropResult {
-  name: string;
-}
-
 export default function FavoritesItem({
   item,
   quantity,
   isFavorite,
   toggleFavorites,
 }: IFavoritesItemProps) {
-  const [{ isDragging, clientOffset }, drag, preview] = useDrag(() => ({
+  const [{ isDragging }, drag, preview] = useDrag(() => ({
     type: 'new',
     item: { id: null, data: item },
-    end: (item, monitor) => {
-      const dropResult = monitor.getDropResult<DropResult>();
-      if (item && dropResult) {
-        // console.log(
-        //   item,
-        //   dropResult,
-        //   monitor.getSourceClientOffset(),
-        //   monitor.getDifferenceFromInitialOffset()
-        // );
-        // console.log(
-        //   `You dropped ${item.data.name} into ${dropResult.name} => ${clientOffset}!`
-        // );
-      } else {
-        // console.log(`You dropped ${item.data.name} out`);
-      }
-    },
     collect: (monitor) => ({
       isDragging: !!monitor.isDragging(),
-      handlerId: monitor.getHandlerId(),
-      clientOffset: monitor.getClientOffset(),
     }),
   }));
 
