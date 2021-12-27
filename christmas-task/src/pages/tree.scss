@@ -1,13 +1,35 @@
+$break-point: '1024px';
+
 .Tree {
   display: flex;
   justify-content: center;
   height: 100%;
   align-items: flex-start;
-  margin-top: 30px;
   gap: 40px;
+
+  @media screen and (max-width: $break-point) {
+    gap: 10px;
+
+    flex-direction: column;
+    & > *:nth-child(3) {
+      order: 1;
+    }
+    & > *:nth-child(1) {
+      order: 3;
+    }
+    & > *:nth-child(2) {
+      order: 2;
+      width: 100%;
+    }
+  }
 
   aside {
     width: 25%;
+    min-width: 240px;
+
+    & > *:first-child {
+      margin-top: 30px;
+    }
 
     h5 {
       margin: 10px 0 20px;
@@ -16,6 +38,14 @@
 
     .widget {
       margin-bottom: 40px;
+    }
+
+    @media screen and (max-width: $break-point) {
+      width: 100%;
+
+      .widget {
+        margin-bottom: 20px;
+      }
     }
   }
   section {

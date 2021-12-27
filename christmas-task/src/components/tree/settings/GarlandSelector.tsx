@@ -22,23 +22,25 @@ export default function GarlandSelector(props: IGarlandSelector) {
   return (
     <div className="widget GarlandSelector">
       <h5>Гирлянда</h5>
-      <ul>
-        {garlandIDs.map((el) => (
-          <li
-            className={`grl-${el} ${state === el ? 'active' : ''}`}
-            onClick={() => clickHandler(el)}
-            key={el}
-          ></li>
-        ))}
-        <li className="switcher">
+      <div className="selectors">
+        <ul>
+          {garlandIDs.map((el) => (
+            <li
+              className={`grl-${el} ${state === el ? 'active' : ''}`}
+              onClick={() => clickHandler(el)}
+              key={el}
+            ></li>
+          ))}
+        </ul>
+        <div className="switcher">
           <Typography>Выкл</Typography>
           <Switch
             checked={isEnabled}
             onChange={(event) => setIsEnabled(event.target.checked)}
           />
           <Typography>Вкл</Typography>
-        </li>
-      </ul>
+        </div>
+      </div>
     </div>
   );
 }

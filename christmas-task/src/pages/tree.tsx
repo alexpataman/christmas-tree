@@ -1,4 +1,4 @@
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState, useMemo, useRef } from 'react';
 import BackgroundSelector from '../components/tree/settings/BackgroundSelector';
 import GarlandSelector from '../components/tree/settings/GarlandSelector';
 import OtherSettings from '../components/tree/settings/TriggerSettings';
@@ -34,6 +34,14 @@ export default function Tree() {
   const storage = useMemo(() => {
     return new Storage();
   }, []);
+
+  const [pageInteracted, setPageInteracted] = useState(false);
+  const firstInteractionAction = () => {
+    setPageInteracted(true);
+    if (audioEnabled) {
+      audio.play();
+    }
+  };
 
   const [background, setBackground] = useState(
     storage.get('background') || config.backgroundIDs[0]
@@ -133,7 +141,10 @@ export default function Tree() {
 
   return (
     <DndProvider backend={HTML5Backend}>
-      <div className="Tree">
+      <div
+        className="Tree"
+        onClick={() => !pageInteracted && firstInteractionAction()}
+      >
         <aside>
           <OtherSettings
             snowEnabled={snowEnabled}
@@ -165,7 +176,7 @@ export default function Tree() {
           <FavoritesContext.Consumer>
             {({ favorites }) => <Favorites favorites={favorites} />}
           </FavoritesContext.Consumer>
-          <History />
+          {/* <History /> */}
         </aside>
       </div>
     </DndProvider>

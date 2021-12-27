@@ -3,6 +3,7 @@
   width: 100%;
   grid-gap: 20px;
   grid-template-columns: repeat(5, 1fr);
+  padding-bottom: 50px;
 
   @media screen and (max-width: 1422px) {
     grid-template-columns: repeat(4, 1fr);
