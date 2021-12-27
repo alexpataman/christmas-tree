@@ -8,7 +8,26 @@ import History from '../components/tree/History';
 import Result from '../components/tree/Result';
 import './tree.scss';
 import { FavoritesContext } from '../contexts/FavoritesContext';
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
+import { IDataItem } from '../types/common';
 import * as config from '../config';
+
+export type Position = { x: number; y: number } | null;
+
+export type DecorationItem = {
+  id: number;
+  position: Position;
+  data: IDataItem;
+};
+
+export type SetDecorationItem = (
+  id: number,
+  item: IDataItem,
+  type: string,
+  method: string,
+  position?: Position
+) => void;
 
 export default function Tree() {
   const [background, setBackground] = useState(config.backgroundIDs[0]);
@@ -19,6 +38,41 @@ export default function Tree() {
   const [garlandEnabled, setGarlandEnabled] = useState(
     config.garlandDefaultState
   );
+  const [decoration, setDecoration] = useState<DecorationItem[]>([]);
+  const setDecorationItem = (
+    id: number,
+    data: IDataItem,
+    type: string,
+    method: string,
+    position?: Position
+  ) => {
+    setDecoration((prev) => {
+      const newItem = {
+        id,
+        data,
+        position: position || null,
+      };
+
+      switch (method) {
+        case 'update':
+          return [
+            ...prev.map((el) => {
+              if (el.id === newItem.id) {
+                console.log(newItem.id);
+                Object.assign(el.position, newItem.position);
+              }
+              return el;
+            }),
+          ];
+        case 'delete':
+          return [...prev.filter((el) => el.id !== newItem.id)];
+        case 'add':
+        default:
+          newItem.id = new Date().getTime();
+          return [...prev, newItem];
+      }
+    });
+  };
 
   const audio = useMemo(() => {
     const audio = new Audio(config.audioURL);
@@ -41,39 +95,47 @@ export default function Tree() {
     };
   }, [audio, audioEnabled]);
 
+  useEffect(() => {
+    console.log(decoration);
+  }, [decoration]);
+
   return (
-    <div className="Tree">
-      <aside>
-        <OtherSettings
-          snowEnabled={snowEnabled}
-          setSnowState={setSnowEnabled}
-          audioEnabled={audioEnabled}
-          setAudioState={setAudioEnabled}
-        />
-        <TreeSelector setState={setTree} state={tree} />
-        <BackgroundSelector setState={setBackground} state={background} />
-        <GarlandSelector
-          setState={setGarland}
-          state={garland}
-          isEnabled={garlandEnabled}
-          setIsEnabled={setGarlandEnabled}
-        />
-      </aside>
-      <section>
-        <Result
-          tree={tree}
-          garland={garland}
-          background={background}
-          snowEnabled={snowEnabled}
-          garlandEnabled={garlandEnabled}
-        />
-      </section>
-      <aside>
-        <FavoritesContext.Consumer>
-          {({ favorites }) => <Favorites favorites={favorites} />}
-        </FavoritesContext.Consumer>
-        <History />
-      </aside>
-    </div>
+    <DndProvider backend={HTML5Backend}>
+      <div className="Tree">
+        <aside>
+          <OtherSettings
+            snowEnabled={snowEnabled}
+            setSnowState={setSnowEnabled}
+            audioEnabled={audioEnabled}
+            setAudioState={setAudioEnabled}
+          />
+          <TreeSelector setState={setTree} state={tree} />
+          <BackgroundSelector setState={setBackground} state={background} />
+          <GarlandSelector
+            setState={setGarland}
+            state={garland}
+            isEnabled={garlandEnabled}
+            setIsEnabled={setGarlandEnabled}
+          />
+        </aside>
+        <section>
+          <Result
+            tree={tree}
+            garland={garland}
+            background={background}
+            snowEnabled={snowEnabled}
+            garlandEnabled={garlandEnabled}
+            decoration={decoration}
+            setDecorationItem={setDecorationItem}
+          />
+        </section>
+        <aside>
+          <FavoritesContext.Consumer>
+            {({ favorites }) => <Favorites favorites={favorites} />}
+          </FavoritesContext.Consumer>
+          <History />
+        </aside>
+      </div>
+    </DndProvider>
   );
 }

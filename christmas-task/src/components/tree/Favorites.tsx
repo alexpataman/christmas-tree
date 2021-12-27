@@ -1,5 +1,6 @@
 import { data } from '../../data/data_ru';
 import './Favorites.scss';
+import FavoritesItem from './FavoritesItem';
 
 interface IFavorites {
   favorites: string[];
@@ -14,10 +15,7 @@ export default function Favorites(props: IFavorites) {
       <h5>Игрушки</h5>
       <ul>
         {items.map((item) => (
-          <li title={item.name} key={item.num}>
-            <img src={`./assets/toys/${item.num}.png`} alt={item.name} />
-            <span>{item.quantity}</span>
-          </li>
+          <FavoritesItem item={item} key={item.num} />
         ))}
       </ul>
     </div>
