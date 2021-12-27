@@ -26,6 +26,7 @@ $break-point: '1024px';
   aside {
     width: 25%;
     min-width: 240px;
+    max-width: 355px;
 
     & > *:first-child {
       margin-top: 30px;
@@ -42,6 +43,7 @@ $break-point: '1024px';
 
     @media screen and (max-width: $break-point) {
       width: 100%;
+      max-width: 100%;
 
       .widget {
         margin-bottom: 20px;

@@ -1,8 +1,46 @@
-export default function History() {
+import Storage from '../../helpers/Storage';
+import { Preset } from '../../pages/tree';
+import './History.scss';
+
+interface IHistoryProps {
+  presetHandlers: {
+    save: () => void;
+    restore: (index: number) => void;
+    delete: (index: number) => void;
+  };
+}
+
+export default function History({ presetHandlers }: IHistoryProps) {
+  const storage = new Storage();
+  const presets: Preset[] = storage.get('presets');
+
   return (
-    <div className="widget">
+    <div className="widget History">
       <h5>Вы нарядили</h5>
-      <div>To be done</div>
+      {presets && presets.length ? (
+        <ul className="presets-list">
+          {presets.map((el, index) => (
+            <li key={index}>
+              <span
+                className={`bg-${el.data.background}`}
+                onClick={() => presetHandlers.restore(index)}
+              >
+                <img src={el.screenshot} alt="" />
+              </span>
+              <i
+                title="Удалить"
+                onClick={() => presetHandlers.delete(index)}
+              ></i>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <></>
+      )}
+      <button className="button" onClick={presetHandlers.save}>
+        Сохранить текущее состояние*
+      </button>
+      <small>*Сохраняются только уникальные конфигурации</small>
     </div>
   );
 }

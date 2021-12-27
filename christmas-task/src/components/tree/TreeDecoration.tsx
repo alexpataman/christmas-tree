@@ -1,6 +1,5 @@
-import { DecorationItem, SetDecorationItem, Position } from '../../pages/tree';
-import { IDataItem } from '../../types/common';
-import { DragPreviewImage, useDrag } from 'react-dnd';
+import { DecorationItem, SetDecorationItem } from '../../pages/tree';
+import { useDrag } from 'react-dnd';
 
 interface ITreeDecorationProps {
   decoration: DecorationItem;

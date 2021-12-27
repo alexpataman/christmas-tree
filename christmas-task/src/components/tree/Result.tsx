@@ -1,3 +1,4 @@
+import React from 'react';
 import { IDataItem } from '../../types/common';
 import { DecorationItem, Position } from '../../pages/tree';
 import Garland from './Garland';
@@ -13,6 +14,7 @@ interface IResult {
   garland: string;
   snowEnabled: boolean;
   garlandEnabled: boolean;
+  resultTreeRef: React.MutableRefObject<HTMLDivElement>;
   decoration: DecorationItem[];
   setDecorationItem: (
     id: number,
@@ -30,6 +32,7 @@ export default function Result(props: IResult) {
     garland,
     snowEnabled,
     garlandEnabled,
+    resultTreeRef,
     decoration,
     setDecorationItem,
   } = props;
@@ -37,7 +40,7 @@ export default function Result(props: IResult) {
   return (
     <div className={`Result bg-${background}`}>
       {snowEnabled && <Snow />}
-      <div className={`tree-container bg-${tree}`}>
+      <div className={`tree-container bg-${tree}`} ref={resultTreeRef}>
         <TreeArea tree={tree} setDecorationItem={setDecorationItem} />
         <TreeDecoration
           decoration={decoration}

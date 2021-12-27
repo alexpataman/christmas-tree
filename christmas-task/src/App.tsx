@@ -3,12 +3,12 @@ import { Outlet } from 'react-router-dom';
 import Header from './components/common/Header';
 import Footer from './components/common/Footer';
 import './App.scss';
-import { FavoritesContext } from './contexts/FavoritesContext';
+import { AppContext } from './contexts/AppContext';
 import Storage from './helpers/Storage';
 import { maxFavorites } from './config';
 import Modal from './components/common/Modal';
 
-interface IModal {
+export interface IModal {
   title?: string;
   content?: string;
 }
@@ -43,6 +43,8 @@ function App() {
   const contextData = {
     favorites,
     handleToggleFavorites,
+    setModalData,
+    setModalOpen,
   };
 
   const handleModalClose = () => {
@@ -51,7 +53,7 @@ function App() {
 
   return (
     <div className="App">
-      <FavoritesContext.Provider value={contextData}>
+      <AppContext.Provider value={contextData}>
         <Header />
         <main>
           <div className="container">
@@ -59,7 +61,7 @@ function App() {
           </div>
         </main>
         <Footer />
-      </FavoritesContext.Provider>
+      </AppContext.Provider>
       {modalOpen && (
         <Modal
           open={modalOpen}

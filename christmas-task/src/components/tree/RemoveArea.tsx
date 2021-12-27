@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDrop, XYCoord } from 'react-dnd';
+import { useDrop } from 'react-dnd';
 import { IDataItem } from '../../types/common';
 import { DecorationItem, Position } from '../../pages/tree';
 
@@ -14,7 +14,7 @@ interface ITreeAreaProps {
 }
 
 export default function RemoveArea({ setDecorationItem }: ITreeAreaProps) {
-  const [{ isOver, canDrop }, drop] = useDrop(() => ({
+  const [, drop] = useDrop(() => ({
     accept: ['existing'],
     drop: (item: DecorationItem, monitor) => {
       setDecorationItem(
@@ -30,10 +30,5 @@ export default function RemoveArea({ setDecorationItem }: ITreeAreaProps) {
     }),
   }));
 
-  return (
-    <div
-      ref={drop}
-      className={`drop-decoration ${canDrop && 'can-drop'} `}
-    ></div>
-  );
+  return <div ref={drop} className="drop-decoration"></div>;
 }

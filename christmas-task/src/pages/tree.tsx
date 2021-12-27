@@ -1,4 +1,4 @@
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState, useMemo, useRef } from 'react';
 import BackgroundSelector from '../components/tree/settings/BackgroundSelector';
 import GarlandSelector from '../components/tree/settings/GarlandSelector';
 import OtherSettings from '../components/tree/settings/TriggerSettings';
@@ -7,15 +7,29 @@ import Favorites from '../components/tree/Favorites';
 import History from '../components/tree/History';
 import Result from '../components/tree/Result';
 import './tree.scss';
-import { FavoritesContext } from '../contexts/FavoritesContext';
+import { AppContext } from '../contexts/AppContext';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import { IDataItem } from '../types/common';
 import * as config from '../config';
 import Storage from '../helpers/Storage';
 import ResetLocalStorage from '../components/tree/ResetLocalStorage';
+import html2canvas from 'html2canvas';
 
 export type Position = { x: number; y: number } | null;
+
+export type Preset = {
+  screenshot: string;
+  data: {
+    background: string;
+    garland: string;
+    snowEnabled: string;
+    tree: string;
+    audioEnabled: string;
+    decoration: DecorationItem[];
+    garlandEnabled: string;
+  };
+};
 
 export type DecorationItem = {
   id: number;
@@ -63,6 +77,11 @@ export default function Tree() {
   const [decoration, setDecoration] = useState<DecorationItem[]>(
     storage.get('decoration') || []
   );
+
+  const [presets, setPresets] = useState<Preset[]>(
+    storage.get('presets') || []
+  );
+
   const setDecorationItem = (
     id: number,
     data: IDataItem,
@@ -82,7 +101,6 @@ export default function Tree() {
           return [
             ...prev.map((el) => {
               if (el.id === newItem.id) {
-                console.log(newItem.id);
                 Object.assign(el.position, newItem.position);
               }
               return el;
@@ -138,7 +156,77 @@ export default function Tree() {
     garlandEnabled,
   ]);
 
-  // useEffect(() => console.log(decoration));
+  useEffect(() => {});
+
+  const resultTree = useRef(document.createElement('div'));
+
+  const presetHandlers = {
+    save: async () => {
+      const canvasOptions = {
+        backgroundColor: null,
+      };
+      const screenshot = await html2canvas(
+        resultTree.current,
+        canvasOptions
+      ).then(function (canvas) {
+        let extra_canvas = document.createElement('canvas');
+        extra_canvas.width = 70;
+        extra_canvas.height = 110;
+        var ctx = extra_canvas.getContext('2d');
+        ctx!.drawImage(
+          canvas,
+          0,
+          0,
+          canvas.width,
+          canvas.height,
+          0,
+          0,
+          extra_canvas.width,
+          extra_canvas.height
+        );
+        return extra_canvas.toDataURL();
+      });
+
+      const preset = {
+        screenshot,
+        data: {
+          background,
+          garland,
+          snowEnabled,
+          tree,
+          audioEnabled,
+          decoration,
+          garlandEnabled,
+        },
+      };
+
+      const isNewPreset = !presets.some(
+        (el) => JSON.stringify(el.data) === JSON.stringify(preset.data)
+      );
+
+      if (isNewPreset) {
+        const newPresets = [...presets];
+        newPresets.unshift(preset);
+        storage.set('presets', newPresets);
+        setPresets(newPresets);
+      }
+    },
+    restore: (index: number) => {
+      setBackground(presets[index].data.background);
+      setGarland(presets[index].data.garland);
+      setSnowEnabled(presets[index].data.snowEnabled);
+      setTree(presets[index].data.tree);
+      setAudioEnabled(presets[index].data.audioEnabled);
+      setDecoration(presets[index].data.decoration);
+      setGarlandEnabled(presets[index].data.garlandEnabled);
+    },
+    delete: (index: number) => {
+      const newPresets = [...presets];
+      newPresets.splice(index, 1);
+      storage.set('presets', newPresets);
+      setPresets(newPresets);
+    },
+  };
 
   return (
     <DndProvider backend={HTML5Backend}>
@@ -161,6 +249,7 @@ export default function Tree() {
             isEnabled={garlandEnabled}
             setIsEnabled={setGarlandEnabled}
           />
+          <ResetLocalStorage />
         </aside>
         <section>
           <Result
@@ -170,11 +259,12 @@ export default function Tree() {
             snowEnabled={snowEnabled}
             garlandEnabled={garlandEnabled}
             decoration={decoration}
+            resultTreeRef={resultTree}
             setDecorationItem={setDecorationItem}
           />
         </section>
         <aside>
-          <FavoritesContext.Consumer>
+          <AppContext.Consumer>
             {({ favorites, handleToggleFavorites }) => (
               <Favorites
                 favorites={favorites}
@@ -182,9 +272,8 @@ export default function Tree() {
                 toggleFavorites={(num) => handleToggleFavorites(num)}
               />
             )}
-          </FavoritesContext.Consumer>
-          {/* <History /> */}
-          <ResetLocalStorage />
+          </AppContext.Consumer>
+          <History presetHandlers={presetHandlers} />
         </aside>
       </div>
     </DndProvider>

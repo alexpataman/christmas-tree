@@ -1,4 +1,4 @@
-import { FavoritesContext } from '../../contexts/FavoritesContext';
+import { AppContext } from '../../contexts/AppContext';
 import { IDataItem } from '../../types/common';
 import DecorationItem from './DecorationItem';
 import './DecorationItems.scss';
@@ -10,7 +10,7 @@ export type DecorationListingProps = {
 export default function DecorationListing(props: DecorationListingProps) {
   if (props.items.length > 0) {
     return (
-      <FavoritesContext.Consumer>
+      <AppContext.Consumer>
         {({ favorites, handleToggleFavorites }) => (
           <div className="DecorationListing">
             {props.items.map((item) => (
@@ -23,7 +23,7 @@ export default function DecorationListing(props: DecorationListingProps) {
             ))}
           </div>
         )}
-      </FavoritesContext.Consumer>
+      </AppContext.Consumer>
     );
   } else {
     return (

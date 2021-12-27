@@ -1,8 +1,6 @@
 import React from 'react';
 import { useDrop, XYCoord } from 'react-dnd';
-import { IDataItem } from '../../types/common';
-import { SetDecorationItem, DecorationItem, Position } from '../../pages/tree';
-import RemoveArea from './RemoveArea';
+import { SetDecorationItem, DecorationItem } from '../../pages/tree';
 import { treeCoords } from '../../config';
 
 interface ITreeAreaProps {
@@ -16,13 +14,6 @@ export default function TreeArea({ tree, setDecorationItem }: ITreeAreaProps) {
   const [, drop] = useDrop(() => ({
     accept: ['new', 'existing'],
     drop: (item: DecorationItem, monitor) => {
-      console.log(
-        'dropped',
-        item.id,
-        monitor.getClientOffset(),
-        monitor.getItemType()
-      );
-
       setDecorationItem(
         item.id,
         item.data,

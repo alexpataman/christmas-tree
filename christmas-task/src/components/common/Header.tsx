@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { FavoritesContext } from '../../contexts/FavoritesContext';
+import { AppContext } from '../../contexts/AppContext';
 import FavoriteCounter from './FavoriteCounter';
 import './Header.scss';
 
@@ -15,9 +15,9 @@ export default function Header() {
           <Link to="/decoration">Игрушки</Link>
           <Link to="/tree">Ёлка</Link>
         </nav>
-        <FavoritesContext.Consumer>
+        <AppContext.Consumer>
           {({ favorites }) => <FavoriteCounter favorites={favorites} />}
-        </FavoritesContext.Consumer>
+        </AppContext.Consumer>
       </div>
     </header>
   );
