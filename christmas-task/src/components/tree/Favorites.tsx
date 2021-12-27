@@ -1,15 +1,17 @@
 import { data } from '../../data/data_ru';
-import './Favorites.scss';
 import FavoritesItem from './FavoritesItem';
 import { maxFavorites } from '../../config';
+import { DecorationItem } from '../../pages/tree';
+import './Favorites.scss';
 
 interface IFavorites {
   favorites: string[];
+  decoration: DecorationItem[];
   toggleFavorites: (num: string) => string[];
 }
 
 export default function Favorites(props: IFavorites) {
-  const { favorites, toggleFavorites } = props;
+  const { favorites, toggleFavorites, decoration } = props;
   const favoriteItems = data.filter((item) => favorites.includes(item.num));
   let items;
   if (favoriteItems.length < maxFavorites) {
@@ -21,6 +23,14 @@ export default function Favorites(props: IFavorites) {
     items = favoriteItems;
   }
 
+  const itemsQuantity = items.reduce((acc, el) => {
+    const usedItems = decoration.filter(
+      (decorated) => decorated.data.num === el.num
+    );
+    acc[el.num] = +el.quantity - Object.keys(usedItems).length;
+    return acc;
+  }, {} as { [key: string]: number });
+
   return (
     <div className="widget Favorites">
       <h5>Игрушки</h5>
@@ -28,6 +38,7 @@ export default function Favorites(props: IFavorites) {
         {items.map((item) => (
           <FavoritesItem
             item={item}
+            quantity={itemsQuantity[item.num]}
             key={item.num}
             isFavorite={favoriteItems.includes(item)}
             toggleFavorites={toggleFavorites}

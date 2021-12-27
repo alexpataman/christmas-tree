@@ -179,6 +179,7 @@ export default function Tree() {
             {({ favorites, handleToggleFavorites }) => (
               <Favorites
                 favorites={favorites}
+                decoration={decoration}
                 toggleFavorites={(num) => handleToggleFavorites(num)}
               />
             )}
