@@ -1,6 +1,6 @@
 import React from 'react';
 import { IDataItem } from '../../types/common';
-import './DecorationItem.scss';
+// import './DecorationItem.scss';
 
 type DecorationItemProps = {
   item: IDataItem;
@@ -18,15 +18,15 @@ export default function DecorationItem(props: DecorationItemProps) {
 
   return (
     <div onClick={toggleIsFavorite} className="DecorationItem">
-      <h4 className="DecorationItem__title">{props.item.name}</h4>
-      <div className="DecorationItem__img-container">
+      <h4 className="title">{props.item.name}</h4>
+      <div>
         <img
           src={`./assets/toys/${props.item.num}.png`}
           alt={props.item.name}
-          className="DecorationItem__img"
+          className="img"
         />
       </div>
-      <ul className="DecorationItem__props">
+      <ul className="props">
         <li>Количество: {props.item.quantity}</li>
         <li>Год: {props.item.year}</li>
         <li>Форма: {props.item.shape}</li>

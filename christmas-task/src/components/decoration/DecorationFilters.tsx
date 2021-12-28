@@ -12,11 +12,11 @@ import Range from './filters/Range';
 import FilterByQuantity from './filters/RangeByQuantity';
 import FilterByYear from './filters/RangeByYear';
 import FilterByName from './filters/FilterByName';
-import styles from './DecorationFilters.module.scss';
+import './DecorationFilters.scss';
 
 export default function DecorationFilters() {
   return (
-    <div className={styles.container}>
+    <div className="DecorationFilters">
       <ErrorBoundary>
         <DecorationFilterGroup title="Фильтры по значению">
           <Filter
