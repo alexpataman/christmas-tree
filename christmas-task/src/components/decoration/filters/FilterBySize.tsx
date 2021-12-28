@@ -13,8 +13,7 @@ export default function FilterBySize(props: filterViewInputProps) {
           <button
             key={option.id}
             onClick={() => filterChangeHandler(option.value)}
-            className={`
-            button
+            className={`            
             type-${option.id}
             ${
               filterState && filterState.includes(option.value) ? 'active' : ''

@@ -13,7 +13,7 @@ export default function FilterByShape(props: filterViewInputProps) {
           <button
             key={option.id}
             onClick={() => filterChangeHandler(option.value)}
-            className={`            
+            className={`                        
             type-${option.id}
             ${
               filterState && filterState.includes(option.value) ? 'active' : ''
