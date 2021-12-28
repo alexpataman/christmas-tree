@@ -26,3 +26,30 @@ export const pageTitles = {
   decoration: 'Игрушки',
   tree: 'Ёлка',
 };
+
+export const sortOptions = [
+  {
+    value: 'name_asc',
+    label: 'По названию, от А до Я',
+  },
+  {
+    value: 'name_desc',
+    label: 'По названию, от Я до А',
+  },
+  {
+    value: 'year_asc',
+    label: 'По году, по возрастанию',
+  },
+  {
+    value: 'year_desc',
+    label: 'По году, по убыванию',
+  },
+  {
+    value: 'quantity_asc',
+    label: 'По количеству, по возрастанию',
+  },
+  {
+    value: 'quantity_desc',
+    label: 'По количеству, по убыванию',
+  },
+];

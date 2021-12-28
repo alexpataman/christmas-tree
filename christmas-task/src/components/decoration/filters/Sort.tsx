@@ -1,34 +1,8 @@
-import { FilterContext } from '../../../contexts/FilterContext';
 import Select from 'react-select';
+import { FilterContext } from '../../../contexts/FilterContext';
+import { sortOptions as options } from '../../../config';
 
 export default function Sort() {
-  const options = [
-    {
-      value: 'name_asc',
-      label: 'По названию, от А до Я',
-    },
-    {
-      value: 'name_desc',
-      label: 'По названию, от Я до А',
-    },
-    {
-      value: 'year_asc',
-      label: 'По году, по возрастанию',
-    },
-    {
-      value: 'year_desc',
-      label: 'По году, по убыванию',
-    },
-    {
-      value: 'quantity_asc',
-      label: 'По количеству, по возрастанию',
-    },
-    {
-      value: 'quantity_desc',
-      label: 'По количеству, по убыванию',
-    },
-  ];
-
   interface stateObject {
     isSelected?: boolean;
     isDisabled?: boolean;

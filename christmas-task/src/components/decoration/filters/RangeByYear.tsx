@@ -1,16 +1,15 @@
-import { rangeViewInputProps } from '../../../types/filters';
-import { Slider } from '@mui/material';
 import React, { SyntheticEvent } from 'react';
+import { Slider } from '@mui/material';
+import { rangeViewInputProps } from '../../../types/filters';
 import { ObserverItem } from '../../../helpers/Observer';
 
-export default function FilterByYear(props: rangeViewInputProps) {
-  let {
-    filterName,
-    rangeChangeHandler,
-    rangeState,
-    initialData,
-    resetObserver,
-  } = props;
+export default function FilterByYear({
+  filterName,
+  rangeChangeHandler,
+  rangeState,
+  initialData,
+  resetObserver,
+}: rangeViewInputProps) {
   const initialValues = initialData.map((el) => {
     return +el[filterName] as number;
   });
