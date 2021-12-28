@@ -1,5 +1,5 @@
 import storage from '../../helpers/storage';
-import { Preset } from '../../pages/tree';
+import { Preset } from '../../types/tree';
 import './History.scss';
 
 interface IHistoryProps {

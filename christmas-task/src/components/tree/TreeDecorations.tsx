@@ -1,4 +1,4 @@
-import { DecorationItem, SetDecorationItem } from '../../pages/tree';
+import { DecorationItem, SetDecorationItem } from '../../types/tree';
 import TreeDecoration from './TreeDecoration';
 
 interface ITreeDecorationsProps {

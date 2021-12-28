@@ -1,33 +1,17 @@
-import React from 'react';
 import { useDrop } from 'react-dnd';
-import { IDataItem } from '../../types/common';
-import { DecorationItem, Position } from '../../pages/tree';
+import { DecorationItem } from '../../types/tree';
+import { SetDecorationItem, SET_METHODS, ITEM_TYPES } from '../../types/tree';
 
 interface ITreeAreaProps {
-  setDecorationItem: (
-    id: number,
-    item: IDataItem,
-    type: string,
-    method: string,
-    position?: Position
-  ) => void;
+  setDecorationItem: SetDecorationItem;
 }
 
 export default function RemoveArea({ setDecorationItem }: ITreeAreaProps) {
   const [, drop] = useDrop(() => ({
-    accept: ['existing'],
-    drop: (item: DecorationItem, monitor) => {
-      setDecorationItem(
-        item.id,
-        item.data,
-        monitor.getItemType() as string,
-        'delete'
-      );
+    accept: [ITEM_TYPES.EXISTING],
+    drop: (item: DecorationItem) => {
+      setDecorationItem(item.id, item.data, SET_METHODS.DELETE);
     },
-    collect: (monitor) => ({
-      isOver: monitor.isOver({ shallow: true }),
-      canDrop: monitor.canDrop(),
-    }),
   }));
 
   return <div ref={drop} className="drop-decoration"></div>;

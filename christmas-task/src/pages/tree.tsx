@@ -1,4 +1,12 @@
 import { useEffect, useState, useMemo, useRef } from 'react';
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
+import storage from '../helpers/storage';
+import updateItems from '../helpers/updateItems';
+import getScreenshot from '../helpers/getScreenshot';
+import { AppContext } from '../contexts/AppContext';
+import { LOCAL_STORAGE_KEYS } from '../types/common';
+import { Preset, DecorationItem, SetDecorationItem } from '../types/tree';
 import BackgroundSelector from '../components/tree/settings/BackgroundSelector';
 import GarlandSelector from '../components/tree/settings/GarlandSelector';
 import OtherSettings from '../components/tree/settings/TriggerSettings';
@@ -6,109 +14,54 @@ import TreeSelector from '../components/tree/settings/TreeSelector';
 import Favorites from '../components/tree/Favorites';
 import History from '../components/tree/History';
 import Result from '../components/tree/Result';
-import './tree.scss';
-import { AppContext } from '../contexts/AppContext';
-import { DndProvider } from 'react-dnd';
-import { HTML5Backend } from 'react-dnd-html5-backend';
-import { IDataItem } from '../types/common';
-import * as config from '../config';
-import storage from '../helpers/storage';
 import ResetLocalStorage from '../components/tree/ResetLocalStorage';
-import html2canvas from 'html2canvas';
-
-export type Position = { x: number; y: number } | null;
-
-export type Preset = {
-  screenshot: string;
-  data: {
-    background: string;
-    garland: string;
-    snowEnabled: string;
-    tree: string;
-    audioEnabled: string;
-    decoration: DecorationItem[];
-    garlandEnabled: string;
-  };
-};
-
-export type DecorationItem = {
-  id: number;
-  position: Position;
-  data: IDataItem;
-};
-
-export type SetDecorationItem = (
-  id: number,
-  item: IDataItem,
-  type: string,
-  method: string,
-  position?: Position
-) => void;
+import * as config from '../config';
+import './tree.scss';
 
 export default function Tree() {
   const [pageInteracted, setPageInteracted] = useState(false);
-  const firstInteractionAction = () => {
-    setPageInteracted(true);
-    if (audioEnabled) {
-      audio.play();
-    }
-  };
 
   const [background, setBackground] = useState(
-    storage.get('background') || config.backgroundIDs[0]
+    storage.get(LOCAL_STORAGE_KEYS.BACKGROUND) || config.backgroundIDs[0]
   );
-  const [tree, setTree] = useState(storage.get('tree') || config.treeIDs[0]);
+
+  const [tree, setTree] = useState(
+    storage.get(LOCAL_STORAGE_KEYS.TREE) || config.treeIDs[0]
+  );
+
   const [garland, setGarland] = useState(
-    storage.get('garland') || config.garlandIDs[0]
+    storage.get(LOCAL_STORAGE_KEYS.GARLAND) || config.garlandIDs[0]
   );
+
   const [snowEnabled, setSnowEnabled] = useState(
-    storage.get('snowEnabled') || config.snowDefaultState
+    storage.get(LOCAL_STORAGE_KEYS.SNOW_ENABLED) || config.snowDefaultState
   );
+
   const [audioEnabled, setAudioEnabled] = useState(
-    storage.get('audioEnabled') || config.audioDefaultState
+    storage.get(LOCAL_STORAGE_KEYS.AUDIO_ENABLED) || config.audioDefaultState
   );
+
   const [garlandEnabled, setGarlandEnabled] = useState(
-    storage.get('garlandEnabled') || config.garlandDefaultState
+    storage.get(LOCAL_STORAGE_KEYS.GARLAND_ENABLED) ||
+      config.garlandDefaultState
   );
+
   const [decoration, setDecoration] = useState<DecorationItem[]>(
-    storage.get('decoration') || []
+    storage.get(LOCAL_STORAGE_KEYS.DECORATION) || []
   );
 
   const [presets, setPresets] = useState<Preset[]>(
-    storage.get('presets') || []
+    storage.get(LOCAL_STORAGE_KEYS.PRESETS) || []
   );
 
-  const setDecorationItem = (
-    id: number,
-    data: IDataItem,
-    type: string,
-    method: string,
-    position?: Position
-  ) => {
+  const setDecorationItem: SetDecorationItem = (id, data, method, position) => {
     setDecoration((prev) => {
-      const newItem = {
+      const newItem: DecorationItem = {
         id,
         data,
         position: position || null,
       };
-
-      switch (method) {
-        case 'update':
-          return [
-            ...prev.map((el) => {
-              if (el.id === newItem.id) {
-                Object.assign(el.position, newItem.position);
-              }
-              return el;
-            }),
-          ];
-        case 'delete':
-          return [...prev.filter((el) => el.id !== newItem.id)];
-        case 'add':
-        default:
-          newItem.id = new Date().getTime();
-          return [...prev, newItem];
-      }
+      return updateItems(newItem, method, prev);
     });
   };
 
@@ -119,7 +72,7 @@ export default function Tree() {
   }, []);
 
   useEffect(() => {
-    document.title = `Ёлка`;
+    document.title = config.pageTitles.tree;
   }, []);
 
   useEffect(() => {
@@ -134,13 +87,13 @@ export default function Tree() {
   }, [audio, audioEnabled]);
 
   useEffect(() => {
-    storage.set('background', background);
-    storage.set('garland', garland);
-    storage.set('snowEnabled', snowEnabled);
-    storage.set('tree', tree);
-    storage.set('audioEnabled', audioEnabled);
-    storage.set('garlandEnabled', garlandEnabled);
-    storage.set('decoration', decoration);
+    storage.set(LOCAL_STORAGE_KEYS.BACKGROUND, background);
+    storage.set(LOCAL_STORAGE_KEYS.GARLAND, garland);
+    storage.set(LOCAL_STORAGE_KEYS.SNOW_ENABLED, snowEnabled);
+    storage.set(LOCAL_STORAGE_KEYS.TREE, tree);
+    storage.set(LOCAL_STORAGE_KEYS.AUDIO_ENABLED, audioEnabled);
+    storage.set(LOCAL_STORAGE_KEYS.GARLAND_ENABLED, garlandEnabled);
+    storage.set(LOCAL_STORAGE_KEYS.DECORATION, decoration);
   }, [
     background,
     garland,
@@ -151,38 +104,11 @@ export default function Tree() {
     garlandEnabled,
   ]);
 
-  useEffect(() => {});
-
   const resultTree = useRef(document.createElement('div'));
 
   const presetHandlers = {
     save: async () => {
-      const canvasOptions = {
-        backgroundColor: null,
-        logging: false,
-      };
-      const screenshot = await html2canvas(
-        resultTree.current,
-        canvasOptions
-      ).then(function (canvas) {
-        let extra_canvas = document.createElement('canvas');
-        extra_canvas.width = 70;
-        extra_canvas.height = 110;
-        var ctx = extra_canvas.getContext('2d');
-        ctx!.drawImage(
-          canvas,
-          0,
-          0,
-          canvas.width,
-          canvas.height,
-          0,
-          0,
-          extra_canvas.width,
-          extra_canvas.height
-        );
-        return extra_canvas.toDataURL();
-      });
-
+      const screenshot = await getScreenshot(resultTree.current, 70, 110);
       const preset = {
         screenshot,
         data: {
@@ -207,6 +133,7 @@ export default function Tree() {
         setPresets(newPresets);
       }
     },
+
     restore: (index: number) => {
       setBackground(presets[index].data.background);
       setGarland(presets[index].data.garland);
@@ -216,6 +143,7 @@ export default function Tree() {
       setDecoration(presets[index].data.decoration);
       setGarlandEnabled(presets[index].data.garlandEnabled);
     },
+
     delete: (index: number) => {
       const newPresets = [...presets];
       newPresets.splice(index, 1);
@@ -224,12 +152,18 @@ export default function Tree() {
     },
   };
 
+  const firstInteractionAction = () => {
+    setPageInteracted(true);
+    if (audioEnabled) {
+      audio.play();
+    }
+  };
+
+  const pageClickHandler = () => !pageInteracted && firstInteractionAction();
+
   return (
     <DndProvider backend={HTML5Backend}>
-      <div
-        className="Tree"
-        onClick={() => !pageInteracted && firstInteractionAction()}
-      >
+      <div className="Tree" onClick={pageClickHandler}>
         <aside>
           <OtherSettings
             snowEnabled={snowEnabled}

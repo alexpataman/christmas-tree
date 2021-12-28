@@ -20,4 +20,12 @@ export enum LOCAL_STORAGE_KEYS {
   FILTER_SETTINGS = 'filterSettings',
   RANGE_SETTINGS = 'rangeSettings',
   SORT_SETTINGS = 'sortSettings',
+  BACKGROUND = 'background',
+  TREE = 'tree',
+  GARLAND = 'garland',
+  DECORATION = 'decoration',
+  GARLAND_ENABLED = 'garlandEnabled',
+  AUDIO_ENABLED = 'audioEnabled',
+  SNOW_ENABLED = 'snowEnabled',
+  PRESETS = 'presets',
 }

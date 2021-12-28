@@ -1,6 +1,10 @@
 import React from 'react';
 import { useDrop, XYCoord } from 'react-dnd';
-import { SetDecorationItem, DecorationItem } from '../../pages/tree';
+import {
+  SetDecorationItem,
+  DecorationItem,
+  SET_METHODS,
+} from '../../types/tree';
 import { treeCoords } from '../../config';
 
 interface ITreeAreaProps {
@@ -17,8 +21,7 @@ export default function TreeArea({ tree, setDecorationItem }: ITreeAreaProps) {
       setDecorationItem(
         item.id,
         item.data,
-        monitor.getItemType() as string,
-        monitor.getItemType() === 'new' ? 'add' : 'update',
+        monitor.getItemType() === 'new' ? SET_METHODS.ADD : SET_METHODS.UPDATE,
         getCoordinates(container.current, monitor.getSourceClientOffset())
       );
     },

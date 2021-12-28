@@ -1,7 +1,7 @@
 import { data } from '../../data/data';
 import FavoritesItem from './FavoritesItem';
 import { maxFavorites } from '../../config';
-import { DecorationItem } from '../../pages/tree';
+import { DecorationItem } from '../../types/tree';
 import './Favorites.scss';
 
 interface IFavorites {

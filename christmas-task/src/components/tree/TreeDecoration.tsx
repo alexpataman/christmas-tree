@@ -1,4 +1,8 @@
-import { DecorationItem, SetDecorationItem } from '../../pages/tree';
+import {
+  DecorationItem,
+  SetDecorationItem,
+  SET_METHODS,
+} from '../../types/tree';
 import { useDrag } from 'react-dnd';
 import { useEffect } from 'react';
 
@@ -24,12 +28,7 @@ export default function TreeDecoration({
       resultMainContainerRef.current.classList.remove('is-dragging');
       const dropResult = monitor.getDropResult<DropResult>();
       if (item && !dropResult) {
-        setDecorationItem(
-          item.id,
-          item.data,
-          monitor.getItemType() as string,
-          'delete'
-        );
+        setDecorationItem(item.id, item.data, SET_METHODS.DELETE);
       }
     },
     collect: (monitor) => ({

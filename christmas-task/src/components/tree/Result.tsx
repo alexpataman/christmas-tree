@@ -1,12 +1,12 @@
 import { MutableRefObject, useRef } from 'react';
-import { IDataItem } from '../../types/common';
-import { DecorationItem, Position } from '../../pages/tree';
+import { DecorationItem } from '../../types/tree';
 import Garland from './Garland';
 import Snow from './Snow';
 import TreeArea from './TreeArea';
 import TreeDecoration from './TreeDecorations';
 import RemoveArea from './RemoveArea';
 import './Result.scss';
+import { SetDecorationItem } from '../../types/tree';
 
 interface IResult {
   tree: number;
@@ -16,13 +16,7 @@ interface IResult {
   garlandEnabled: boolean;
   resultTreeRef: MutableRefObject<HTMLDivElement>;
   decoration: DecorationItem[];
-  setDecorationItem: (
-    id: number,
-    data: IDataItem,
-    type: string,
-    method: string,
-    position?: Position
-  ) => void;
+  setDecorationItem: SetDecorationItem;
 }
 
 export default function Result(props: IResult) {
