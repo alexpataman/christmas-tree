@@ -1,6 +1,5 @@
 import React from 'react';
 import { IDataItem } from '../../types/common';
-// import './DecorationItem.scss';
 
 type DecorationItemProps = {
   item: IDataItem;
