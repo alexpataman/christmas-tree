@@ -18,7 +18,7 @@ function createSnowFlake(container: HTMLElement | null) {
     return;
   }
 
-  const snowFlake = document.createElement('i') as HTMLElement;
+  const snowFlake = document.createElement('i');
   snowFlake.classList.add('snowflake');
   snowFlake.style.left = Math.random() * container.offsetWidth + 'px';
   snowFlake.style.animationDuration = Math.random() * 3 + snow.duration + 's';

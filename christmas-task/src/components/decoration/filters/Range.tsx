@@ -3,6 +3,7 @@ import {
   RangeChangeHandler,
   rangeInputProps,
   RangeValue,
+  RangeSettings,
 } from '../../../types/filters';
 import './Range.scss';
 
@@ -11,7 +12,7 @@ export default function Filter(props: rangeInputProps) {
 
   const setFilterValue = (
     value: RangeValue,
-    rangeSettings: {},
+    rangeSettings: RangeSettings,
     handler: RangeChangeHandler
   ) => {
     handler(filterName, value);
@@ -25,8 +26,8 @@ export default function Filter(props: rangeInputProps) {
             initialData={initialData}
             key={filterName}
             filterName={filterName}
-            rangeState={rangeSettings[filterName as keyof typeof rangeSettings]}
-            rangeChangeHandler={(value: RangeValue) =>
+            rangeState={rangeSettings[filterName]}
+            rangeChangeHandler={(value) =>
               setFilterValue(value, rangeSettings, handleRangeChange)
             }
             resetObserver={resetObserver}

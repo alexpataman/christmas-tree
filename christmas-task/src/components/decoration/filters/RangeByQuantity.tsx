@@ -13,7 +13,7 @@ export default function FilterByQuantity(props: rangeViewInputProps) {
   } = props;
 
   const initialValues = initialData.map((el) => {
-    return +el[filterName] as number;
+    return +el[filterName];
   });
 
   const minInitialValue = Math.min(...initialValues);
@@ -51,7 +51,7 @@ export default function FilterByQuantity(props: rangeViewInputProps) {
       <div className="range-slider">
         <div>{minValue}</div>
         <Slider
-          getAriaLabel={() => 'Temperature range'}
+          getAriaLabel={() => 'Количество'}
           value={value}
           onChange={handleChange}
           onChangeCommitted={commitChange}

@@ -1,6 +1,12 @@
 import React from 'react';
+import { FavoriteItems, FavoriteItem } from '../types/common';
 
-export const AppContext = React.createContext({
-  favorites: [] as string[],
-  handleToggleFavorites: (value: string) => [''],
+interface IAppContext {
+  favorites: FavoriteItems;
+  handleToggleFavorites: (value: FavoriteItem) => FavoriteItems;
+}
+
+export const AppContext = React.createContext<IAppContext>({
+  favorites: [],
+  handleToggleFavorites: () => [],
 });

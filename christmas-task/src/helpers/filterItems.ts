@@ -18,7 +18,7 @@ export default function filterItems(
             item[key].toLowerCase().indexOf(String(el).toLowerCase()) !== -1
         );
       } else {
-        isItemInFilterScope = filterSettings[key].includes(item[key] as string);
+        isItemInFilterScope = filterSettings[key].includes(item[key]);
       }
 
       return !isFilterSet || isItemInFilterScope;

@@ -1,6 +1,7 @@
 import Select from 'react-select';
 import { FilterContext } from '../../../contexts/FilterContext';
 import { sortOptions as options } from '../../../config';
+import { SortSettings } from '../../../types/sort';
 
 export default function Sort() {
   interface stateObject {
@@ -21,7 +22,7 @@ export default function Sort() {
     },
   };
 
-  const getCurrentValue = (sortSettings: string) =>
+  const getCurrentValue = (sortSettings: SortSettings) =>
     options.find((el) => el.value === sortSettings);
 
   return (
@@ -35,8 +36,8 @@ export default function Sort() {
               styles={customStyles}
               onChange={handleSortChange}
               options={options}
-              placeholder="Select sort order"
-              value={getCurrentValue(sortSettings as string)}
+              placeholder="Выберите порядок сортировки"
+              value={getCurrentValue(sortSettings)}
             />
           );
         }}

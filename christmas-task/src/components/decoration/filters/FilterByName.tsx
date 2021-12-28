@@ -3,11 +3,9 @@ import './FilterByName.scss';
 
 export default function FilterByName(props: filterViewInputProps) {
   const { filterChangeHandler, filterState } = props;
-  let value;
+  let value = '';
   if (filterState) {
     [value] = Array.from(filterState.values()) as string[];
-  } else {
-    value = '';
   }
 
   return (
@@ -16,7 +14,7 @@ export default function FilterByName(props: filterViewInputProps) {
       <div className="searchWrapper">
         <input
           autoFocus
-          placeholder="Начните печатать..."
+          placeholder="Название игрушки..."
           type="text"
           value={value}
           onChange={(event) => filterChangeHandler(event.target.value)}

@@ -8,7 +8,7 @@ import {
   RangeChangeHandler,
 } from '../types/filters';
 import { LOCAL_STORAGE_KEYS } from '../types/common';
-import { sortOption } from '../types/sort';
+import { SortOption } from '../types/sort';
 import storage from '../helpers/storage';
 import Observer from '../helpers/Observer';
 import getItems from '../helpers/getItems';
@@ -48,24 +48,24 @@ export default function Decoration(): React.ReactElement {
   }, [filterSettings, rangeSettings, sortSettings]);
 
   const handleFilterChange: FilterChangeHandler = (key, value) => {
-    const newFilterSettings = {
+    const newFilterSettings: FilterSettings = {
       ...filterSettings,
       [key]: value,
-    } as FilterSettings;
+    };
     setFilterSettings(newFilterSettings);
     setItems(getItems(newFilterSettings, rangeSettings, sortSettings));
   };
 
   const handleRangeChange: RangeChangeHandler = (key, value) => {
-    const newRangeSettings = {
+    const newRangeSettings: FilterSettings = {
       ...rangeSettings,
       [key]: value,
-    } as FilterSettings;
+    };
     setRangeSettings(newRangeSettings);
     setItems(getItems(filterSettings, newRangeSettings, sortSettings));
   };
 
-  const handleSortChange = (option: sortOption) => {
+  const handleSortChange = (option: SortOption) => {
     if (option) {
       setSortSettings(option.value);
       setItems((currentItems) => [...sortItems(currentItems, option.value)]);

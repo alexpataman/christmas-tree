@@ -1,17 +1,34 @@
 import React from 'react';
-import { sortOption } from '../types/sort';
+import { SortOption, SortSettings } from '../types/sort';
 import { IDataItem } from '../types/common';
 import Observer from '../helpers/Observer';
-import { FilterOptionsSet } from '../types/filters';
+import {
+  FilterOptionsSet,
+  RangeOptionsSet,
+  RangeSettings,
+  FilterSettings,
+} from '../types/filters';
 
-export const FilterContext = React.createContext({
-  initialData: [] as IDataItem[],
+interface IFilterContext {
+  initialData: IDataItem[];
+  filterSettings: FilterSettings;
+  rangeSettings: RangeSettings;
+  sortSettings: SortSettings;
+  resetObserver: Observer | undefined;
+  handleFilterChange: (key: string, value: FilterOptionsSet) => void;
+  handleRangeChange: (key: string, value: RangeOptionsSet) => void;
+  handleSortChange: (option: SortOption) => void;
+  handleReset: () => void;
+}
+
+export const FilterContext = React.createContext<IFilterContext>({
+  initialData: [],
   filterSettings: {},
   rangeSettings: {},
-  sortSettings: {},
-  resetObserver: new Observer(),
-  handleFilterChange: (key: string, value: FilterOptionsSet) => {},
-  handleRangeChange: (key: string, value: number[]) => {},
-  handleSortChange: (option: sortOption) => {},
+  sortSettings: '',
+  resetObserver: undefined,
+  handleFilterChange: () => {},
+  handleRangeChange: () => {},
+  handleSortChange: () => {},
   handleReset: () => {},
 });

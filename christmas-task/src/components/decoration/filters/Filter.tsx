@@ -2,9 +2,9 @@ import { FilterContext } from '../../../contexts/FilterContext';
 import {
   FilterChangeHandler,
   filterInputProps,
-  FilterOptionsSet,
   FilterValue,
   FILTER_TYPES,
+  FilterSettings,
 } from '../../../types/filters';
 
 export default function Filter(props: filterInputProps) {
@@ -12,12 +12,10 @@ export default function Filter(props: filterInputProps) {
 
   const setFilterValue = (
     value: FilterValue,
-    filterSettings: {},
+    filterSettings: FilterSettings,
     handler: FilterChangeHandler
   ) => {
-    const currentState = filterSettings[
-      filterName as keyof typeof filterSettings
-    ] as FilterOptionsSet;
+    const currentState = filterSettings[filterName];
     let state = currentState || [];
 
     if (state.includes(value)) {
@@ -26,11 +24,10 @@ export default function Filter(props: filterInputProps) {
       if (filterType === FILTER_TYPES.SINGLE) {
         state.length = 0;
       }
-
       state.push(value);
     }
 
-    handler(filterName, state as FilterOptionsSet);
+    handler(filterName, state);
   };
 
   return (
@@ -38,9 +35,7 @@ export default function Filter(props: filterInputProps) {
       {({ filterSettings, handleFilterChange }) => (
         <FilterComponent
           key={filterName}
-          filterState={
-            filterSettings[filterName as keyof typeof filterSettings]
-          }
+          filterState={filterSettings[filterName]}
           filterChangeHandler={(value: FilterValue) =>
             setFilterValue(value, filterSettings, handleFilterChange)
           }

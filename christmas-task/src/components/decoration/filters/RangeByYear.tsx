@@ -11,7 +11,7 @@ export default function FilterByYear({
   resetObserver,
 }: rangeViewInputProps) {
   const initialValues = initialData.map((el) => {
-    return +el[filterName] as number;
+    return +el[filterName];
   });
   const minInitialValue = Math.min(...initialValues);
   const maxInitialValue = Math.max(...initialValues);
