@@ -68,3 +68,7 @@ $break-point: '1024px';
     }
   }
 }
+
+.is-dragging .tree-area {
+  z-index: 999 !important;
+}

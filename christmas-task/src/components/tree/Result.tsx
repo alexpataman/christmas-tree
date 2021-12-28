@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { IDataItem } from '../../types/common';
 import { DecorationItem, Position } from '../../pages/tree';
 import Garland from './Garland';
@@ -37,14 +37,17 @@ export default function Result(props: IResult) {
     setDecorationItem,
   } = props;
 
+  const resultMainContainerRef = useRef(document.createElement('div'));
+
   return (
-    <div className={`Result bg-${background}`}>
+    <div className={`Result bg-${background}`} ref={resultMainContainerRef}>
       {snowEnabled && <Snow />}
       <div className={`tree-container bg-${tree}`} ref={resultTreeRef}>
         <TreeArea tree={tree} setDecorationItem={setDecorationItem} />
         <TreeDecoration
           decoration={decoration}
           setDecorationItem={setDecorationItem}
+          resultMainContainerRef={resultMainContainerRef}
         />
         {garlandEnabled && <Garland type={garland} />}
       </div>

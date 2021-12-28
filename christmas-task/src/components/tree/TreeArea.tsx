@@ -21,7 +21,6 @@ export default function TreeArea({ tree, setDecorationItem }: ITreeAreaProps) {
         monitor.getItemType() === 'new' ? 'add' : 'update',
         getCoordinates(container.current, monitor.getSourceClientOffset())
       );
-      return { name: 'Dustbin1', el: 'test' };
     },
     collect: (monitor) => ({
       isOver: monitor.isOver(),
