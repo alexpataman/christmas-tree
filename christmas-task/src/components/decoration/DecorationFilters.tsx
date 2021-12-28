@@ -47,7 +47,7 @@ export default function DecorationFilters() {
         <DecorationFilterGroup>
           <Filter
             filterName="name"
-            filterType={FILTER_TYPES.MULTIPLE}
+            filterType={FILTER_TYPES.SINGLE}
             FilterComponent={FilterByName}
           />
           <Sort />
