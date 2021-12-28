@@ -42,9 +42,9 @@ export default function Decoration(): React.ReactElement {
   }, []);
 
   useEffect(() => {
-    storage.set('filterSettings', filterSettings);
-    storage.set('rangeSettings', rangeSettings);
-    storage.set('sortSettings', sortSettings);
+    storage.set(LOCAL_STORAGE_KEYS.FILTER_SETTINGS, filterSettings);
+    storage.set(LOCAL_STORAGE_KEYS.RANGE_SETTINGS, rangeSettings);
+    storage.set(LOCAL_STORAGE_KEYS.SORT_SETTINGS, sortSettings);
   }, [filterSettings, rangeSettings, sortSettings]);
 
   const handleFilterChange: FilterChangeHandler = (key, value) => {

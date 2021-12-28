@@ -46,6 +46,11 @@ export type filterViewInputProps = {
 
 export type filterInputProps = {
   filterName: string;
-  filterType: 'single' | 'multiple';
+  filterType: FILTER_TYPES;
   FilterComponent: React.FC<filterViewInputProps>;
 };
+
+export enum FILTER_TYPES {
+  MULTIPLE,
+  SINGLE,
+}

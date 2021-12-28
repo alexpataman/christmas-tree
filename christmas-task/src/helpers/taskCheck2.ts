@@ -1,4 +1,5 @@
-/* eslint-disable no-console */
+export {};
+
 console.log(
   `%cChristmas-task#2 - Игрушки`,
   'font-weight: bold; font-size: 18px'

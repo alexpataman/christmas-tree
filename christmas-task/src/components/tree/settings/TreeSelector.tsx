@@ -9,10 +9,7 @@ interface ITreeSelector {
 
 export default function TreeSelector(props: ITreeSelector) {
   const { state, setState } = props;
-
-  const clickHandler = (id: number) => {
-    setState(id);
-  };
+  const clickHandler = (id: number) => setState(id);
 
   return (
     <div className="widget TreeSelector">

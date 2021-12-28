@@ -4,6 +4,7 @@ import {
   filterInputProps,
   FilterOptionsSet,
   FilterValue,
+  FILTER_TYPES,
 } from '../../../types/filters';
 
 export default function Filter(props: filterInputProps) {
@@ -22,7 +23,7 @@ export default function Filter(props: filterInputProps) {
     if (state.includes(value)) {
       state = state.filter((el) => el !== value);
     } else {
-      if (filterType === 'single') {
+      if (filterType === FILTER_TYPES.SINGLE) {
         state.length = 0;
       }
 
@@ -33,20 +34,18 @@ export default function Filter(props: filterInputProps) {
   };
 
   return (
-    <>
-      <FilterContext.Consumer>
-        {({ filterSettings, handleFilterChange }) => (
-          <FilterComponent
-            key={filterName}
-            filterState={
-              filterSettings[filterName as keyof typeof filterSettings]
-            }
-            filterChangeHandler={(value: FilterValue) =>
-              setFilterValue(value, filterSettings, handleFilterChange)
-            }
-          />
-        )}
-      </FilterContext.Consumer>
-    </>
+    <FilterContext.Consumer>
+      {({ filterSettings, handleFilterChange }) => (
+        <FilterComponent
+          key={filterName}
+          filterState={
+            filterSettings[filterName as keyof typeof filterSettings]
+          }
+          filterChangeHandler={(value: FilterValue) =>
+            setFilterValue(value, filterSettings, handleFilterChange)
+          }
+        />
+      )}
+    </FilterContext.Consumer>
   );
 }

@@ -1,6 +1,6 @@
-import './Snow.scss';
-import { snow } from '../../config';
 import React from 'react';
+import { snow } from '../../config';
+import './Snow.scss';
 
 export default function Snow() {
   const container = React.useRef(null);

@@ -1,7 +1,7 @@
 import './DecorationFilterGroup.scss';
 
 type DecorationFilterGroupProps = {
-  title: string;
+  title?: string;
   children: JSX.Element | JSX.Element[];
 };
 

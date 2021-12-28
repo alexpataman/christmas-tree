@@ -1,7 +1,7 @@
-import { rangeViewInputProps } from '../../../types/filters';
+import { useState, SyntheticEvent } from 'react';
 import { Slider } from '@mui/material';
-import React, { SyntheticEvent } from 'react';
 import { ObserverItem } from '../../../helpers/Observer';
+import { rangeViewInputProps } from '../../../types/filters';
 
 export default function FilterByQuantity(props: rangeViewInputProps) {
   let {
@@ -21,7 +21,7 @@ export default function FilterByQuantity(props: rangeViewInputProps) {
 
   const [stateMinValue, stateMaxValue] = rangeState || [];
 
-  const [value, setValue] = React.useState([
+  const [value, setValue] = useState([
     stateMinValue || minInitialValue,
     stateMaxValue || maxInitialValue,
   ]);

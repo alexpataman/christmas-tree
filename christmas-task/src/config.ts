@@ -53,3 +53,25 @@ export const sortOptions = [
     label: 'По количеству, по убыванию',
   },
 ];
+
+export const colorOptions = [
+  { id: 'white', value: 'белый' },
+  { id: 'yellow', value: 'желтый' },
+  { id: 'red', value: 'красный' },
+  { id: 'blue', value: 'синий' },
+  { id: 'green', value: 'зелёный' },
+];
+
+export const shapeOptions = [
+  { id: 'ball', value: 'шар' },
+  { id: 'bell', value: 'колокольчик' },
+  { id: 'cone', value: 'шишка' },
+  { id: 'snowflake', value: 'снежинка' },
+  { id: 'toy', value: 'фигурка' },
+];
+
+export const sizeOptions = [
+  { id: 'large', value: 'большой' },
+  { id: 'medium', value: 'средний' },
+  { id: 'small', value: 'малый' },
+];

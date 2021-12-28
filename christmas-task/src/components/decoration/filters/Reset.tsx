@@ -6,9 +6,7 @@ export default function Reset() {
     <div className="Reset">
       <FilterContext.Consumer>
         {({ handleReset }) => (
-          <>
-            <button onClick={handleReset}>Сброс фильтров</button>
-          </>
+          <button onClick={handleReset}>Сброс фильтров</button>
         )}
       </FilterContext.Consumer>
     </div>

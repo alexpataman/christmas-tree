@@ -1,10 +1,10 @@
+import { useEffect } from 'react';
+import { useDrag } from 'react-dnd';
 import {
   DecorationItem,
   SetDecorationItem,
   SET_METHODS,
 } from '../../types/tree';
-import { useDrag } from 'react-dnd';
-import { useEffect } from 'react';
 
 interface ITreeDecorationProps {
   decoration: DecorationItem;
@@ -48,20 +48,18 @@ export default function TreeDecoration({
     return <div ref={drag} />;
   } else {
     return (
-      <>
-        <img
-          src={imgUrl}
-          alt={decoration.data.name}
-          style={{
-            left: decoration.position?.x,
-            top: decoration.position?.y,
-            opacity: isDragging ? 0.5 : 1,
-            cursor: 'move',
-          }}
-          className="decoration-item"
-          ref={drag}
-        />
-      </>
+      <img
+        src={imgUrl}
+        alt={decoration.data.name}
+        style={{
+          left: decoration.position?.x,
+          top: decoration.position?.y,
+          opacity: isDragging ? 0.5 : 1,
+          cursor: 'move',
+        }}
+        className="decoration-item"
+        ref={drag}
+      />
     );
   }
 }

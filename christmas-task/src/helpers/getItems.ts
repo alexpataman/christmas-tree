@@ -9,6 +9,5 @@ export default function getItems(
 ) {
   const filteredItems = filterItems(data, filterSettings, rangeSettings);
   const sortedItems = sortItems(filteredItems, sortSettings);
-
   return sortedItems;
 }

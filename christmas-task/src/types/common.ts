@@ -1,5 +1,11 @@
 export type voidCallback = () => void;
 
+export type ObjectNumbers = {
+  [key: string]: number;
+};
+export type FavoriteItem = string;
+
+export type FavoriteItems = FavoriteItem[];
 interface IDataBase {
   [key: string]: string | boolean;
 }

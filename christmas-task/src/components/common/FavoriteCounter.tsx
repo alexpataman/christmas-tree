@@ -4,8 +4,7 @@ interface FavoriteCounterProps {
   favorites: string[];
 }
 
-export default function FavoriteCounter(props: FavoriteCounterProps) {
-  let { favorites } = props;
+export default function FavoriteCounter({ favorites }: FavoriteCounterProps) {
   let navigate = useNavigate();
 
   return (

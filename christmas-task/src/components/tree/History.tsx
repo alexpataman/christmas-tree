@@ -1,4 +1,5 @@
 import storage from '../../helpers/storage';
+import { LOCAL_STORAGE_KEYS } from '../../types/common';
 import { Preset } from '../../types/tree';
 import './History.scss';
 
@@ -11,7 +12,7 @@ interface IHistoryProps {
 }
 
 export default function History({ presetHandlers }: IHistoryProps) {
-  const presets: Preset[] = storage.get('presets');
+  const presets: Preset[] = storage.get(LOCAL_STORAGE_KEYS.PRESETS);
 
   return (
     <div className="widget History">

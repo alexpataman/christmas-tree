@@ -1,13 +1,6 @@
 import { filterViewInputProps } from '../../../types/filters';
+import { shapeOptions as options } from '../../../config';
 import './FilterByShape.scss';
-
-const options = [
-  { id: 'ball', value: 'шар' },
-  { id: 'bell', value: 'колокольчик' },
-  { id: 'cone', value: 'шишка' },
-  { id: 'snowflake', value: 'снежинка' },
-  { id: 'toy', value: 'фигурка' },
-];
 
 export default function FilterByShape(props: filterViewInputProps) {
   const { filterChangeHandler, filterState } = props;
@@ -20,8 +13,7 @@ export default function FilterByShape(props: filterViewInputProps) {
           <button
             key={option.id}
             onClick={() => filterChangeHandler(option.value)}
-            className={`
-            button
+            className={`            
             type-${option.id}
             ${
               filterState && filterState.includes(option.value) ? 'active' : ''

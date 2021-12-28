@@ -1,11 +1,6 @@
 import { filterViewInputProps } from '../../../types/filters';
+import { sizeOptions as options } from '../../../config';
 import './FilterBySize.scss';
-
-const options = [
-  { id: 'large', value: 'большой' },
-  { id: 'medium', value: 'средний' },
-  { id: 'small', value: 'малый' },
-];
 
 export default function FilterBySize(props: filterViewInputProps) {
   const { filterChangeHandler, filterState } = props;
