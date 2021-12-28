@@ -1,4 +1,4 @@
-import Storage from '../../helpers/Storage';
+import storage from '../../helpers/storage';
 import { Preset } from '../../pages/tree';
 import './History.scss';
 
@@ -11,7 +11,6 @@ interface IHistoryProps {
 }
 
 export default function History({ presetHandlers }: IHistoryProps) {
-  const storage = new Storage();
   const presets: Preset[] = storage.get('presets');
 
   return (

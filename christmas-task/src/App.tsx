@@ -1,24 +1,20 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
+import storage from './helpers/storage';
+import { LOCAL_STORAGE_KEYS } from './types/common';
+import Modal, { IModal } from './components/common/Modal';
+import { AppContext } from './contexts/AppContext';
 import Header from './components/common/Header';
 import Footer from './components/common/Footer';
-import './App.scss';
-import { AppContext } from './contexts/AppContext';
-import Storage from './helpers/Storage';
 import { maxFavorites } from './config';
-import Modal from './components/common/Modal';
-
-export interface IModal {
-  title?: string;
-  content?: string;
-}
+import './App.scss';
 
 function App() {
-  const storage = new Storage();
-  const storedFavorites: string[] = storage.get('favorites') || [];
-  const [favorites, setFavorites] = React.useState(storedFavorites);
+  const [favorites, setFavorites] = React.useState<string[]>(
+    storage.get(LOCAL_STORAGE_KEYS.FAVORITES) || []
+  );
   const [modalData, setModalData] = React.useState<IModal>({});
-  const [modalOpen, setModalOpen] = React.useState(false);
+  const [modalOpen, setModalOpen] = React.useState<boolean>(false);
 
   const handleToggleFavorites = (value: string) => {
     let newFavorites = [...favorites];
@@ -35,7 +31,7 @@ function App() {
         newFavorites.push(value);
       }
     }
-    storage.set('favorites', newFavorites);
+    storage.set(LOCAL_STORAGE_KEYS.FAVORITES, newFavorites);
     setFavorites(newFavorites);
     return newFavorites;
   };

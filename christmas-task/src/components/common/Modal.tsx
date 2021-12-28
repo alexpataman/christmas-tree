@@ -6,6 +6,10 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import Button from '@mui/material/Button';
 
+export interface IModal {
+  title?: string;
+  content?: string;
+}
 export interface SimpleDialogProps {
   title: string | undefined;
   content: string | undefined;

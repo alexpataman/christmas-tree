@@ -1,11 +1,12 @@
-import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import * as config from '../config';
 import './home.scss';
 
 export default function Home() {
   useEffect(() => {
-    document.title = `Главная`;
-  });
+    document.title = config.pageTitles.home;
+  }, []);
 
   return (
     <div className="Home">

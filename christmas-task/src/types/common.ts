@@ -14,3 +14,10 @@ export interface IDataItem extends IDataBase {
   size: string;
   favorite: boolean;
 }
+
+export enum LOCAL_STORAGE_KEYS {
+  FAVORITES = 'favorites',
+  FILTER_SETTINGS = 'filterSettings',
+  RANGE_SETTINGS = 'rangeSettings',
+  SORT_SETTINGS = 'sortSettings',
+}

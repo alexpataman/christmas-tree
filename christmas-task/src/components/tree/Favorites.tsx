@@ -1,4 +1,4 @@
-import { data } from '../../data/data_ru';
+import { data } from '../../data/data';
 import FavoritesItem from './FavoritesItem';
 import { maxFavorites } from '../../config';
 import { DecorationItem } from '../../pages/tree';

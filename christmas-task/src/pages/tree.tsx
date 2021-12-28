@@ -12,7 +12,7 @@ import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import { IDataItem } from '../types/common';
 import * as config from '../config';
-import Storage from '../helpers/Storage';
+import storage from '../helpers/storage';
 import ResetLocalStorage from '../components/tree/ResetLocalStorage';
 import html2canvas from 'html2canvas';
 
@@ -46,10 +46,6 @@ export type SetDecorationItem = (
 ) => void;
 
 export default function Tree() {
-  const storage = useMemo(() => {
-    return new Storage();
-  }, []);
-
   const [pageInteracted, setPageInteracted] = useState(false);
   const firstInteractionAction = () => {
     setPageInteracted(true);
@@ -146,7 +142,6 @@ export default function Tree() {
     storage.set('garlandEnabled', garlandEnabled);
     storage.set('decoration', decoration);
   }, [
-    storage,
     background,
     garland,
     snowEnabled,

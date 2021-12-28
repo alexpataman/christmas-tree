@@ -49,7 +49,3 @@ export type filterInputProps = {
   filterType: 'single' | 'multiple';
   FilterComponent: React.FC<filterViewInputProps>;
 };
-
-export interface ISetStateHandler<Type> {
-  (arg: Type): Type;
-}

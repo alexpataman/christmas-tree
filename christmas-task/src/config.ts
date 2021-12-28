@@ -19,3 +19,10 @@ export const snow = {
   intensity: 200,
   duration: 10,
 };
+export const defaultDecorationSortOrder = 'name_asc';
+
+export const pageTitles = {
+  home: 'Наряди елку!',
+  decoration: 'Игрушки',
+  tree: 'Ёлка',
+};

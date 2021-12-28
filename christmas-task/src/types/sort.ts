@@ -1,9 +1,3 @@
-// export type sortOptions = {
-//   label: string;
-//   value: {
-//     field: string;
-//     direction: string;
-//   };
-// };
+import { SingleValue } from 'react-select';
 
-export type sortOptions = unknown;
+export type sortOption = SingleValue<{ value: string; label: string }>;
