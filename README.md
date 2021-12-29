@@ -1,6 +1,13 @@
-# Christmas Task [RS School]
+# Christmas Task ([RS School](https://rs.school/))
+
+[Demo](https://alexpataman.github.io/christmas-tree/)
 
 [Task description](https://github.com/rolling-scopes-school/tasks/blob/master/tasks/christmas-task/christmas-task.md)
+
+![image](https://user-images.githubusercontent.com/939507/147672513-dbbf517c-f0d2-4b51-8ca1-e2c9596c7170.png)
+
+
+###
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
