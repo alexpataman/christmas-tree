@@ -6,6 +6,7 @@ import {
   FilterSettings,
   FilterChangeHandler,
   RangeChangeHandler,
+  RangeSettings,
 } from '../types/filters';
 import { LOCAL_STORAGE_KEYS } from '../types/common';
 import { SortOption } from '../types/sort';
@@ -57,7 +58,7 @@ export default function Decoration(): React.ReactElement {
   };
 
   const handleRangeChange: RangeChangeHandler = (key, value) => {
-    const newRangeSettings: FilterSettings = {
+    const newRangeSettings: RangeSettings = {
       ...rangeSettings,
       [key]: value,
     };

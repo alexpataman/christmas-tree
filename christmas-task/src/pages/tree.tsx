@@ -195,11 +195,11 @@ export default function Tree() {
         </section>
         <aside>
           <AppContext.Consumer>
-            {({ favorites, handleToggleFavorites }) => (
+            {({ favorites, toggleFavorites }) => (
               <Favorites
                 favorites={favorites}
                 decoration={decoration}
-                toggleFavorites={(num) => handleToggleFavorites(num)}
+                toggleFavorites={(num) => toggleFavorites(num)}
               />
             )}
           </AppContext.Consumer>

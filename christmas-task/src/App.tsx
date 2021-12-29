@@ -1,7 +1,7 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import storage from './helpers/storage';
-import { LOCAL_STORAGE_KEYS } from './types/common';
+import { LOCAL_STORAGE_KEYS, FavoriteItems } from './types/common';
 import Modal, { IModal } from './components/common/Modal';
 import { AppContext } from './contexts/AppContext';
 import Header from './components/common/Header';
@@ -10,13 +10,13 @@ import { maxFavorites } from './config';
 import './App.scss';
 
 function App() {
-  const [favorites, setFavorites] = React.useState<string[]>(
+  const [favorites, setFavorites] = React.useState<FavoriteItems>(
     storage.get(LOCAL_STORAGE_KEYS.FAVORITES) || []
   );
   const [modalData, setModalData] = React.useState<IModal>({});
   const [modalOpen, setModalOpen] = React.useState<boolean>(false);
 
-  const handleToggleFavorites = (value: string) => {
+  const toggleFavorites = (value: string) => {
     let newFavorites = [...favorites];
     if (favorites.includes(value)) {
       newFavorites = favorites.filter((el) => el !== value);
@@ -38,7 +38,7 @@ function App() {
 
   const contextData = {
     favorites,
-    handleToggleFavorites,
+    toggleFavorites,
     setModalData,
     setModalOpen,
   };

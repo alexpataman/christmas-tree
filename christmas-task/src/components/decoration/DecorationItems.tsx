@@ -11,12 +11,12 @@ export default function DecorationListing(props: DecorationListingProps) {
   if (props.items.length > 0) {
     return (
       <AppContext.Consumer>
-        {({ favorites, handleToggleFavorites }) => (
+        {({ favorites, toggleFavorites }) => (
           <div className="DecorationListing">
             {props.items.map((item) => (
               <DecorationItem
                 item={item}
-                onClick={() => handleToggleFavorites(item.num)}
+                onClick={() => toggleFavorites(item.num)}
                 key={item.num}
                 isFavorite={favorites.includes(item.num)}
               />
