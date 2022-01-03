@@ -42,7 +42,7 @@ export const FilterByYear = ({
   resetObserver!.subscribe(new ObserverItem(filterName, resetState));
 
   return (
-    <div>
+    <>
       <h5>Год: </h5>
       <div className="range-slider">
         <div>{minValue}</div>
@@ -57,6 +57,6 @@ export const FilterByYear = ({
         />
         <div>{maxValue}</div>
       </div>
-    </div>
+    </>
   );
 };
