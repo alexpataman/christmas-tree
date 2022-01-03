@@ -1,7 +1,7 @@
 import { filterViewInputProps } from '../../../types/filters';
 import './FilterByName.scss';
 
-export default function FilterByName(props: filterViewInputProps) {
+export const FilterByName = (props: filterViewInputProps) => {
   const { filterChangeHandler, filterState } = props;
   let value = '';
   if (filterState) {
@@ -26,4 +26,4 @@ export default function FilterByName(props: filterViewInputProps) {
       </div>
     </div>
   );
-}
+};

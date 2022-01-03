@@ -13,7 +13,7 @@ interface ITreeAreaProps {
   setDecorationItem: SetDecorationItem;
 }
 
-export default function TreeArea({ tree, setDecorationItem }: ITreeAreaProps) {
+export const TreeArea = ({ tree, setDecorationItem }: ITreeAreaProps) => {
   const container = useRef(null);
 
   const [, drop] = useDrop(() => ({
@@ -55,7 +55,7 @@ export default function TreeArea({ tree, setDecorationItem }: ITreeAreaProps) {
       />
     </div>
   );
-}
+};
 
 function getCoordinates(
   elem: HTMLElement | null,

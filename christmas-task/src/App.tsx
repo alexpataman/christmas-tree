@@ -1,37 +1,37 @@
-import React from 'react';
+import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
-import storage from './helpers/storage';
-import { LOCAL_STORAGE_KEYS, FavoriteItems } from './types/common';
-import Modal, { IModal } from './components/common/Modal';
+import { storage } from './helpers/storage';
 import { AppContext } from './contexts/AppContext';
-import Header from './components/common/Header';
-import Footer from './components/common/Footer';
-import { maxFavorites } from './config';
+import { Header } from './components/common/Header';
+import { Footer } from './components/common/Footer';
+import { Modal, IModal } from './components/common/Modal';
+import * as types from './types/common';
+import * as config from './config';
 import './App.scss';
 
-function App() {
-  const [favorites, setFavorites] = React.useState<FavoriteItems>(
-    storage.get(LOCAL_STORAGE_KEYS.FAVORITES) || []
+export const App = () => {
+  const [favorites, setFavorites] = useState<types.FavoriteItems>(
+    storage.get(types.LOCAL_STORAGE_KEYS.FAVORITES) || []
   );
-  const [modalData, setModalData] = React.useState<IModal>({});
-  const [modalOpen, setModalOpen] = React.useState<boolean>(false);
+  const [modalData, setModalData] = useState<IModal>({});
+  const [modalOpen, setModalOpen] = useState<boolean>(false);
 
   const toggleFavorites = (value: string) => {
     let newFavorites = [...favorites];
     if (favorites.includes(value)) {
       newFavorites = favorites.filter((el) => el !== value);
     } else {
-      if (newFavorites.length >= maxFavorites) {
+      if (newFavorites.length >= config.maxFavorites) {
         setModalData({
           title: `Извините, все слоты заполнены`,
-          content: `В избранном может быть не более ${maxFavorites} игрушек. Удалите что-то из избранного, чтобы добавить что-то новое.`,
+          content: `В избранном может быть не более ${config.maxFavorites} игрушек. Удалите что-то из избранного, чтобы добавить что-то новое.`,
         });
         setModalOpen(true);
       } else {
         newFavorites.push(value);
       }
     }
-    storage.set(LOCAL_STORAGE_KEYS.FAVORITES, newFavorites);
+    storage.set(types.LOCAL_STORAGE_KEYS.FAVORITES, newFavorites);
     setFavorites(newFavorites);
     return newFavorites;
   };
@@ -68,6 +68,6 @@ function App() {
       )}
     </div>
   );
-}
+};
 
 export default App;

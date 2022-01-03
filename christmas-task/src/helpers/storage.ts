@@ -36,6 +36,4 @@ class Storage {
   }
 }
 
-const storage = new Storage();
-
-export default storage;
+export const storage = new Storage();

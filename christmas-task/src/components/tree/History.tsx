@@ -1,6 +1,6 @@
-import storage from '../../helpers/storage';
-import { LOCAL_STORAGE_KEYS } from '../../types/common';
+import { storage } from '../../helpers/storage';
 import { Preset } from '../../types/tree';
+import { LOCAL_STORAGE_KEYS } from '../../types/common';
 import './History.scss';
 
 interface IHistoryProps {
@@ -11,7 +11,7 @@ interface IHistoryProps {
   };
 }
 
-export default function History({ presetHandlers }: IHistoryProps) {
+export const History = ({ presetHandlers }: IHistoryProps) => {
   const presets: Preset[] = storage.get(LOCAL_STORAGE_KEYS.PRESETS);
 
   return (
@@ -43,4 +43,4 @@ export default function History({ presetHandlers }: IHistoryProps) {
       <small>*Сохраняются только уникальные наборы настроек</small>
     </div>
   );
-}
+};

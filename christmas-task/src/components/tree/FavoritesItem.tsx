@@ -9,12 +9,12 @@ export interface IFavoritesItemProps {
   toggleFavorites: (num: string) => FavoriteItems;
 }
 
-export default function FavoritesItem({
+export const FavoritesItem = ({
   item,
   quantity,
   isFavorite,
   toggleFavorites,
-}: IFavoritesItemProps) {
+}: IFavoritesItemProps) => {
   const [{ isDragging }, drag, preview] = useDrag(() => ({
     type: ITEM_TYPES.NEW,
     item: { id: null, data: item },
@@ -55,4 +55,4 @@ export default function FavoritesItem({
       )}
     </li>
   );
-}
+};

@@ -1,6 +1,6 @@
-import storage from '../../helpers/storage';
+import { storage } from '../../helpers/storage';
 
-export default function ResetLocalStorage() {
+export const ResetLocalStorage = () => {
   const resetLocalStorage = () => {
     storage.clear();
     window.location.reload();
@@ -13,4 +13,4 @@ export default function ResetLocalStorage() {
       </button>
     </>
   );
-}
+};

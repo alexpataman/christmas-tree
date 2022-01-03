@@ -1,6 +1,6 @@
 import { IDataItem } from '../types/common';
 
-export default function sortItems(items: IDataItem[], sortSettings: string) {
+export const sortItems = (items: IDataItem[], sortSettings: string) => {
   const [field, direction] = sortSettings.split('_');
   return items.sort((a, b) => {
     let compare;
@@ -14,4 +14,4 @@ export default function sortItems(items: IDataItem[], sortSettings: string) {
     }
     return compare ? -1 : 1;
   });
-}
+};

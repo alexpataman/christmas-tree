@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 import { AppContext } from '../../contexts/AppContext';
-import FavoriteCounter from './FavoriteCounter';
+import { FavoriteCounter } from './FavoriteCounter';
 import './Header.scss';
 
-export default function Header() {
+export const Header = () => {
   return (
     <header className="Header">
       <div className="container">
@@ -21,4 +21,4 @@ export default function Header() {
       </div>
     </header>
   );
-}
+};

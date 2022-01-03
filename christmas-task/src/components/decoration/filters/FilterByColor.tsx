@@ -2,7 +2,7 @@ import { filterViewInputProps } from '../../../types/filters';
 import { colorOptions as options } from '../../../config';
 import './FilterByColor.scss';
 
-export default function FilterByColor(props: filterViewInputProps) {
+export const FilterByColor = (props: filterViewInputProps) => {
   const { filterChangeHandler, filterState } = props;
 
   return (
@@ -25,4 +25,4 @@ export default function FilterByColor(props: filterViewInputProps) {
       </ul>
     </div>
   );
-}
+};

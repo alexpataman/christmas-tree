@@ -1,10 +1,10 @@
 import { DecorationItem, SET_METHODS } from '../types/tree';
 
-export default function updateItems(
+export const updateItems = (
   newItem: DecorationItem,
   method: SET_METHODS,
   items: DecorationItem[]
-) {
+) => {
   switch (method) {
     case SET_METHODS.UPDATE:
       return [
@@ -22,4 +22,4 @@ export default function updateItems(
       newItem.id = new Date().getTime();
       return [...items, newItem];
   }
-}
+};

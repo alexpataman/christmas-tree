@@ -7,7 +7,7 @@ import {
   FilterSettings,
 } from '../../../types/filters';
 
-export default function Filter(props: filterInputProps) {
+export const Filter = (props: filterInputProps) => {
   const { filterName, filterType, FilterComponent } = props;
 
   const setFilterValue = (
@@ -43,4 +43,4 @@ export default function Filter(props: filterInputProps) {
       )}
     </FilterContext.Consumer>
   );
-}
+};

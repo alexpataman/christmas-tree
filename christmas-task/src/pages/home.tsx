@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import * as config from '../config';
 import './home.scss';
 
-export default function Home() {
+export const Home = () => {
   useEffect(() => {
     document.title = config.pageTitles.home;
   }, []);
@@ -19,4 +19,4 @@ export default function Home() {
       </Link>
     </div>
   );
-}
+};

@@ -1,11 +1,11 @@
 import { MutableRefObject, useRef } from 'react';
 import { DecorationItem } from '../../types/tree';
 import { SetDecorationItem } from '../../types/tree';
-import Garland from './Garland';
-import Snow from './Snow';
-import TreeArea from './TreeArea';
-import TreeDecoration from './TreeDecorations';
-import RemoveArea from './RemoveArea';
+import { Garland } from './Garland';
+import { Snow } from './Snow';
+import { TreeArea } from './TreeArea';
+import { TreeDecorations } from './TreeDecorations';
+import { RemoveArea } from './RemoveArea';
 import './Result.scss';
 
 interface IResult {
@@ -19,7 +19,7 @@ interface IResult {
   setDecorationItem: SetDecorationItem;
 }
 
-export default function Result(props: IResult) {
+export const Result = (props: IResult) => {
   const {
     tree,
     background,
@@ -38,7 +38,7 @@ export default function Result(props: IResult) {
       {snowEnabled && <Snow />}
       <div className={`tree-container bg-${tree}`} ref={resultTreeRef}>
         <TreeArea tree={tree} setDecorationItem={setDecorationItem} />
-        <TreeDecoration
+        <TreeDecorations
           decoration={decoration}
           setDecorationItem={setDecorationItem}
           resultMainContainerRef={resultMainContainerRef}
@@ -48,4 +48,4 @@ export default function Result(props: IResult) {
       <RemoveArea setDecorationItem={setDecorationItem} />
     </div>
   );
-}
+};

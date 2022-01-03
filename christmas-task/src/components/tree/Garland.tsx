@@ -4,7 +4,7 @@ interface IGarland {
   type: string;
 }
 
-export default function Garland(props: IGarland) {
+export const Garland = (props: IGarland) => {
   const { type } = props;
   let garland = [];
 
@@ -23,4 +23,4 @@ export default function Garland(props: IGarland) {
   }
 
   return <div className={`Garland ${type}`}>{garland}</div>;
-}
+};

@@ -6,7 +6,7 @@ interface ITreeAreaProps {
   setDecorationItem: SetDecorationItem;
 }
 
-export default function RemoveArea({ setDecorationItem }: ITreeAreaProps) {
+export const RemoveArea = ({ setDecorationItem }: ITreeAreaProps) => {
   const [, drop] = useDrop(() => ({
     accept: [ITEM_TYPES.EXISTING],
     drop: (item: DecorationItem) => {
@@ -15,4 +15,4 @@ export default function RemoveArea({ setDecorationItem }: ITreeAreaProps) {
   }));
 
   return <div ref={drop} className="drop-decoration"></div>;
-}
+};

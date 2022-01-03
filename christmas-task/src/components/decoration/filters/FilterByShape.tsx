@@ -2,7 +2,7 @@ import { filterViewInputProps } from '../../../types/filters';
 import { shapeOptions as options } from '../../../config';
 import './FilterByShape.scss';
 
-export default function FilterByShape(props: filterViewInputProps) {
+export const FilterByShape = (props: filterViewInputProps) => {
   const { filterChangeHandler, filterState } = props;
 
   return (
@@ -25,4 +25,4 @@ export default function FilterByShape(props: filterViewInputProps) {
       </ul>
     </div>
   );
-}
+};

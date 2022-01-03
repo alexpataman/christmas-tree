@@ -3,7 +3,7 @@ import { Slider } from '@mui/material';
 import { ObserverItem } from '../../../helpers/Observer';
 import { rangeViewInputProps } from '../../../types/filters';
 
-export default function FilterByQuantity(props: rangeViewInputProps) {
+export const FilterByQuantity = (props: rangeViewInputProps) => {
   let {
     filterName,
     rangeChangeHandler,
@@ -63,4 +63,4 @@ export default function FilterByQuantity(props: rangeViewInputProps) {
       </div>
     </div>
   );
-}
+};

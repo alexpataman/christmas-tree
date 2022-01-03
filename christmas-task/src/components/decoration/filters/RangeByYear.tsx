@@ -1,15 +1,15 @@
-import React, { SyntheticEvent } from 'react';
+import { SyntheticEvent, useState } from 'react';
 import { Slider } from '@mui/material';
 import { rangeViewInputProps } from '../../../types/filters';
 import { ObserverItem } from '../../../helpers/Observer';
 
-export default function FilterByYear({
+export const FilterByYear = ({
   filterName,
   rangeChangeHandler,
   rangeState,
   initialData,
   resetObserver,
-}: rangeViewInputProps) {
+}: rangeViewInputProps) => {
   const initialValues = initialData.map((el) => {
     return +el[filterName];
   });
@@ -18,7 +18,7 @@ export default function FilterByYear({
 
   const [stateMinValue, stateMaxValue] = rangeState || [];
 
-  const [value, setValue] = React.useState([
+  const [value, setValue] = useState([
     stateMinValue || minInitialValue,
     stateMaxValue || maxInitialValue,
   ]);
@@ -59,4 +59,4 @@ export default function FilterByYear({
       </div>
     </div>
   );
-}
+};

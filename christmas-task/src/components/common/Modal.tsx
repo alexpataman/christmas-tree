@@ -1,22 +1,24 @@
-import Dialog from '@mui/material/Dialog';
-import DialogTitle from '@mui/material/DialogTitle';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import Button from '@mui/material/Button';
+import {
+  Dialog,
+  DialogTitle,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  Button,
+} from '@mui/material';
 
 export interface IModal {
   title?: string;
   content?: string;
 }
-export interface SimpleDialogProps {
+interface SimpleDialogProps {
   title: string | undefined;
   content: string | undefined;
   open: boolean;
   onClose: () => void;
 }
 
-export default function modal(props: SimpleDialogProps) {
+export const Modal = (props: SimpleDialogProps) => {
   const { onClose, open, title, content } = props;
 
   const handleClose = () => {
@@ -38,4 +40,4 @@ export default function modal(props: SimpleDialogProps) {
       </DialogActions>
     </Dialog>
   );
-}
+};

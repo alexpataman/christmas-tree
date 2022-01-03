@@ -1,17 +1,17 @@
-import React from 'react';
+import { useRef, useEffect } from 'react';
 import { snow } from '../../config';
 import './Snow.scss';
 
-export default function Snow() {
-  const container = React.useRef(null);
+export const Snow = () => {
+  const container = useRef(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const interval = setInterval(() => createSnowFlake(container.current), 200);
     return () => clearInterval(interval);
   });
 
   return <div className="Snow" ref={container}></div>;
-}
+};
 
 function createSnowFlake(container: HTMLElement | null) {
   if (!container) {

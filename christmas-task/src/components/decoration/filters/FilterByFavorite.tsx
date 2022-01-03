@@ -1,7 +1,7 @@
 import { filterViewInputProps } from '../../../types/filters';
 import './FilterByFavorite.scss';
 
-export default function FilterByFavorite(props: filterViewInputProps) {
+export const FilterByFavorite = (props: filterViewInputProps) => {
   const { filterChangeHandler, filterState } = props;
   const state = !!filterState && filterState.includes(true);
 
@@ -20,4 +20,4 @@ export default function FilterByFavorite(props: filterViewInputProps) {
       </div>
     </div>
   );
-}
+};

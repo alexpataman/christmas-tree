@@ -1,24 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import { ReactElement, useState, useEffect } from 'react';
+import { FilterContext } from '../contexts/FilterContext';
+import { storage } from '../helpers/storage';
+import { Observer } from '../helpers/Observer';
+import { getItems } from '../helpers/getItems';
+import { sortItems } from '../helpers/sortItems';
+import { DecorationFilters } from '../components/decoration/DecorationFilters';
+import { DecorationItems } from '../components/decoration/DecorationItems';
 import { data } from '../data/data';
 import * as config from '../config';
-import { FilterContext } from '../contexts/FilterContext';
+import { LOCAL_STORAGE_KEYS } from '../types/common';
+import { SortOption } from '../types/sort';
 import {
   FilterSettings,
   FilterChangeHandler,
   RangeChangeHandler,
   RangeSettings,
 } from '../types/filters';
-import { LOCAL_STORAGE_KEYS } from '../types/common';
-import { SortOption } from '../types/sort';
-import storage from '../helpers/storage';
-import Observer from '../helpers/Observer';
-import getItems from '../helpers/getItems';
-import sortItems from '../helpers/sortItems';
-import DecorationFilters from '../components/decoration/DecorationFilters';
-import DecorationItems from '../components/decoration/DecorationItems';
 import './decoration.scss';
 
-export default function Decoration(): React.ReactElement {
+export const Decoration = () => {
   const [filterSettings, setFilterSettings] = useState(
     storage.get(LOCAL_STORAGE_KEYS.FILTER_SETTINGS) || {}
   );
@@ -100,4 +100,4 @@ export default function Decoration(): React.ReactElement {
       </FilterContext.Provider>
     </div>
   );
-}
+};

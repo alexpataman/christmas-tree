@@ -2,7 +2,7 @@ import { filterViewInputProps } from '../../../types/filters';
 import { sizeOptions as options } from '../../../config';
 import './FilterBySize.scss';
 
-export default function FilterBySize(props: filterViewInputProps) {
+export const FilterBySize = (props: filterViewInputProps) => {
   const { filterChangeHandler, filterState } = props;
 
   return (
@@ -25,4 +25,4 @@ export default function FilterBySize(props: filterViewInputProps) {
       </ul>
     </div>
   );
-}
+};

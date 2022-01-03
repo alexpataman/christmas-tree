@@ -3,7 +3,7 @@ import { FilterContext } from '../../../contexts/FilterContext';
 import { sortOptions as options } from '../../../config';
 import { SortSettings } from '../../../types/sort';
 
-export default function Sort() {
+export const Sort = () => {
   interface stateObject {
     isSelected?: boolean;
     isDisabled?: boolean;
@@ -44,4 +44,4 @@ export default function Sort() {
       </FilterContext.Consumer>
     </div>
   );
-}
+};

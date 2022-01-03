@@ -1,11 +1,11 @@
 import { FilterSettings, RangeSettings } from '../types/filters';
 import { IDataItem } from '../types/common';
 
-export default function filterItems(
+export const filterItems = (
   items: IDataItem[],
   filterSettings: FilterSettings,
   rangeSettings: RangeSettings
-) {
+) => {
   return items.filter((item) => {
     const meetFilerCondition = Object.keys(filterSettings).every((key) => {
       const isFilterSet = filterSettings[key].length > 0;
@@ -35,4 +35,4 @@ export default function filterItems(
 
     return meetFilerCondition && meetRangeCondition;
   });
-}
+};

@@ -16,11 +16,11 @@ interface DropResult {
   name: string;
 }
 
-export default function TreeDecoration({
+export const TreeDecoration = ({
   decoration,
   setDecorationItem,
   resultMainContainerRef,
-}: ITreeDecorationProps) {
+}: ITreeDecorationProps) => {
   const [{ isDragging }, drag] = useDrag(() => ({
     type: 'existing',
     item: { id: decoration.id, data: decoration.data },
@@ -62,4 +62,4 @@ export default function TreeDecoration({
       />
     );
   }
-}
+};

@@ -7,7 +7,7 @@ interface ITrigger {
   setState: Dispatch<SetStateAction<boolean>>;
 }
 
-export default function Trigger(props: ITrigger) {
+export const Trigger = (props: ITrigger) => {
   const { name, state, setState } = props;
   const clickHandler = (value: boolean) => setState(value);
 
@@ -17,4 +17,4 @@ export default function Trigger(props: ITrigger) {
       onClick={() => clickHandler(!state)}
     ></span>
   );
-}
+};

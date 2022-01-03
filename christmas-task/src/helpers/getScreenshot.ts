@@ -1,10 +1,10 @@
 import html2canvas from 'html2canvas';
 
-export default async function getScreenshot(
+export const getScreenshot = async (
   el: HTMLElement,
   width: number,
   height: number
-) {
+) => {
   const canvasOptions = {
     backgroundColor: null,
     logging: false,
@@ -28,4 +28,4 @@ export default async function getScreenshot(
     );
     return extra_canvas.toDataURL();
   });
-}
+};

@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from 'react';
-import Trigger from './Trigger';
+import { Trigger } from './Trigger';
 import './TriggerSettings.scss';
 
 interface IOtherSettings {
@@ -9,7 +9,7 @@ interface IOtherSettings {
   setAudioState: Dispatch<SetStateAction<boolean>>;
 }
 
-export default function OtherSettings(props: IOtherSettings) {
+export const OtherSettings = (props: IOtherSettings) => {
   const { audioEnabled, snowEnabled, setAudioState, setSnowState } = props;
 
   return (
@@ -20,4 +20,4 @@ export default function OtherSettings(props: IOtherSettings) {
       </div>
     </div>
   );
-}
+};

@@ -1,7 +1,7 @@
 import { FilterContext } from '../../../contexts/FilterContext';
 import './Reset.scss';
 
-export default function Reset() {
+export const Reset = () => {
   return (
     <div className="Reset">
       <FilterContext.Consumer>
@@ -11,4 +11,4 @@ export default function Reset() {
       </FilterContext.Consumer>
     </div>
   );
-}
+};

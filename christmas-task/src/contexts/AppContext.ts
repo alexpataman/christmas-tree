@@ -1,4 +1,4 @@
-import React from 'react';
+import { createContext } from 'react';
 import { FavoriteItems, FavoriteItem } from '../types/common';
 
 interface IAppContext {
@@ -6,7 +6,7 @@ interface IAppContext {
   toggleFavorites: (value: FavoriteItem) => FavoriteItems;
 }
 
-export const AppContext = React.createContext<IAppContext>({
+export const AppContext = createContext<IAppContext>({
   favorites: [],
   toggleFavorites: () => [],
 });

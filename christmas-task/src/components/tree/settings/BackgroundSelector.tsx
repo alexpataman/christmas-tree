@@ -7,7 +7,7 @@ interface IBackgroundSelector {
   setState: Dispatch<SetStateAction<number>>;
 }
 
-export default function BackgroundSelector(props: IBackgroundSelector) {
+export const BackgroundSelector = (props: IBackgroundSelector) => {
   const { state, setState } = props;
 
   const clickHandler = (id: number) => {
@@ -28,4 +28,4 @@ export default function BackgroundSelector(props: IBackgroundSelector) {
       </ul>
     </div>
   );
-}
+};

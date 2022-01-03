@@ -7,7 +7,7 @@ interface ITreeSelector {
   setState: Dispatch<SetStateAction<number>>;
 }
 
-export default function TreeSelector(props: ITreeSelector) {
+export const TreeSelector = (props: ITreeSelector) => {
   const { state, setState } = props;
   const clickHandler = (id: number) => setState(id);
 
@@ -25,4 +25,4 @@ export default function TreeSelector(props: ITreeSelector) {
       </ul>
     </div>
   );
-}
+};
