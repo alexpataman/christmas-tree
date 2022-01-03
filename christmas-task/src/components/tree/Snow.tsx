@@ -16,7 +16,7 @@ export const Snow = () => {
   };
 
   useEffect(() => {
-    const interval = setInterval(() => createSnowFlake(), 1000);
+    const interval = setInterval(() => createSnowFlake(), 100);
     return () => clearInterval(interval);
   });
 
