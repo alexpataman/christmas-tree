@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import { filterViewInputProps } from '../../../types/filters';
 import { colorOptions as options } from '../../../config';
 import './FilterByColor.scss';
@@ -13,11 +14,9 @@ export const FilterByColor = (props: filterViewInputProps) => {
           <button
             key={option.id}
             onClick={() => filterChangeHandler(option.value)}
-            className={`            
-            type-${option.id}
-            ${
-              filterState && filterState.includes(option.value) ? 'active' : ''
-            }`}
+            className={classNames(`type-${option.id}`, {
+              active: filterState && filterState.includes(option.value),
+            })}
           >
             {option.value}
           </button>
