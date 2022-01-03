@@ -2,8 +2,8 @@ import { filterViewInputProps } from '../../../types/filters';
 import './FilterByFavorite.scss';
 
 export const FilterByFavorite = (props: filterViewInputProps) => {
-  const { filterChangeHandler, filterState } = props;
-  const state = !!filterState && filterState.includes(true);
+  const { filterChangeHandler, filterSettings } = props;
+  const state = !!filterSettings && filterSettings.includes(true);
 
   return (
     <div className="FilterByFavorite">

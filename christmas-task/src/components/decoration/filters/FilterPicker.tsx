@@ -7,7 +7,7 @@ interface IFilterPickerProps extends filterViewInputProps {
 }
 
 export const FilterPicker = (props: IFilterPickerProps) => {
-  const { options, filterChangeHandler, filterState } = props;
+  const { options, filterChangeHandler, filterSettings } = props;
 
   return (
     <ul className="list">
@@ -16,7 +16,7 @@ export const FilterPicker = (props: IFilterPickerProps) => {
           key={option.id}
           onClick={() => filterChangeHandler(option.value)}
           className={classNames(`type-${option.id}`, {
-            active: filterState && filterState.includes(option.value),
+            active: filterSettings && filterSettings.includes(option.value),
           })}
         >
           {option.value}

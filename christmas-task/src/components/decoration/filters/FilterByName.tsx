@@ -2,10 +2,10 @@ import { filterViewInputProps } from '../../../types/filters';
 import './FilterByName.scss';
 
 export const FilterByName = (props: filterViewInputProps) => {
-  const { filterChangeHandler, filterState } = props;
+  const { filterChangeHandler, filterSettings } = props;
   let value = '';
-  if (filterState) {
-    [value] = Array.from(filterState.values()) as string[];
+  if (filterSettings) {
+    [value] = Array.from(filterSettings.values()) as string[];
   }
 
   return (

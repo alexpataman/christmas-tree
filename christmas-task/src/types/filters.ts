@@ -46,7 +46,7 @@ export type FilterValue = string | boolean;
 
 export interface filterViewInputProps {
   key: string;
-  filterState: FilterOptionsSet;
+  filterSettings: FilterOptionsSet;
   filterChangeHandler: (value: FilterValue) => void;
 }
 

@@ -15,19 +15,19 @@ export const Filter = (props: filterInputProps) => {
     filterSettings: FilterSettings,
     handler: FilterChangeHandler
   ) => {
-    const currentState = filterSettings[filterName];
-    let state = currentState || [];
+    const currentFilterSettings = filterSettings[filterName];
+    let newFilterSettings = currentFilterSettings || [];
 
-    if (state.includes(value)) {
-      state = state.filter((el) => el !== value);
+    if (newFilterSettings.includes(value)) {
+      newFilterSettings = newFilterSettings.filter((el) => el !== value);
     } else {
       if (filterType === FILTER_TYPES.SINGLE) {
-        state.length = 0;
+        newFilterSettings.length = 0;
       }
-      state.push(value);
+      newFilterSettings.push(value);
     }
 
-    handler(filterName, state);
+    handler(filterName, newFilterSettings);
   };
 
   return (
@@ -35,7 +35,7 @@ export const Filter = (props: filterInputProps) => {
       {({ filterSettings, handleFilterChange }) => (
         <FilterComponent
           key={filterName}
-          filterState={filterSettings[filterName]}
+          filterSettings={filterSettings[filterName]}
           filterChangeHandler={(value: FilterValue) =>
             setFilterValue(value, filterSettings, handleFilterChange)
           }
