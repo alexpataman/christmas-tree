@@ -46,7 +46,7 @@ export const FilterByQuantity = (props: rangeViewInputProps) => {
   resetObserver!.subscribe(new ObserverItem(filterName, resetState));
 
   return (
-    <div>
+    <>
       <h5>Количество: </h5>
       <div className="range-slider">
         <div>{minValue}</div>
@@ -61,6 +61,6 @@ export const FilterByQuantity = (props: rangeViewInputProps) => {
         />
         <div>{maxValue}</div>
       </div>
-    </div>
+    </>
   );
 };
