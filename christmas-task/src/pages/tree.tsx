@@ -104,11 +104,11 @@ export const Tree = () => {
     garlandEnabled,
   ]);
 
-  const resultTree = useRef(document.createElement('div'));
+  const resultTree = useRef<HTMLDivElement | null>(null);
 
   const presetHandlers = {
     save: async () => {
-      const screenshot = await getScreenshot(resultTree.current, 70, 110);
+      const screenshot = await getScreenshot(resultTree, 70, 110);
       const preset = {
         screenshot,
         data: {

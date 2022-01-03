@@ -1,10 +1,11 @@
+import { RefObject } from 'react';
 import { DecorationItem, SetDecorationItem } from '../../types/tree';
 import { TreeDecoration } from './TreeDecoration';
 
 interface ITreeDecorationsProps {
   decoration: DecorationItem[];
   setDecorationItem: SetDecorationItem;
-  resultMainContainerRef: React.MutableRefObject<HTMLDivElement>;
+  resultMainContainerRef: RefObject<HTMLDivElement>;
 }
 
 export const TreeDecorations = ({

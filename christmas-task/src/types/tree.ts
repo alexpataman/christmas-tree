@@ -3,7 +3,7 @@ import { IDataItem } from '../types/common';
 export type Position = { x: number; y: number } | null;
 
 export type Preset = {
-  screenshot: string;
+  screenshot: string | undefined;
   data: {
     background: string;
     garland: string;

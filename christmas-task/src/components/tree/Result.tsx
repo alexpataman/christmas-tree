@@ -14,7 +14,7 @@ interface IResult {
   garland: string;
   snowEnabled: boolean;
   garlandEnabled: boolean;
-  resultTreeRef: MutableRefObject<HTMLDivElement>;
+  resultTreeRef: MutableRefObject<HTMLDivElement | null>;
   decoration: DecorationItem[];
   setDecorationItem: SetDecorationItem;
 }
@@ -31,7 +31,7 @@ export const Result = (props: IResult) => {
     setDecorationItem,
   } = props;
 
-  const resultMainContainerRef = useRef(document.createElement('div'));
+  const resultMainContainerRef = useRef<HTMLDivElement | null>(null);
 
   return (
     <div className={`Result bg-${background}`} ref={resultMainContainerRef}>

@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, RefObject } from 'react';
 import { useDrag } from 'react-dnd';
 import {
   DecorationItem,
@@ -9,7 +9,7 @@ import {
 interface ITreeDecorationProps {
   decoration: DecorationItem;
   setDecorationItem: SetDecorationItem;
-  resultMainContainerRef: React.MutableRefObject<HTMLDivElement>;
+  resultMainContainerRef: RefObject<HTMLDivElement>;
 }
 
 interface DropResult {
@@ -25,7 +25,7 @@ export const TreeDecoration = ({
     type: 'existing',
     item: { id: decoration.id, data: decoration.data },
     end: (item, monitor) => {
-      resultMainContainerRef.current.classList.remove('is-dragging');
+      resultMainContainerRef.current?.classList.remove('is-dragging');
       const dropResult = monitor.getDropResult<DropResult>();
       if (item && !dropResult) {
         setDecorationItem(item.id, item.data, SET_METHODS.DELETE);
@@ -40,7 +40,7 @@ export const TreeDecoration = ({
 
   useEffect(() => {
     if (isDragging) {
-      resultMainContainerRef.current.classList.add('is-dragging');
+      resultMainContainerRef.current?.classList.add('is-dragging');
     }
   });
 
