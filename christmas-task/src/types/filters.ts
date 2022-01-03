@@ -25,6 +25,12 @@ export type rangeInputProps = {
   RangeComponent: React.FC<rangeViewInputProps>;
 };
 
+export type FilterOption = {
+  id: string;
+  value: string;
+};
+export type FilterOptions = FilterOption[];
+
 export type FilterOptionsSet = Array<string | boolean>;
 
 export type FilterSettings = {
@@ -38,11 +44,11 @@ export type FilterChangeHandler = (
 
 export type FilterValue = string | boolean;
 
-export type filterViewInputProps = {
+export interface filterViewInputProps {
   key: string;
   filterState: FilterOptionsSet;
   filterChangeHandler: (value: FilterValue) => void;
-};
+}
 
 export type filterInputProps = {
   filterName: string;
