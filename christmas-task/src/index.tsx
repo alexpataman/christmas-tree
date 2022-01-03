@@ -5,7 +5,6 @@ import { App } from './App';
 import { Tree } from './pages/tree';
 import { Decoration } from './pages/decoration';
 import { Home } from './pages/home';
-import './helpers/taskCheck2';
 import './index.css';
 
 const rootElement = document.getElementById('root');
