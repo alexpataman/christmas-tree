@@ -19,6 +19,37 @@ export const DecorationItem = ({
     setIsFavorite(favorites.includes(item.num));
   };
 
+  const listValues = [
+    {
+      title: 'Количество',
+      prop: 'quantity',
+    },
+    {
+      title: 'Год',
+      prop: 'year',
+    },
+    {
+      title: 'Форма',
+      prop: 'shape',
+    },
+    {
+      title: 'Цвет',
+      prop: 'color',
+    },
+    {
+      title: 'Размер',
+      prop: 'size',
+    },
+    {
+      title: 'Любимая',
+      prop: 'favorite',
+    },
+  ];
+
+  const getItemValue = (value: string | boolean) => {
+    return typeof value !== 'boolean' ? value : value ? 'да' : 'нет';
+  };
+
   return (
     <div onClick={toggleIsFavorite} className="DecorationItem">
       <h4 className="title">{item.name}</h4>
@@ -28,12 +59,11 @@ export const DecorationItem = ({
         className="img"
       />
       <ul className="props">
-        <li>Количество: {item.quantity}</li>
-        <li>Год: {item.year}</li>
-        <li>Форма: {item.shape}</li>
-        <li>Цвет: {item.color}</li>
-        <li>Размер: {item.size}</li>
-        <li>Любимая: {item.favorite ? 'да' : 'нет'}</li>
+        {listValues.map((el) => (
+          <li>
+            {el.title}: {getItemValue(item[el.prop])}
+          </li>
+        ))}
       </ul>
       {isFavorite && (
         <div className="ribbon" title="Добавлена в избранное"></div>
