@@ -1,4 +1,4 @@
-import { ReactElement, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { FilterContext } from '../contexts/FilterContext';
 import { storage } from '../helpers/storage';
 import { Observer } from '../helpers/Observer';
