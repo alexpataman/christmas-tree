@@ -1,7 +1,7 @@
 import { useEffect, useState, useMemo, useRef } from 'react';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
-import { storage } from '../helpers/storage';
+import { storage } from '../helpers/StorageService';
 import { updateItems } from '../helpers/updateItems';
 import { getScreenshot } from '../helpers/getScreenshot';
 import { AppContext } from '../contexts/AppContext';

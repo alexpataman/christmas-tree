@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
-import { storage } from './helpers/storage';
+import { storage } from './helpers/StorageService';
 import { AppContext } from './contexts/AppContext';
 import { Header } from './components/common/Header';
 import { Footer } from './components/common/Footer';

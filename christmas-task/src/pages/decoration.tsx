@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { FilterContext } from '../contexts/FilterContext';
-import { storage } from '../helpers/storage';
+import { storage } from '../helpers/StorageService';
 import { Observer } from '../helpers/Observer';
 import { getItems } from '../helpers/getItems';
 import { sortItems } from '../helpers/sortItems';

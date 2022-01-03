@@ -1,4 +1,4 @@
-import { storage } from '../../helpers/storage';
+import { storage } from '../../helpers/StorageService';
 import { Preset } from '../../types/tree';
 import { LOCAL_STORAGE_KEYS } from '../../types/common';
 import './History.scss';
