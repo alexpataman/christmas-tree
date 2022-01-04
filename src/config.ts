@@ -10,6 +10,7 @@ export const treeCoords: { [key: number]: string } = {
   5: '248,8,4,620,49,659,74,688,360,699,487,629,415,423',
   6: '257,3,153,143,114,257,58,362,24,514,24,558,0,617,169,691,302,703,477,640,493,574,426,406,445,367,348,150,292,30',
 };
+export const garlandRows = 5;
 export const garlandIDs = ['multicolor', 'red', 'blue', 'yellow', 'green'];
 export const snowDefaultState = false;
 export const audioDefaultState = false;

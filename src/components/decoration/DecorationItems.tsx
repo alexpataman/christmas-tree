@@ -1,13 +1,13 @@
 import { AppContext } from '../../contexts/AppContext';
 import { IDataItem } from '../../types/common';
-import DecorationItem from './DecorationItem';
+import { DecorationItem } from './DecorationItem';
 import './DecorationItems.scss';
 
-export type DecorationListingProps = {
+export type DecorationItemsProps = {
   items: IDataItem[];
 };
 
-export default function DecorationListing(props: DecorationListingProps) {
+export const DecorationItems = (props: DecorationItemsProps) => {
   if (props.items.length > 0) {
     return (
       <AppContext.Consumer>
@@ -18,7 +18,7 @@ export default function DecorationListing(props: DecorationListingProps) {
                 item={item}
                 onClick={() => toggleFavorites(item.num)}
                 key={item.num}
-                isFavorite={favorites.includes(item.num)}
+                favoriteState={favorites.includes(item.num)}
               />
             ))}
           </div>
@@ -32,4 +32,4 @@ export default function DecorationListing(props: DecorationListingProps) {
       </div>
     );
   }
-}
+};

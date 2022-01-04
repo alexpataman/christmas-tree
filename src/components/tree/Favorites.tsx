@@ -1,9 +1,9 @@
 import { data } from '../../data/data';
 import { maxFavorites } from '../../config';
 import { DecorationItem } from '../../types/tree';
-import FavoritesItem from './FavoritesItem';
-import './Favorites.scss';
+import { FavoritesItem } from './FavoritesItem';
 import { ObjectNumbers } from '../../types/common';
+import './Favorites.scss';
 
 interface IFavorites {
   favorites: string[];
@@ -11,7 +11,7 @@ interface IFavorites {
   toggleFavorites: (num: string) => string[];
 }
 
-export default function Favorites(props: IFavorites) {
+export const Favorites = (props: IFavorites) => {
   const { favorites, toggleFavorites, decoration } = props;
   const favoriteItems = data.filter((item) => favorites.includes(item.num));
   let items = favoriteItems.length
@@ -42,4 +42,4 @@ export default function Favorites(props: IFavorites) {
       </ul>
     </div>
   );
-}
+};

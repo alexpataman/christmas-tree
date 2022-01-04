@@ -1,16 +1,20 @@
 import html2canvas from 'html2canvas';
 
-export default async function getScreenshot(
-  el: HTMLElement,
+export const getScreenshot = async (
+  el: React.MutableRefObject<HTMLElement | null>,
   width: number,
   height: number
-) {
+) => {
   const canvasOptions = {
     backgroundColor: null,
     logging: false,
   };
 
-  return html2canvas(el, canvasOptions).then(function (canvas) {
+  if (!el.current) {
+    return;
+  }
+
+  return html2canvas(el.current, canvasOptions).then(function (canvas) {
     let extra_canvas = document.createElement('canvas');
     extra_canvas.width = width;
     extra_canvas.height = height;
@@ -28,4 +32,4 @@ export default async function getScreenshot(
     );
     return extra_canvas.toDataURL();
   });
-}
+};

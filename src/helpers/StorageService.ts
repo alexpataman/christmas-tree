@@ -2,7 +2,7 @@ import { localStoragePrefix } from '../config';
 
 type storeType = object | string;
 
-class Storage {
+export class StorageService {
   constructor(private prefix = localStoragePrefix) {}
 
   computeFieldName(fieldName: string) {
@@ -36,6 +36,4 @@ class Storage {
   }
 }
 
-const storage = new Storage();
-
-export default storage;
+export const storage = new StorageService();

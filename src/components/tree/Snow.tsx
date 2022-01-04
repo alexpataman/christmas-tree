@@ -1,30 +1,30 @@
-import React from 'react';
-import { snow } from '../../config';
+import { useRef, useEffect, useState, Fragment } from 'react';
+import { Snowflake } from './Snowflake';
 import './Snow.scss';
 
-export default function Snow() {
-  const container = React.useRef(null);
+export const Snow = () => {
+  const container = useRef<HTMLDivElement | null>(null);
+  const [snowflakes, setSnowflakes] = useState([
+    <Snowflake offsetWidth={container.current?.offsetWidth || 0} />,
+  ]);
 
-  React.useEffect(() => {
-    const interval = setInterval(() => createSnowFlake(container.current), 200);
+  const createSnowFlake = () => {
+    const newSnowflake = (
+      <Snowflake offsetWidth={container.current?.offsetWidth || 0} />
+    );
+    setSnowflakes([...snowflakes, newSnowflake]);
+  };
+
+  useEffect(() => {
+    const interval = setInterval(() => createSnowFlake(), 100);
     return () => clearInterval(interval);
   });
 
-  return <div className="Snow" ref={container}></div>;
-}
-
-function createSnowFlake(container: HTMLElement | null) {
-  if (!container) {
-    return;
-  }
-
-  const snowFlake = document.createElement('i');
-  snowFlake.classList.add('snowflake');
-  snowFlake.style.left = Math.random() * container.offsetWidth + 'px';
-  snowFlake.style.animationDuration = Math.random() * 3 + snow.duration + 's';
-  snowFlake.style.opacity = String(Math.random());
-  container.appendChild(snowFlake);
-  setTimeout(() => {
-    snowFlake.remove();
-  }, snow.duration * 1000);
-}
+  return (
+    <div className="Snow" ref={container}>
+      {snowflakes.map((el, index) => (
+        <Fragment key={index}>{el}</Fragment>
+      ))}
+    </div>
+  );
+};

@@ -1,7 +1,7 @@
-import React from 'react';
+import { createContext } from 'react';
 import { SortOption, SortSettings } from '../types/sort';
 import { IDataItem } from '../types/common';
-import Observer from '../helpers/Observer';
+import { Observer } from '../helpers/Observer';
 import {
   FilterOptionsSet,
   RangeOptionsSet,
@@ -21,7 +21,7 @@ interface IFilterContext {
   handleReset: () => void;
 }
 
-export const FilterContext = React.createContext<IFilterContext>({
+export const FilterContext = createContext<IFilterContext>({
   initialData: [],
   filterSettings: {},
   rangeSettings: {},

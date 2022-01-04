@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, RefObject } from 'react';
 import { useDrag } from 'react-dnd';
 import {
   DecorationItem,
@@ -9,23 +9,23 @@ import {
 interface ITreeDecorationProps {
   decoration: DecorationItem;
   setDecorationItem: SetDecorationItem;
-  resultMainContainerRef: React.MutableRefObject<HTMLDivElement>;
+  resultMainContainerRef: RefObject<HTMLDivElement>;
 }
 
 interface DropResult {
   name: string;
 }
 
-export default function TreeDecoration({
+export const TreeDecoration = ({
   decoration,
   setDecorationItem,
   resultMainContainerRef,
-}: ITreeDecorationProps) {
+}: ITreeDecorationProps) => {
   const [{ isDragging }, drag] = useDrag(() => ({
     type: 'existing',
     item: { id: decoration.id, data: decoration.data },
     end: (item, monitor) => {
-      resultMainContainerRef.current.classList.remove('is-dragging');
+      resultMainContainerRef.current?.classList.remove('is-dragging');
       const dropResult = monitor.getDropResult<DropResult>();
       if (item && !dropResult) {
         setDecorationItem(item.id, item.data, SET_METHODS.DELETE);
@@ -40,7 +40,7 @@ export default function TreeDecoration({
 
   useEffect(() => {
     if (isDragging) {
-      resultMainContainerRef.current.classList.add('is-dragging');
+      resultMainContainerRef.current?.classList.add('is-dragging');
     }
   });
 
@@ -62,4 +62,4 @@ export default function TreeDecoration({
       />
     );
   }
-}
+};

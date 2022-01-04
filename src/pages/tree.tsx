@@ -1,24 +1,24 @@
 import { useEffect, useState, useMemo, useRef } from 'react';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
-import storage from '../helpers/storage';
-import updateItems from '../helpers/updateItems';
-import getScreenshot from '../helpers/getScreenshot';
+import { storage } from '../helpers/StorageService';
+import { updateItems } from '../helpers/updateItems';
+import { getScreenshot } from '../helpers/getScreenshot';
 import { AppContext } from '../contexts/AppContext';
 import { LOCAL_STORAGE_KEYS } from '../types/common';
 import { Preset, DecorationItem, SetDecorationItem } from '../types/tree';
-import BackgroundSelector from '../components/tree/settings/BackgroundSelector';
-import GarlandSelector from '../components/tree/settings/GarlandSelector';
-import OtherSettings from '../components/tree/settings/TriggerSettings';
-import TreeSelector from '../components/tree/settings/TreeSelector';
-import Favorites from '../components/tree/Favorites';
-import History from '../components/tree/History';
-import Result from '../components/tree/Result';
-import ResetLocalStorage from '../components/tree/ResetLocalStorage';
+import { BackgroundSelector } from '../components/tree/settings/BackgroundSelector';
+import { GarlandSelector } from '../components/tree/settings/GarlandSelector';
+import { OtherSettings } from '../components/tree/settings/TriggerSettings';
+import { TreeSelector } from '../components/tree/settings/TreeSelector';
+import { Favorites } from '../components/tree/Favorites';
+import { History } from '../components/tree/History';
+import { Result } from '../components/tree/Result';
+import { ResetLocalStorage } from '../components/tree/ResetLocalStorage';
 import * as config from '../config';
 import './tree.scss';
 
-export default function Tree() {
+export const Tree = () => {
   const [pageInteracted, setPageInteracted] = useState(false);
 
   const [background, setBackground] = useState(
@@ -104,11 +104,11 @@ export default function Tree() {
     garlandEnabled,
   ]);
 
-  const resultTree = useRef(document.createElement('div'));
+  const resultTree = useRef<HTMLDivElement | null>(null);
 
   const presetHandlers = {
     save: async () => {
-      const screenshot = await getScreenshot(resultTree.current, 70, 110);
+      const screenshot = await getScreenshot(resultTree, 70, 110);
       const preset = {
         screenshot,
         data: {
@@ -208,4 +208,4 @@ export default function Tree() {
       </div>
     </DndProvider>
   );
-}
+};

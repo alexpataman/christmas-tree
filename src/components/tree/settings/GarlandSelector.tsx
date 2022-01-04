@@ -1,6 +1,5 @@
 import { Dispatch, SetStateAction } from 'react';
-import Switch from '@mui/material/Switch';
-import Typography from '@mui/material/Typography';
+import { Switch, Typography } from '@mui/material';
 import { garlandIDs } from '../../../config';
 import './GarlandSelector.scss';
 
@@ -11,7 +10,7 @@ interface IGarlandSelector {
   setIsEnabled: Dispatch<SetStateAction<boolean>>;
 }
 
-export default function GarlandSelector(props: IGarlandSelector) {
+export const GarlandSelector = (props: IGarlandSelector) => {
   const { state, setState, isEnabled, setIsEnabled } = props;
 
   const clickHandler = (el: string) => {
@@ -43,4 +42,4 @@ export default function GarlandSelector(props: IGarlandSelector) {
       </div>
     </div>
   );
-}
+};

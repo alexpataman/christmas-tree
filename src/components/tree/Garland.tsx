@@ -1,14 +1,15 @@
+import { garlandRows } from '../../config';
 import './Garland.scss';
 
 interface IGarland {
   type: string;
 }
 
-export default function Garland(props: IGarland) {
+export const Garland = (props: IGarland) => {
   const { type } = props;
   let garland = [];
 
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < garlandRows; i++) {
     let row = [];
     const inRowNum = 2 * i + 1;
     let margin = 0;
@@ -23,4 +24,4 @@ export default function Garland(props: IGarland) {
   }
 
   return <div className={`Garland ${type}`}>{garland}</div>;
-}
+};

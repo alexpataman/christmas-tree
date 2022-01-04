@@ -8,7 +8,7 @@ interface IObserver {
   fire(): void;
 }
 
-export default class Observer implements IObserver {
+export class Observer implements IObserver {
   constructor(private handlers: ObserverItem[] = []) {}
 
   subscribe(item: ObserverItem) {

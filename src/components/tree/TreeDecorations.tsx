@@ -1,17 +1,18 @@
+import { RefObject } from 'react';
 import { DecorationItem, SetDecorationItem } from '../../types/tree';
-import TreeDecoration from './TreeDecoration';
+import { TreeDecoration } from './TreeDecoration';
 
 interface ITreeDecorationsProps {
   decoration: DecorationItem[];
   setDecorationItem: SetDecorationItem;
-  resultMainContainerRef: React.MutableRefObject<HTMLDivElement>;
+  resultMainContainerRef: RefObject<HTMLDivElement>;
 }
 
-export default function TreeDecorations({
+export const TreeDecorations = ({
   decoration,
   setDecorationItem,
   resultMainContainerRef,
-}: ITreeDecorationsProps) {
+}: ITreeDecorationsProps) => {
   return (
     <>
       {decoration.map((el, index) => (
@@ -24,4 +25,4 @@ export default function TreeDecorations({
       ))}
     </>
   );
-}
+};

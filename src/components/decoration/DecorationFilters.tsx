@@ -1,20 +1,20 @@
 import { FILTER_TYPES } from '../../types/filters';
 import { ErrorBoundary } from '../common/ErrorBoundary';
-import DecorationFilterGroup from './DecorationFilterGroup';
-import FilterByColor from './filters/FilterByColor';
-import FilterByShape from './filters/FilterByShape';
-import FilterBySize from './filters/FilterBySize';
-import FilterByFavorite from './filters/FilterByFavorite';
-import Filter from './filters/Filter';
-import Sort from './filters/Sort';
-import Reset from './filters/Reset';
-import Range from './filters/Range';
-import FilterByQuantity from './filters/RangeByQuantity';
-import FilterByYear from './filters/RangeByYear';
-import FilterByName from './filters/FilterByName';
+import { DecorationFilterGroup } from './DecorationFilterGroup';
+import { FilterByColor } from './filters/FilterByColor';
+import { FilterByShape } from './filters/FilterByShape';
+import { FilterBySize } from './filters/FilterBySize';
+import { FilterByFavorite } from './filters/FilterByFavorite';
+import { Filter } from './filters/Filter';
+import { Sort } from './filters/Sort';
+import { Reset } from './filters/Reset';
+import { Range } from './filters/Range';
+import { FilterByQuantity } from './filters/RangeByQuantity';
+import { FilterByYear } from './filters/RangeByYear';
+import { FilterByName } from './filters/FilterByName';
 import './DecorationFilters.scss';
 
-export default function DecorationFilters() {
+export const DecorationFilters = () => {
   return (
     <div className="DecorationFilters">
       <ErrorBoundary>
@@ -56,4 +56,4 @@ export default function DecorationFilters() {
       </ErrorBoundary>
     </div>
   );
-}
+};

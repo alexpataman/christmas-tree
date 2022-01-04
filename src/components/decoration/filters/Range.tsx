@@ -7,7 +7,7 @@ import {
 } from '../../../types/filters';
 import './Range.scss';
 
-export default function Filter(props: rangeInputProps) {
+export const Range = (props: rangeInputProps) => {
   const { filterName, RangeComponent } = props;
 
   const setFilterValue = (
@@ -36,4 +36,4 @@ export default function Filter(props: rangeInputProps) {
       </FilterContext.Consumer>
     </div>
   );
-}
+};

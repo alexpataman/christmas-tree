@@ -1,28 +1,13 @@
 import { filterViewInputProps } from '../../../types/filters';
 import { colorOptions as options } from '../../../config';
+import { FilterPicker } from './FilterPicker';
 import './FilterByColor.scss';
 
-export default function FilterByColor(props: filterViewInputProps) {
-  const { filterChangeHandler, filterState } = props;
-
+export const FilterByColor = (props: filterViewInputProps) => {
   return (
     <div className="FilterByColor">
       Цвет:
-      <ul>
-        {options.map((option) => (
-          <button
-            key={option.id}
-            onClick={() => filterChangeHandler(option.value)}
-            className={`            
-            type-${option.id}
-            ${
-              filterState && filterState.includes(option.value) ? 'active' : ''
-            }`}
-          >
-            {option.value}
-          </button>
-        ))}
-      </ul>
+      <FilterPicker {...props} options={options} />
     </div>
   );
-}
+};
